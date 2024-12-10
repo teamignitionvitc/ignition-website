@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import GridPattern from "./ui/grid";
 import { cn } from "@/lib/utils";
 
@@ -55,7 +56,7 @@ const Departments = () => {
         height: 50,
         title: "Software",
         description:
-          "Handles coding and software implementation for avionics and telemetry systems. They process real-time data, manage communication between the ;flight computer and ground stations, and ensure proper data storage and analysis.",
+          "Handles coding and software implementation for avionics and telemetry systems. They process real-time data, manage communication between the flight computer and ground stations, and ensure proper data storage and analysis.",
       },
       {
         id: "section-6",
@@ -65,7 +66,7 @@ const Departments = () => {
         height: 50,
         title: "Payload",
         description:
-          "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat , contributing valuable insights to various research objectives.",
+          "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat, contributing valuable insights to various research objectives.",
       },
       {
         id: "section-7",
@@ -75,7 +76,7 @@ const Departments = () => {
         height: 50,
         title: "Management",
         description:
-          "This department also handles public relations, media content, and outreach, creating educational and entertaining videos and managing the team’s Social media presence to promote rocketry and enhance the team’s visibility.",
+          "This department also handles public relations, media content, and outreach, creating educational and entertaining videos and managing the team’s social media presence to promote rocketry and enhance the team’s visibility.",
       },
       {
         id: "section-8",
@@ -110,35 +111,48 @@ const Departments = () => {
           y={-1}
           strokeDasharray={"4 2"}
         />
-        {hoveredSection && (
-          <div
-            style={{
-              position: "absolute",
-              top: `${hoveredSection.y}%`,
-              left: `${hoveredSection.x}%`,
-              width: `${hoveredSection.width}%`,
-              height: `${hoveredSection.height}%`,
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
-              border: "2px solid white",
-              borderRadius: "12px",
-              transition: "all 0.3s ease",
-            }}
-          />
-        )}
+        <AnimatePresence>
+          {hoveredSection && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                top: `${hoveredSection.y}%`,
+                left: `${hoveredSection.x}%`,
+                width: `${hoveredSection.width}%`,
+                height: `${hoveredSection.height}%`,
+              }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute bg-white/20 border-2 border-white rounded-xl"
+              style={{
+                position: "absolute",
+              }}
+            />
+          )}
+        </AnimatePresence>
       </div>
-      <div className="grid grid-cols-4 grid-rows-2 gap-4 mt-4">
-        {data.sections.map((section, index) => (
-          <div
-            key={index}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-6 mt-8">
+        {data.sections.map((section) => (
+          <motion.div
+            key={section.id}
             className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
-            onMouseEnter={() => handleMouseEnter(section)}
-            onMouseLeave={handleMouseLeave}
+            onHoverStart={() => handleMouseEnter(section)}
+            onHoverEnd={handleMouseLeave}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <h3 className="text-lg text-center font-semibold mb-1">
+            <h3 className="text-lg text-center font-semibold mb-2">
               {section.title}
             </h3>
             <p className="text-sm">{section.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
