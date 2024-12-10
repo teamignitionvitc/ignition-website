@@ -80,7 +80,7 @@ export default function Projects() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="absolute inset-0 text-white m-8 mr-0"
+                    className="absolute inset-0 text-white m-8 mt-16 mr-0"
                   >
                     <div className="h-full flex flex-col justify-center p-8 bg-gray-100/20 backdrop-blur-sm rounded-xl">
                       <h2 className="text-2xl font-semibold mb-4">

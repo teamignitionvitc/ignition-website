@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,10 +7,21 @@ import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
 import Background from "./components/Background";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
+import PreLoader from "./components/Preloader";
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 750);
+    window.scrollTo(0, 0);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     let locomotiveScroll = null;
@@ -34,14 +45,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      <Background />
-      <Hero />
-      <About />
-      <Projects />
-      <Departments />
-      <Sponsors />
-      <Footer />
-    </div>
+    <>
+      {/* <AnimatePresence>{loading && <PreLoader />}</AnimatePresence> */}
+      <div className="w-full flex flex-col justify-center items-center">
+        <Background />
+        <Hero />
+        <About />
+        <Projects />
+        <Departments />
+        <Sponsors />
+        <Footer />
+      </div>
+    </>
   );
 }
