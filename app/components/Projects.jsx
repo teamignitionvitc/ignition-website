@@ -3,39 +3,37 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const sections = [
-  { 
-    id: 'section1', 
-    title: 'Section 1', 
-    content: 'This is the detailed content for section 1. It provides more information about this specific section and its importance in the overall context.', 
-    color: 'bg-red-200' 
+  {
+    id: "section1",
+    title: "Poseidon",
+    content:
+      "Poseidon, our inaugural build for the Technoxian Water Rocket Challenge, marked Ignition's entry into competitive rocketry. It provided key insights into aerodynamics and design, fueling progress for future projects. Completion Status: Completed Key Achievement: Achieved a top 10 finish at the Technoxian World Cup, setting a strong foundation for Ignition's competitive journey.",
+    color: "bg-red-200",
   },
-  { 
-    id: 'section2', 
-    title: 'Section 2', 
-    content: 'Section 2 content goes here. It elaborates on the key points related to this section and how it fits into the bigger picture.', 
-    color: 'bg-blue-200' 
+  {
+    id: "section2",
+    title: "Jericho",
+    content:
+      "Jericho introduced Ignition to solid-fuel rocketry, expanding our knowledge of rocket mechanics and system integration. This project deepened our expertise and prepared us for more advanced builds. Completion Status: Discontinued Key Achievement: Provided foundational experience in solid-fuel rocketry, significantly enhancing our technical understanding despite technical challenges.",
+    color: "bg-blue-200",
   },
-  { 
-    id: 'section3', 
-    title: 'Section 3', 
-    content: 'Here you can find the in-depth information about section 3. This content provides valuable insights and details specific to this section.', 
-    color: 'bg-green-200' 
+  {
+    id: "section3",
+    title: "Pioneer",
+    content:
+      "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions. Completion Status: Ongoing Key Achievement: Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
+    color: "bg-green-200",
   },
-  { 
-    id: 'section4', 
-    title: 'Section 4', 
-    content: 'Section 4 content is displayed here. It offers a comprehensive overview of this section and its relevance to the overall topic.', 
-    color: 'bg-yellow-200' 
+  {
+    id: "section4",
+    title: "IgniteX",
+    content:
+      "IgniteX is our entry for the InSpace competition, featuring innovative recovery systems and a deployable CANSAT at 1 km. This project showcases our advancements in design, creativity, and engineering. Completion Status: Ongoing Key Achievement: This is our first entry in an Indian competition, with the launch set for March 2025, highlighting our commitment to pushing the boundaries of rocketry and CANSAT deployment technology.",
+    color: "bg-yellow-200",
   },
-  { 
-    id: 'section5', 
-    title: 'Section 5', 
-    content: 'The final section, number 5, is explained here. This content wraps up the information and provides concluding thoughts on the subject matter.', 
-    color: 'bg-purple-200' 
-  },
-]
+];
 
-export default function ScrollableSplitLayout() {
+export default function Projects() {
   const [activeSection, setActiveSection] = useState(null)
   const sectionRefs = useRef({})
 
@@ -66,17 +64,16 @@ export default function ScrollableSplitLayout() {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <h1 className="text-3xl font-bold my-8">Scrollable Split Layout</h1>
       <div className="flex w-full">
         <div className="w-1/3 sticky top-0 h-screen overflow-hidden">
           {sections.map((section) => (
             <div
               key={section.id}
-              className={`absolute inset-0 transition-opacity duration-300 ${
+              className={`absolute inset-0 transition-opacity duration-300 text-white m-8 mr-0 ${
                 activeSection === section.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
-              <div className="h-full flex flex-col justify-center p-8 bg-gray-100">
+              <div className="h-full flex flex-col justify-center p-8 bg-gray-100/20 backdrop-blur-sm rounded-xl">
                 <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
                 <p>{section.content}</p>
               </div>
@@ -89,7 +86,7 @@ export default function ScrollableSplitLayout() {
               key={section.id}
               id={section.id}
               ref={(el) => (sectionRefs.current[section.id] = el)}
-              className={`h-screen flex items-center justify-center text-2xl font-bold ${section.color}`}
+              className={`h-screen m-8 rounded-xl flex items-center justify-center text-2xl font-bold bg-white/10 backdrop-blur-sm`}
             >
               {section.title}
             </div>

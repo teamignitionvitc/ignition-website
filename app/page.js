@@ -4,6 +4,7 @@ import Projects from "./components/Projects";
 import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
 import Background from "./components/Background";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Projects />
       <Departments />
       <Sponsors />
+      <Footer />
     </div>
   );
 }
