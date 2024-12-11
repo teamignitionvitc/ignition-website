@@ -3,47 +3,57 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GridPattern from "./ui/grid";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Departments = () => {
   const data = {
     sections: [
       {
         id: "section-1",
-        x: 0,
-        y: 0,
-        width: 10,
-        height: 50,
+        x: 10,
+        y: 5,
+        width: 80,
+        height: 90,
         title: "Airframe and Structures",
         description:
           "In this department, the external and internal structures and the rocket's mechanism are designed, simulated, and manufactured. CAD, CAM, and other software design the structure, balance parameters, simulate flight paths, and analyse stability and aerodynamics.",
       },
       {
-        id: "section-2",
-        x: 50,
-        y: 0,
-        width: 10,
+        id: "section-6",
+        x: 22,
+        y: 25,
+        width: 20,
         height: 50,
-        title: "Propulsion",
+        title: "Payload",
         description:
-          "Responsible for designing, developing, and testing solid rocket motors. This department handles fuel composition, nozzle design, and motor casings, ensuring the motor generates sufficient thrust and performs reliably during flight and static fire tests.",
+          "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat, contributing valuable insights to various research objectives.",
       },
       {
         id: "section-3",
-        x: 20,
-        y: 0,
-        width: 10,
+        x: 45,
+        y: 25,
+        width: 20,
         height: 50,
         title: "Avionics",
         description:
           "Develops the electronic systems needed for flight control, including sensors, flight computers, and telemetry. The department uses microcontrollers to monitor flight data and control functions such as parachute deployment.",
       },
       {
-        id: "section-4",
-        x: 30,
-        y: 0,
-        width: 10,
+        id: "section-2",
+        x: 65,
+        y: 25,
+        width: 20,
         height: 50,
+        title: "Propulsion",
+        description:
+          "Responsible for designing, developing, and testing solid rocket motors. This department handles fuel composition, nozzle design, and motor casings, ensuring the motor generates sufficient thrust and performs reliably during flight and static fire tests.",
+      },
+      {
+        id: "section-4",
+        x: 40,
+        y: -50,
+        width: 0,
+        height: 0,
         title: "Recovery",
         description:
           "Designs and tests the parachutes and recovery mechanisms to ensure safe descent after launch, they develop dual-deployment parachutes and drogue systems for our rockets.",
@@ -51,39 +61,29 @@ const Departments = () => {
       {
         id: "section-5",
         x: 0,
-        y: 50,
-        width: 10,
-        height: 50,
+        y: -50,
+        width: 0,
+        height: 0,
         title: "Software",
         description:
           "Handles coding and software implementation for avionics and telemetry systems. They process real-time data, manage communication between the flight computer and ground stations, and ensure proper data storage and analysis.",
       },
       {
-        id: "section-6",
-        x: 10,
-        y: 50,
-        width: 10,
-        height: 50,
-        title: "Payload",
-        description:
-          "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat, contributing valuable insights to various research objectives.",
-      },
-      {
         id: "section-7",
-        x: 20,
-        y: 50,
-        width: 10,
-        height: 50,
+        x: 40,
+        y: -50,
+        width: 0,
+        height: 0,
         title: "Management",
         description:
           "This department also handles public relations, media content, and outreach, creating educational and entertaining videos and managing the team’s social media presence to promote rocketry and enhance the team’s visibility.",
       },
       {
         id: "section-8",
-        x: 30,
-        y: 50,
-        width: 10,
-        height: 50,
+        x: 40,
+        y: -50,
+        width: 0,
+        height: 0,
         title: "Logistics and Finance",
         description:
           "Oversees team logistics, budget management, and sponsorships while maintaining relationships with partners and coordinating events.",
@@ -103,7 +103,7 @@ const Departments = () => {
 
   return (
     <div className="relative w-full text-black my-56 p-24">
-      <div className="rocket w-full bg-white/20 h-64 relative rounded-xl overflow-hidden">
+      <div className="rocket w-full bg-white/20 h-64 relative rounded-xl overflow-hidden flex justify-center items-center">
         <GridPattern
           width={30}
           height={30}
@@ -125,13 +125,21 @@ const Departments = () => {
               }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute bg-white/20 border-2 border-white rounded-xl"
+              className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
               style={{
                 position: "absolute",
               }}
             />
           )}
         </AnimatePresence>
+        <Image
+          src="/ignitex-insideview.png"
+          alt="Description of image"
+          width={300}
+          height={200}
+          layout="responsive"
+          className="scale-[0.75]"
+        />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-6 mt-8">
         {data.sections.map((section) => (

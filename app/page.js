@@ -48,12 +48,13 @@ export default function Home() {
     <>
       {/* <AnimatePresence>{loading && <PreLoader />}</AnimatePresence> */}
       <div className="w-full flex flex-col justify-center items-center">
+        
         <Background />
         <Hero />
-        <About />
-        <Projects />
-        <Departments />
-        <Sponsors />
+        <About id="about"/>
+        <Projects id="projects"/>
+        <Departments id="departments"/>
+        <Sponsors id="sponsors"/>
         <Footer />
       </div>
     </>

@@ -4,8 +4,9 @@ const Footer = () => {
   return (
     <div className="w-full backdrop-blur-sm text-white">
       <div className="flex justify-between p-8 px-16 h-full">
-        <div className="text-4xl h-full flex justify-center items-center font-bold">
-          <div className="h-full">Team Ignition</div>
+        <div className="text-4xl h-36 flex justify-center items-center font-bold">
+          {/* <div className="my-auto">Team Ignition</div> */}
+          Team Ignition
         </div>
         <div className="flex gap-8 p-4">
           <div className="">
