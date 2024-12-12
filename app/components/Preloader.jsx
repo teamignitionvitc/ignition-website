@@ -15,10 +15,10 @@ const Preloader = ({
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationStep(1), 500), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 1500), // Outer circles turn white
-      setTimeout(() => setAnimationStep(3), 2500), // Background turns white
-      setTimeout(() => setAnimationStep(4), 3500), // Slide up and fade out
+      setTimeout(() => setAnimationStep(1), 2500), // Inner circles turn white
+      setTimeout(() => setAnimationStep(2), 6500), // Outer circles turn white
+      setTimeout(() => setAnimationStep(3), 7300), // Background turns white
+      setTimeout(() => setAnimationStep(4), 8000), // Slide up and fade out
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -87,17 +87,28 @@ const Preloader = ({
     },
   };
 
-    const curve = {
-      initial: {
-        d: initialPath,
-        transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
-      },
-      exit: {
-        d: targetPath,
-        transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
-      },
-    };
+  const curve = {
+    initial: {
+      d: initialPath,
+      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
+    },
+    exit: {
+      d: targetPath,
+      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
+    },
+  };
 
+  const [milliseconds, setMilliseconds] = useState(2000);
+
+  useEffect(() => {
+    if (milliseconds === 0) return;
+
+    const timer = setInterval(() => {
+      setMilliseconds((prev) => prev - 1);
+    }, 1);
+
+    return () => clearInterval(timer);
+  }, [milliseconds]);
 
   return (
     <motion.div
@@ -115,6 +126,15 @@ const Preloader = ({
         }
       }}
     >
+      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white">
+        <div>TEAM IGNITION</div>
+        <div>+</div>
+        <div className="opacity-0 w-2">.</div>
+        <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
+        <div className="w-12 text-center mr-6">
+          {milliseconds > 0 ? (milliseconds / 1000).toFixed(3) : "IGNITION!"}
+        </div>
+      </div>
       <div
         className="relative"
         style={{ width: containerSize, height: containerSize }}
@@ -156,14 +176,17 @@ const Preloader = ({
             animate={{
               backgroundColor: animationStep >= 2 ? "#ffffff" : "#ffffff20",
             }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            transition={{
+              duration: 0.3,
+              delay: index % 2 === 0 ? 0.3 : 0.0,
+            }}
           />
         ))}
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: animationStep >= 3 ? 1 : 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 1, delay: 0.35 }}
         >
           <Image
             src="/logo/3.png"
