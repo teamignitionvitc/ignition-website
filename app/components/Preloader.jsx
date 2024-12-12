@@ -131,7 +131,7 @@ const Preloader = ({
         <div>+</div>
         <div className="opacity-0 w-2">.</div>
         <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
-        <div className="w-12 text-center mr-6">
+        <div className="w-24 text-center">
           {milliseconds > 0 ? (milliseconds / 1000).toFixed(3) : "IGNITION!"}
         </div>
       </div>
