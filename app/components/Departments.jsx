@@ -102,66 +102,87 @@ const Departments = () => {
   };
 
   return (
-    <div className="relative w-full text-black my-56 p-24">
-      <div className="rocket w-full bg-white/20 h-64 relative rounded-xl overflow-hidden flex justify-center items-center">
-        <GridPattern
-          width={30}
-          height={30}
-          x={-1}
-          y={-1}
-          strokeDasharray={"4 2"}
-        />
-        <AnimatePresence>
-          {hoveredSection && (
+    <div className="relative w-full text-black my-56 p-24 flex justify-center items-center">
+      <div className="flex space-x-12">
+        <div className="grid grid-cols-1 gap-6 w-1/3">
+          {data.sections.slice(0, 4).map((section) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                top: `${hoveredSection.y}%`,
-                left: `${hoveredSection.x}%`,
-                width: `${hoveredSection.width}%`,
-                height: `${hoveredSection.height}%`,
+              key={section.id}
+              className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
+              onHoverStart={() => handleMouseEnter(section)}
+              onHoverEnd={handleMouseLeave}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
               }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
-              style={{
-                position: "absolute",
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <h3 className="text-lg text-center font-semibold mb-2">
+                {section.title}
+              </h3>
+              <p className="text-sm text-center">{section.description}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="rocket bg-white/20 relative rounded-xl  flex justify-center items-center w-1/3">
+          <GridPattern
+            width={30}
+            height={30}
+            x={-1}
+            y={-1}
+            strokeDasharray="4 2"
+          />
+          <AnimatePresence>
+            {hoveredSection && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  top: `${hoveredSection.y}%`,
+                  left: `${hoveredSection.x}%`,
+                  width: `${hoveredSection.width}%`,
+                  height: `${hoveredSection.height}%`,
+                }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
+              />
+            )}
+          </AnimatePresence>
+          <Image
+            src="/ignitex-insideview.png"
+            alt="Description of image"
+            width={500}
+            height={500}
+            layout="responsive"
+            className="scale-[2.5] rotate-90"
+          />
+        </div>
+        <div className="grid grid-cols-1 gap-6 w-1/3">
+          {data.sections.slice(4, 8).map((section) => (
+            <motion.div
+              key={section.id}
+              className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
+              onHoverStart={() => handleMouseEnter(section)}
+              onHoverEnd={handleMouseLeave}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
               }}
-            />
-          )}
-        </AnimatePresence>
-        <Image
-          src="/ignitex-insideview.png"
-          alt="Description of image"
-          width={300}
-          height={200}
-          layout="responsive"
-          className="scale-[0.75]"
-        />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-6 mt-8">
-        {data.sections.map((section) => (
-          <motion.div
-            key={section.id}
-            className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
-            onHoverStart={() => handleMouseEnter(section)}
-            onHoverEnd={handleMouseLeave}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <h3 className="text-lg text-center font-semibold mb-2">
-              {section.title}
-            </h3>
-            <p className="text-sm">{section.description}</p>
-          </motion.div>
-        ))}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <h3 className="text-lg text-center font-semibold mb-2">
+                {section.title}
+              </h3>
+              <p className="text-sm text-center">{section.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
