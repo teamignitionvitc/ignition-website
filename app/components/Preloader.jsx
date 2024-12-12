@@ -16,9 +16,9 @@ const Preloader = ({
   useEffect(() => {
     const timers = [
       setTimeout(() => setAnimationStep(1), 2500), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 6500), // Outer circles turn white
-      setTimeout(() => setAnimationStep(3), 7300), // Background turns white
-      setTimeout(() => setAnimationStep(4), 8000), // Slide up and fade out
+      setTimeout(() => setAnimationStep(2), 6200), // Outer circles turn white
+      setTimeout(() => setAnimationStep(3), 6900), // Background turns white
+      setTimeout(() => setAnimationStep(4), 7500), // Slide up and fade out
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -98,13 +98,13 @@ const Preloader = ({
     },
   };
 
-  const [milliseconds, setMilliseconds] = useState(2000);
+  const [milliseconds, setMilliseconds] = useState(3000);
 
   useEffect(() => {
     if (milliseconds === 0) return;
 
     const timer = setInterval(() => {
-      setMilliseconds((prev) => prev - 1);
+      setMilliseconds((prev) => prev - 7);
     }, 1);
 
     return () => clearInterval(timer);
@@ -178,7 +178,7 @@ const Preloader = ({
             }}
             transition={{
               duration: 0.3,
-              delay: index % 2 === 0 ? 0.3 : 0.0,
+              delay: index % 2 === 0 ? 0.4 : 0.0,
             }}
           />
         ))}
@@ -186,7 +186,7 @@ const Preloader = ({
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: animationStep >= 3 ? 1 : 0 }}
-          transition={{ duration: 1, delay: 0.35 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Image
             src="/logo/3.png"
