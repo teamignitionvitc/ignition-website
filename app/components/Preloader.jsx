@@ -1,161 +1,107 @@
-"use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const words = ["We", "Go", "Boom!"];
-
-export default function Index() {
-  const [index, setIndex] = useState(0);
-  const [dimension, setDimension] = useState({ width: 0, height: 0 });
+const Preloader = ({
+  onComplete,
+  innerCircleSize = 24,
+  outerCircleSize = 20,
+  innerCircleRadius = 40,
+  outerCircleRadius = 80,
+  innerCircleCount = 3,
+  outerCircleCount = 9,
+}) => {
+  const [animationStep, setAnimationStep] = useState(0);
 
   useEffect(() => {
-    setDimension({ width: window.innerWidth, height: window.innerHeight });
+    const timers = [
+      setTimeout(() => setAnimationStep(1), 500), // Inner circles turn white
+      setTimeout(() => setAnimationStep(2), 1500), // Outer circles turn white
+      setTimeout(() => setAnimationStep(3), 2500), // Background turns white
+      setTimeout(() => setAnimationStep(4), 3500), // Fade out
+    ];
+
+    return () => timers.forEach(clearTimeout);
   }, []);
 
-  useEffect(() => {
-    if (index === words.length - 1) return;
-    const timeout = setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index === 0 ? 1000 : 150
-    );
-
-    return () => clearTimeout(timeout);
-  }, [index]);
-
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  } L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
-
-  const opacity = {
-    initial: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 0.75,
-      transition: { duration: 1, delay: 0 },
-    },
+  const createCircles = (count, radius) => {
+    return Array.from({ length: count }, (_, i) => {
+      const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      return { x, y };
+    });
   };
 
-  const slideUp = {
-    initial: {
-      top: 0,
-    },
-    exit: {
-      top: "-100vh",
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
-    },
-  };
+  const innerPositions = createCircles(innerCircleCount, innerCircleRadius);
+  const outerPositions = createCircles(outerCircleCount, outerCircleRadius);
 
-  const curve = {
-    initial: {
-      d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
-    },
-  };
+  const maxRadius = Math.max(
+    innerCircleRadius + innerCircleSize / 2,
+    outerCircleRadius + outerCircleSize / 2
+  );
+  const containerSize = maxRadius * 2;
 
   return (
     <motion.div
-      variants={slideUp}
-      initial="initial"
-      exit="exit"
-      className="h-screen w-screen flex items-center justify-center fixed z-50 dark:bg-secondary bg-secondary-light shadow-xl"
+      className="fixed inset-0 flex items-center justify-center bg-black z-50"
+      animate={{
+        backgroundColor: animationStep >= 3 ? "#ffffff" : "#000000",
+        opacity: animationStep === 4 ? 0 : 1,
+      }}
+      transition={{ duration: 0.5 }}
+      onAnimationComplete={() => {
+        if (animationStep === 4) {
+          onComplete();
+        }
+      }}
     >
-      {dimension.width > 0 && (
-        <>
-          {/* Changed from <motion.p> to <motion.div> to prevent <div> inside <p> */}
+      <div
+        className="relative"
+        style={{ width: containerSize, height: containerSize }}
+      >
+        {innerPositions.map((pos, index) => (
           <motion.div
-            className="dark:text-white text-black absolute z-[2] flex items-center justify-center"
-            variants={opacity}
-            initial="initial"
-            animate="enter"
-          >
-            <NameWheel />
-          </motion.div>
-          <svg
-            className="absolute top-0 w-[100%]"
-            style={{ height: `calc(100% + 100px)` }}
-          >
-            <motion.path
-              className="dark:fill-secondary fill-secondary-light"
-              variants={curve}
-              initial="initial"
-              exit="exit"
-            />
-          </svg>
-        </>
-      )}
+            key={`inner-${index}`}
+            className="absolute rounded-full"
+            style={{
+              width: innerCircleSize,
+              height: innerCircleSize,
+              left: "50%",
+              top: "50%",
+              marginLeft: -innerCircleSize / 2,
+              marginTop: -innerCircleSize / 2,
+              transform: `translate(${pos.x}px, ${pos.y}px)`,
+            }}
+            initial={{ backgroundColor: "#ffffff20" }}
+            animate={{
+              backgroundColor: animationStep >= 1 ? "#ffffff" : "#ffffff20",
+            }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+          />
+        ))}
+        {outerPositions.map((pos, index) => (
+          <motion.div
+            key={`outer-${index}`}
+            className="absolute rounded-full"
+            style={{
+              width: outerCircleSize,
+              height: outerCircleSize,
+              left: "50%",
+              top: "50%",
+              marginLeft: -outerCircleSize / 2,
+              marginTop: -outerCircleSize / 2,
+              transform: `translate(${pos.x}px, ${pos.y}px)`,
+            }}
+            initial={{ backgroundColor: "#ffffff20" }}
+            animate={{
+              backgroundColor: animationStep >= 2 ? "#ffffff" : "#ffffff20",
+            }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+          />
+        ))}
+      </div>
     </motion.div>
   );
-}
-
-const NameWheel = () => {
-  const containerVariants = {
-    initial: {
-      y: 0,
-    },
-    animate: {
-      y: [0, 0, -40, -45, -75, -75],
-      transition: {
-        y: {
-          duration: 1, // Total duration for all words including pauses
-          ease: "easeInOut",
-          times: [0, 0.2, 0.4, 0.6, 0.8, 1],
-          repeat: 0, // Ensure the animation does not repeat
-        },
-      },
-    },
-  };
-
-  const wordVariants = {
-    initial: { scale: 1 },
-    animate: {
-      scale: [1, 1, 1, 1, 1.5, 1.5],
-      transition: {
-        scale: {
-          duration: 1,
-          ease: "easeInOut",
-          times: [0, 0.2, 0.4, 0.6, 0.8, 1],
-          repeat: 0, // Ensure the animation does not repeat
-        },
-      },
-    },
-  };
-
-  return (
-    <div className="hidden md:block dark:text-white text-black text-[1.25rem] md:text-[2rem]">
-      <div className="overflow-hidden h-10 md:h-12 w-40 md:w-72 relative">
-        <div className="absolute top-0 h-[7px] w-full bg-gradient-to-t from-transparent to-black z-10"></div>
-        <motion.div
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-          className="absolute flex flex-col justify-center w-full text-4xl font-semibold"
-        >
-          {words.map((word, index) => (
-            <motion.div
-              key={index}
-              className="h-10 flex justify-center items-center w-full"
-              variants={index === words.length - 1 ? wordVariants : {}}
-              initial="initial"
-              animate={index === words.length - 1 ? "animate" : undefined}
-            >
-              {word}
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="absolute bottom-0 h-[7px] w-full bg-gradient-to-t from-black to-transparent z-10"></div>
-      </div>
-    </div>
-  );
 };
+
+export default Preloader;

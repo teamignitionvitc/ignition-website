@@ -7,8 +7,8 @@ import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
 import Background from "./components/Background";
 import Footer from "./components/Footer";
-import PreLoader from "./components/Preloader";
-import { AnimatePresence } from "framer-motion";
+import Preloader from "./components/Preloader";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -44,17 +44,41 @@ export default function Home() {
     };
   }, []);
 
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+  };
+
   return (
     <>
-      {/* <AnimatePresence>{loading && <PreLoader />}</AnimatePresence> */}
+      <AnimatePresence>
+        {showPreloader && (
+          <motion.div
+            key="preloader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Preloader
+              onComplete={handlePreloaderComplete}
+              innerCircleSize={50}
+              outerCircleSize={24}
+              innerCircleRadius={35}
+              outerCircleRadius={80}
+              innerCircleCount={3}
+              outerCircleCount={10}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="w-full flex flex-col justify-center items-center">
-        
         <Background />
         <Hero />
-        <About id="about"/>
-        <Projects id="projects"/>
-        <Departments id="departments"/>
-        <Sponsors id="sponsors"/>
+        <About id="about" />
+        <Projects id="projects" />
+        <Departments id="departments" />
+        <Sponsors id="sponsors" />
         <Footer />
       </div>
     </>
