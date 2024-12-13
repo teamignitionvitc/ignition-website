@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -17,10 +17,11 @@ const Preloader = ({
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationStep(1), 2500), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 3500), // Outer circles turn white
-      setTimeout(() => setAnimationStep(3), 4500), // Trigger circle expansion
-      setTimeout(() => setAnimationStep(4), 5400), // Slide up and fade out
+      setTimeout(() => setAnimationStep(1), 1100), // Inner circles turn white
+      setTimeout(() => setAnimationStep(2), 2100), // Outer circles turn white
+      setTimeout(() => setAnimationStep(3), 3100), // Start expansion
+      setTimeout(() => setAnimationStep(4), 3400), // End expansion
+      setTimeout(() => setAnimationStep(5), 4000), // Fade out
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -65,7 +66,6 @@ const Preloader = ({
   // Preloader Variants
   const preloaderVariants = {
     initial: {
-      top: 0,
       backgroundColor: "#000000",
       opacity: 1,
       top: 0,
@@ -81,11 +81,16 @@ const Preloader = ({
       top: 0,
     },
     step3: {
-      backgroundColor: "#ffffff",
+      backgroundColor: "#000000",
       opacity: 1,
       top: 0,
     },
     step4: {
+      backgroundColor: "#ffffff",
+      opacity: 1,
+      top: 0,
+    },
+    step5: {
       backgroundColor: "#ffffff",
       opacity: 1,
       top: "-100vh",
@@ -121,7 +126,7 @@ const Preloader = ({
     if (milliseconds === 0) return;
 
     const timer = setInterval(() => {
-      setMilliseconds((prev) => prev - 5);
+      setMilliseconds((prev) => prev - 20);
     }, 1);
 
     return () => clearInterval(timer);
@@ -133,51 +138,53 @@ const Preloader = ({
       variants={preloaderVariants}
       initial="initial"
       animate={`step${animationStep}`}
-      exit="step4"
+      exit="step5"
       transition={{
         duration: 0.5,
       }}
       onAnimationComplete={() => {
-        if (animationStep === 4) {
+        if (animationStep === 5) {
           onComplete();
         }
       }}
     >
-      {/* <AnimatePresence> */}
-        {animationStep >= 3 && animationStep < 4 && (
-          <motion.div
-            className="fixed bg-white rounded-full z-30"
-            style={{
-              top: "50% - 100px",
-              left: "50% - 100px",
-              width: 200,
-              height: 200,
-              transform: "translate(-50%, -50%)",
-              position: "fixed",
-            }}
-            initial={{ scale: 0.5 }}
-            animate={{
-              scale: Math.max(dimension.width, dimension.height) / 100,
-            }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.5,
-              ease: "easeIn",
-            }}
-          />
-        )}
-      {/* </AnimatePresence> */}
+      {/* Expanding Circle Animation */}
+      {(animationStep === 3 || animationStep === 4) && (
+        <motion.div
+          className="fixed bg-white rounded-full z-30"
+          style={{
+            top: "50% - 100",
+            left: "50% - 100",
+            width: 200,
+            height: 200,
+            transform: "translate(-50%, -50%)",
+            position: "fixed",
+          }}
+          initial={{ scale: 0.5 }}
+          animate={{
+            scale:
+              animationStep === 3
+                ? Math.max(dimension.width, dimension.height) / 100
+                : Math.max(dimension.width, dimension.height) / 100,
+          }}
+          exit={{ scale: 0 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeIn",
+          }}
+        />
+      )}
 
       {/* Overlay Content */}
-      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white z-50 font-mono">
-        <div>TEAM IGNITION</div>
+      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white z-50 font-mono text-nowrap">
+        <div className="w-24 text-center">
+          {milliseconds > 0 ? "TEAM IGNITION" : "WE GO BOOM"}
+        </div>
         <div>+</div>
         <div className="opacity-0 w-2">.</div>
         <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
         <div className="w-24 text-center">
-          {milliseconds > 0
-            ? new Date(milliseconds * 100).toISOString().substr(11, 8)
-            : "IGNITION!"}
+          {milliseconds > 0 ? milliseconds : "IGNITION!"}
         </div>
       </div>
       <div
@@ -241,8 +248,8 @@ const Preloader = ({
             marginLeft: -(outerRotateCircle / 2),
             marginTop: -(outerRotateCircle / 2),
           }}
-          initial={{ rotate: 0 }}
-          animate={{ rotate: rotate ? 90 : 0 }}
+          initial={{ rotate: 0, borderColor: "#ffffff20" }}
+          animate={{ rotate: rotate ? 90 : 0, borderColor: "#ffffff", backgroundColor: rotate ? "#ffffff/20" : "" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {/* Top Horizontal Corner */}
