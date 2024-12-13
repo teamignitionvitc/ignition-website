@@ -10,8 +10,10 @@ const Preloader = ({
   outerCircleRadius = 80,
   innerCircleCount = 3,
   outerCircleCount = 9,
+  outerRotateCircle = outerCircleRadius * 3,
 }) => {
   const [animationStep, setAnimationStep] = useState(0);
+  const [rotate, setRotate] = useState(false); // New state for rotation
 
   useEffect(() => {
     const timers = [
@@ -23,6 +25,12 @@ const Preloader = ({
 
     return () => timers.forEach(clearTimeout);
   }, []);
+
+  useEffect(() => {
+    if (animationStep === 2) {
+      setTimeout(() => setRotate(true), 500);
+    }
+  }, [animationStep]);
 
   const createCircles = (count, radius) => {
     return Array.from({ length: count }, (_, i) => {
@@ -133,7 +141,7 @@ const Preloader = ({
         <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
         <div className="w-24 text-center">
           {milliseconds > 0
-            ? new Date(milliseconds*100).toISOString().substr(11, 8)
+            ? new Date(milliseconds * 100).toISOString().substr(11, 8)
             : "IGNITION!"}
         </div>
       </div>
@@ -184,6 +192,69 @@ const Preloader = ({
             }}
           />
         ))}
+
+        {/* ----- Central Circle with Lines ----- */}
+        <motion.div
+          className="absolute rounded-full border border-white flex items-center justify-center"
+          style={{
+            width: outerRotateCircle,
+            height: outerRotateCircle,
+            left: "50%",
+            top: "50%",
+            marginLeft: -(outerRotateCircle / 2),
+            marginTop: -(outerRotateCircle / 2),
+          }}
+          initial={{ rotate: 0 }}
+          animate={{ rotate: rotate ? 90 : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          {/* Top Horizontal Corner */}
+          <div
+            className="absolute bg-white"
+            style={{
+              width: 10, 
+              height: 2, 
+              top: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+          />
+          {/* Bottom Horizontal Corner */}
+          <div
+            className="absolute bg-white"
+            style={{
+              width: 10,
+              height: 2,
+              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+          />
+          {/* Left Vertical Corner */}
+          <div
+            className="absolute bg-white"
+            style={{
+              width: 2, 
+              height: 10, 
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+            }}
+          />
+          {/* Right Vertical Corner */}
+          <div
+            className="absolute bg-white"
+            style={{
+              width: 2,
+              height: 10,
+              right: 0, 
+              top: "50%",
+              transform: "translateY(-50%)",
+            }}
+          />
+        </motion.div>
+        {/* ----- End of Central Circle ----- */}
+
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
