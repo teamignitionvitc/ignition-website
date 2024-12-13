@@ -19,8 +19,8 @@ const Preloader = ({
     const timers = [
       setTimeout(() => setAnimationStep(1), 2500), // Inner circles turn white
       setTimeout(() => setAnimationStep(2), 3500), // Outer circles turn white
-      setTimeout(() => setAnimationStep(3), 4300), // Background turns white
-      setTimeout(() => setAnimationStep(4), 5000), // Slide up and fade out
+      setTimeout(() => setAnimationStep(3), 4500), // Trigger circle expansion
+      setTimeout(() => setAnimationStep(4), 5400), // Slide up and fade out
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -54,23 +54,21 @@ const Preloader = ({
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    const handleResize = () => {
+      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    };
     setDimension({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  }  L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
-
+  // Preloader Variants
   const preloaderVariants = {
     initial: {
       top: 0,
       backgroundColor: "#000000",
       opacity: 1,
+      top: 0,
     },
     step1: {
       backgroundColor: "#000000",
@@ -95,6 +93,16 @@ const Preloader = ({
     },
   };
 
+  // Curve Variants (Unchanged)
+  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
+    dimension.height
+  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
+    dimension.height
+  }  L0 0`;
+  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
+    dimension.height
+  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
+
   const curve = {
     initial: {
       d: initialPath,
@@ -106,6 +114,7 @@ const Preloader = ({
     },
   };
 
+  // Countdown Timer (Unchanged)
   const [milliseconds, setMilliseconds] = useState(3000);
 
   useEffect(() => {
@@ -120,7 +129,7 @@ const Preloader = ({
 
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center h-screen w-screen z-50 shadow-xl"
+      className="fixed inset-0 flex items-center justify-center h-screen w-screen z-50 shadow-xl overflow-hidden bg-black"
       variants={preloaderVariants}
       initial="initial"
       animate={`step${animationStep}`}
@@ -134,7 +143,33 @@ const Preloader = ({
         }
       }}
     >
-      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white">
+      {/* <AnimatePresence> */}
+        {animationStep >= 3 && animationStep < 4 && (
+          <motion.div
+            className="fixed bg-white rounded-full z-30"
+            style={{
+              top: "50% - 100px",
+              left: "50% - 100px",
+              width: 200,
+              height: 200,
+              transform: "translate(-50%, -50%)",
+              position: "fixed",
+            }}
+            initial={{ scale: 0.5 }}
+            animate={{
+              scale: Math.max(dimension.width, dimension.height) / 100,
+            }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeIn",
+            }}
+          />
+        )}
+      {/* </AnimatePresence> */}
+
+      {/* Overlay Content */}
+      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white z-50 font-mono">
         <div>TEAM IGNITION</div>
         <div>+</div>
         <div className="opacity-0 w-2">.</div>
@@ -161,6 +196,7 @@ const Preloader = ({
               marginLeft: -innerCircleSize / 2,
               marginTop: -innerCircleSize / 2,
               transform: `translate(${pos.x}px, ${pos.y}px)`,
+              zIndex: 30,
             }}
             initial={{ backgroundColor: "#ffffff20" }}
             animate={{
@@ -181,6 +217,7 @@ const Preloader = ({
               marginLeft: -outerCircleSize / 2,
               marginTop: -outerCircleSize / 2,
               transform: `translate(${pos.x}px, ${pos.y}px)`,
+              zIndex: 30,
             }}
             initial={{ backgroundColor: "#ffffff20" }}
             animate={{
@@ -195,7 +232,7 @@ const Preloader = ({
 
         {/* ----- Central Circle with Lines ----- */}
         <motion.div
-          className="absolute rounded-full border border-white flex items-center justify-center"
+          className="absolute rounded-full border border-white flex items-center justify-center z-40"
           style={{
             width: outerRotateCircle,
             height: outerRotateCircle,
@@ -212,8 +249,8 @@ const Preloader = ({
           <div
             className="absolute bg-white"
             style={{
-              width: 10, 
-              height: 2, 
+              width: 10,
+              height: 2,
               top: 0,
               left: "50%",
               transform: "translateX(-50%)",
@@ -234,8 +271,8 @@ const Preloader = ({
           <div
             className="absolute bg-white"
             style={{
-              width: 2, 
-              height: 10, 
+              width: 2,
+              height: 10,
               left: 0,
               top: "50%",
               transform: "translateY(-50%)",
@@ -247,7 +284,7 @@ const Preloader = ({
             style={{
               width: 2,
               height: 10,
-              right: 0, 
+              right: 0,
               top: "50%",
               transform: "translateY(-50%)",
             }}
@@ -256,10 +293,10 @@ const Preloader = ({
         {/* ----- End of Central Circle ----- */}
 
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: animationStep >= 3 ? 1 : 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0 }}
         >
           <Image
             src="/logo/3.png"
