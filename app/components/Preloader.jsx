@@ -16,9 +16,9 @@ const Preloader = ({
   useEffect(() => {
     const timers = [
       setTimeout(() => setAnimationStep(1), 2500), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 6200), // Outer circles turn white
-      setTimeout(() => setAnimationStep(3), 6900), // Background turns white
-      setTimeout(() => setAnimationStep(4), 7500), // Slide up and fade out
+      setTimeout(() => setAnimationStep(2), 3500), // Outer circles turn white
+      setTimeout(() => setAnimationStep(3), 4300), // Background turns white
+      setTimeout(() => setAnimationStep(4), 5000), // Slide up and fade out
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -104,7 +104,7 @@ const Preloader = ({
     if (milliseconds === 0) return;
 
     const timer = setInterval(() => {
-      setMilliseconds((prev) => prev - 7);
+      setMilliseconds((prev) => prev - 5);
     }, 1);
 
     return () => clearInterval(timer);
@@ -132,7 +132,9 @@ const Preloader = ({
         <div className="opacity-0 w-2">.</div>
         <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
         <div className="w-24 text-center">
-          {milliseconds > 0 ? (milliseconds / 1000).toFixed(3) : "IGNITION!"}
+          {milliseconds > 0
+            ? new Date(milliseconds*100).toISOString().substr(11, 8)
+            : "IGNITION!"}
         </div>
       </div>
       <div
@@ -186,7 +188,7 @@ const Preloader = ({
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: animationStep >= 3 ? 1 : 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Image
             src="/logo/3.png"

@@ -127,7 +127,6 @@ export default function Projects() {
                   alt="Description of image"
                   width={500}
                   height={300}
-                  layout="responsive"
                   className="-rotate-90"
                 />
               </div>
