@@ -77,12 +77,16 @@ export default function Hero() {
         />
       </div>
 
+      <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div>
+
       <motion.div
         initial="hidden"
         animate={controls}
         variants={fadeVariants}
         className="absolute left-10 top-[8rem] h-full text-[150px] font-semibold"
       >
+        {/* <BlurIn word="TEAM" className="text-white/60" />
+        <BlurIn word="IGNITION" className="text-white" /> */}
         <p className="-mb-24 text-white/60">TEAM</p>
         <p className="">IGNITION</p>
       </motion.div>
@@ -173,7 +177,7 @@ export default function Hero() {
 
             <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
               <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Box className="w-3 h-3 -mt-[1px]" />
+                <Box className="w-3 h-3 -mt-[2.5px]" />
                 <span>DENSITY</span>
               </div>
               <div className="flex flex-col mt-2">
