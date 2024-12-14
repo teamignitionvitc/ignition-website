@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar className="fixed top-0 left-0 right-0 z-20" />
       <AnimatePresence>
         {showPreloader && (
@@ -75,7 +75,7 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-lg z-10">
+      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl z-10 rounded-b-3xl">
         <Particles
           className="absolute inset-0 w-full h-full"
           quantity={1000}

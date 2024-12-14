@@ -39,9 +39,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <div className="sticky top-0 w-full text-center pb-4 bg-white text-black">
-          Copyright 2024 © Team Ignition. All Rights Reserveed.
-        </div>
       </body>
     </html>
   );
