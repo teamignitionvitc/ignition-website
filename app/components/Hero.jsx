@@ -10,7 +10,7 @@ export default function Hero() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       controls.start("visible");
-    }, 5000);
+    }, 4500);
 
     return () => clearTimeout(timeout);
   }, [controls]);
@@ -103,9 +103,9 @@ export default function Hero() {
         variants={boxVariants}
         initial="initial"
         animate={boxControls}
-        className="font-bn absolute bottom-10 left-10 p-2 px-8 text-xl bg-white text-black rounded"
+        className="font-bn absolute bottom-10 left-10 p-1  pl-2 pr-12 text-xl bg-white text-black rounded"
       >
-        About IGNITION
+        ABOUT IGNITION
       </motion.div>
 
       <motion.div
@@ -116,12 +116,10 @@ export default function Hero() {
       >
         <div className="grid grid-cols-2 gap-2">
           <div className="relative bg-white/5 rounded flex justify-center items-center">
-          <div className="absolute top-0 left-0 bg-white/10 text-white px-2 rounded m-2 font-mono">
-            EARTH
-          </div>
-            <div
-              style={{ perspective: 1000 }}
-            >
+            <div className="absolute -top-1 -left-1 bg-white/10 text-white px-2 rounded-[2px] m-2 font-mono">
+              EARTH
+            </div>
+            <div style={{ perspective: 1000 }}>
               <div className="relative w-36 h-36 rotate-45">
                 <motion.div
                   className="absolute top-0 left-0 w-full h-full rounded-full border-[1px] border-dashed border-white/30"
@@ -151,9 +149,9 @@ export default function Hero() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
               <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Ruler className="w-3 h-3" />
+                <Ruler className="w-3 h-3 -mt-[1px]" />
                 <span>DIAMETER</span>
               </div>
               <div className="flex flex-col mt-2">
@@ -162,9 +160,9 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
               <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Gauge className="w-3 h-3" />
+                <Gauge className="w-3 h-3 -mt-[1px]" />
                 <span>GRAVITY</span>
               </div>
               <div className="flex flex-col mt-2">
@@ -173,9 +171,9 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
               <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Box className="w-3 h-3" />
+                <Box className="w-3 h-3 -mt-[1px]" />
                 <span>DENSITY</span>
               </div>
               <div className="flex flex-col mt-2">
@@ -184,9 +182,9 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
               <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Compass className="w-3 h-3" />
+                <Compass className="w-3 h-3 -mt-[1px]" />
                 <span>INCLINATION</span>
               </div>
               <div className="flex flex-col mt-2">
