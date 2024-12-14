@@ -126,7 +126,7 @@ const Preloader = ({
     if (milliseconds === 0) return;
 
     const timer = setInterval(() => {
-      setMilliseconds((prev) => prev - 20);
+      setMilliseconds((prev) => prev - 30);
     }, 1);
 
     return () => clearInterval(timer);
@@ -141,6 +141,7 @@ const Preloader = ({
       exit="step5"
       transition={{
         duration: 0.5,
+        ease: "easeOut",
       }}
       onAnimationComplete={() => {
         if (animationStep === 5) {
@@ -184,7 +185,15 @@ const Preloader = ({
         <div className="opacity-0 w-2">.</div>
         <div className="blinking-text -mr-16">READY FOR LAUNCH</div>
         <div className="w-24 text-center">
-          {milliseconds > 0 ? milliseconds : "IGNITION!"}
+          {milliseconds > 0
+            ? `${Math.floor(milliseconds / 60000)
+                .toString()
+                .padStart(2, "0")}:${Math.floor((milliseconds % 60000) / 1000)
+                .toString()
+                .padStart(2, "0")}:${(milliseconds % 100)
+                .toString()
+                .padStart(2, "0")}`
+            : "IGNITION!"}
         </div>
       </div>
       <div
@@ -249,7 +258,11 @@ const Preloader = ({
             marginTop: -(outerRotateCircle / 2),
           }}
           initial={{ rotate: 0, borderColor: "#ffffff20" }}
-          animate={{ rotate: rotate ? 90 : 0, borderColor: "#ffffff", backgroundColor: rotate ? "#ffffff/20" : "" }}
+          animate={{
+            rotate: rotate ? 90 : 0,
+            borderColor: "#ffffff",
+            backgroundColor: rotate ? "#ffffff/20" : "",
+          }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {/* Top Horizontal Corner */}

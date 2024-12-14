@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Particles from "./components/ui/particles";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -72,8 +73,13 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="w-full flex flex-col justify-center items-center">
-        <Background />
+      <div className="relative w-full flex flex-col justify-center items-center">
+        <Particles
+          className="absolute inset-0 w-full h-full"
+          quantity={1000}
+          ease={400}
+          refresh
+        />
         <Hero />
         <About id="about" />
         <Projects id="projects" />

@@ -17,7 +17,9 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: "Bai Jamjuree", Helvetica, sans-serif; */
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+
 }
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
