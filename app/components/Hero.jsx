@@ -1,6 +1,7 @@
 // Hero.jsx
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { Box, Compass, Gauge, Ruler } from "lucide-react";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -80,9 +81,9 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
         variants={fadeVariants}
-        className="absolute left-10 h-full text-[150px] font-semibold flex flex-col justify-center"
+        className="absolute left-10 top-[8rem] h-full text-[150px] font-semibold"
       >
-        <p className="-mb-24">TEAM</p>
+        <p className="-mb-24 text-white/60">TEAM</p>
         <p className="">IGNITION</p>
       </motion.div>
 
@@ -111,12 +112,89 @@ export default function Hero() {
         variants={boxVariants}
         initial="initial"
         animate={boxControls}
-        className="absolute bottom-10 right-10 w-96 h-44 bg-black/10 backdrop-blur-sm border border-white/20 rounded p-2 flex space-x-2"
+        className="absolute bottom-10 right-10 bg-black/10 backdrop-blur-sm border border-white/20 rounded p-2 flex space-x-2"
       >
-        <div className="h-full w-1/3 bg-white/10 rounded"></div>
-        <div className="h-full w-2/3 flex flex-col space-y-2 ">
-          <div className="h-full w-full bg-white/10 rounded"></div>
-          <div className="h-full w-full bg-white/10 rounded"></div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative bg-white/5 rounded flex justify-center items-center">
+          <div className="absolute top-0 left-0 bg-white/10 text-white px-2 rounded m-2 font-mono">
+            EARTH
+          </div>
+            <div
+              style={{ perspective: 1000 }}
+            >
+              <div className="relative w-36 h-36 rotate-45">
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-full rounded-full border-[1px] border-dashed border-white/30"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 20,
+                    ease: "linear",
+                  }}
+                  style={{
+                    transformOrigin: "center",
+                  }}
+                ></motion.div>
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-full rounded-full border-[1px] border-dashed border-white/30"
+                  animate={{ rotateX: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 15,
+                    ease: "linear",
+                  }}
+                  style={{
+                    transformOrigin: "center",
+                  }}
+                ></motion.div>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+              <div className="flex items-center gap-1 text-white/60 mb-1">
+                <Ruler className="w-3 h-3" />
+                <span>DIAMETER</span>
+              </div>
+              <div className="flex flex-col mt-2">
+                <span className="text-2xl">12,742</span>
+                <span className="text-white/60 text-sm -mt-1">Km</span>
+              </div>
+            </div>
+
+            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+              <div className="flex items-center gap-1 text-white/60 mb-1">
+                <Gauge className="w-3 h-3" />
+                <span>GRAVITY</span>
+              </div>
+              <div className="flex flex-col mt-2">
+                <span className="text-2xl">9.81</span>
+                <span className="text-white/60 text-sm -mt-1">m/s²</span>
+              </div>
+            </div>
+
+            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+              <div className="flex items-center gap-1 text-white/60 mb-1">
+                <Box className="w-3 h-3" />
+                <span>DENSITY</span>
+              </div>
+              <div className="flex flex-col mt-2">
+                <span className="text-2xl">5,513</span>
+                <span className="text-white/60 text-sm -mt-1">kg/m³</span>
+              </div>
+            </div>
+
+            <div className="bg-white/5 p-2 px-4 rounded flex flex-col justify-between">
+              <div className="flex items-center gap-1 text-white/60 mb-1">
+                <Compass className="w-3 h-3" />
+                <span>INCLINATION</span>
+              </div>
+              <div className="flex flex-col mt-2">
+                <span className="text-2xl">23.5</span>
+                <span className="text-white/60 text-sm -mt-1">degrees</span>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>

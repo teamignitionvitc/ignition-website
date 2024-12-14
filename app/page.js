@@ -75,13 +75,13 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-lg z-10 space-y-56">
-        {/* <Particles
+      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-lg z-10">
+        <Particles
           className="absolute inset-0 w-full h-full"
           quantity={1000}
           ease={200}
           refresh
-        /> */}
+        />
         <Hero />
 
         <About id="about" />
