@@ -107,7 +107,7 @@ const Footer = ({ className = "" }) => {
         </div>
       </div>
 
-      <div className="w-full text-center pb-4 mt-10 bg-white text-black">
+      <div className="font-bn w-full text-center pb-4 mt-10 bg-white text-black">
         Copyright 2024 © Team Ignition. All Rights Reserved.
       </div>
     </div>
