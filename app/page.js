@@ -1,16 +1,17 @@
 "use client";
 
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
-import Background from "./components/Background";
+// import Background from "./components/Background";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Particles from "./components/ui/particles";
+import Particles from "../components/ui/particles";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -52,7 +53,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-white">
+      <Navbar className="fixed top-0 left-0 right-0 z-20" />
       <AnimatePresence>
         {showPreloader && (
           <motion.div
@@ -73,20 +75,21 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative w-full flex flex-col justify-center items-center">
+      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl z-10 rounded-b-3xl">
         <Particles
           className="absolute inset-0 w-full h-full"
           quantity={1000}
-          ease={400}
+          ease={200}
           refresh
         />
         <Hero />
+
         <About id="about" />
-        <Projects id="projects" />
+        {/* <Projects id="projects" /> */}
         <Departments id="departments" />
         <Sponsors id="sponsors" />
-        <Footer />
       </div>
-    </>
+      <Footer className="sticky bottom-0 left-0 right-0" />
+    </div>
   );
 }

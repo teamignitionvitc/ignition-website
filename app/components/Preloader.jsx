@@ -17,10 +17,10 @@ const Preloader = ({
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationStep(1), 1100), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 2100), // Outer circles turn white
+      setTimeout(() => setAnimationStep(1), 1000), // Inner circles turn white
+      setTimeout(() => setAnimationStep(2), 2000), // Outer circles turn white
       setTimeout(() => setAnimationStep(3), 3100), // Start expansion
-      setTimeout(() => setAnimationStep(4), 3400), // End expansion
+      setTimeout(() => setAnimationStep(4), 3450), // End expansion
       setTimeout(() => setAnimationStep(5), 4000), // Fade out
     ];
 
@@ -319,7 +319,7 @@ const Preloader = ({
           transition={{ duration: 0.5, delay: 0 }}
         >
           <Image
-            src="/logo/3.png"
+            src="/logo/3-upscaled.png"
             alt="Logo"
             width={500}
             height={500}
