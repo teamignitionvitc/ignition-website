@@ -77,7 +77,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div>
+      {/* <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div> */}
 
       <motion.div
         initial="hidden"
