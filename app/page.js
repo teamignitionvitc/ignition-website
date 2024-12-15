@@ -9,6 +9,7 @@ import Sponsors from "./components/Sponsors";
 // import Background from "./components/Background";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
+import TagLine from "./components/TagLine";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Particles from "../components/ui/particles";
@@ -77,12 +78,13 @@ export default function Home() {
       </AnimatePresence>
       <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl z-10 rounded-b-3xl">
         <Particles
-          className="absolute inset-0 w-full h-full"
-          quantity={1000}
+          className="absolute inset-0 w-full h-screen"
+          quantity={500}
           ease={200}
           refresh
         />
         <Hero />
+        <TagLine />
 
         <About id="about" />
         {/* <Projects id="projects" /> */}
