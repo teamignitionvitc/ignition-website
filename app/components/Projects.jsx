@@ -129,6 +129,7 @@ export default function Projects() {
                   height={300}
                   className="-rotate-90"
                 />
+                
               </div>
             </div>
           ))}
