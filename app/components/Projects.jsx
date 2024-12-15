@@ -80,7 +80,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div id="projects" className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full">
       <div className="flex w-full">
         <div className="w-1/3 sticky top-0 h-screen overflow-hidden">
           <div className="relative w-full h-full">
