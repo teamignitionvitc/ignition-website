@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import GridPattern from "./ui/grid";
+import GridPattern from "../../components/ui/grid";
 import Image from "next/image";
 
 const Departments = () => {
@@ -102,7 +102,7 @@ const Departments = () => {
   };
 
   return (
-    <div id="departments" className="relative w-full text-black my-56 p-24 flex justify-center items-center">
+    <div id="departments" className="relative w-full text-black  p-24 flex justify-center items-center">
       <div className="flex space-x-12">
         <div className="grid grid-cols-1 gap-6 w-1/3">
           {data.sections.slice(0, 4).map((section) => (
@@ -126,7 +126,7 @@ const Departments = () => {
             </motion.div>
           ))}
         </div>
-        <div className="rocket bg-white/20 relative rounded-xl  flex justify-center items-center w-1/3">
+        <div className="rocket bg-white/20 relative rounded-xl flex justify-center items-center w-1/3 overflow-hidden">
           <GridPattern
             width={30}
             height={30}
@@ -152,14 +152,17 @@ const Departments = () => {
               />
             )}
           </AnimatePresence>
-          <Image
-            src="/ignitex-insideview.png"
-            alt="Description of image"
-            width={500}
-            height={500}
-            className="scale-[2.5] rotate-90"
-          />
+          <div className="relative w-full h-full flex justify-center items-center">
+            <Image
+              src="/ignitex-insideview.png"
+              alt="Description of image"
+              layout="fill"
+              objectFit="contain"
+              className="transform rotate-90"
+            />
+          </div>
         </div>
+
         <div className="grid grid-cols-1 gap-6 w-1/3">
           {data.sections.slice(4, 8).map((section) => (
             <motion.div
