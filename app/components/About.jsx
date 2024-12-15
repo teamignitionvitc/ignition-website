@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className="flex flex-col space-y-4 font-bold text-3xl max-w-3xl mb-56">
+    <div id="about" className="flex flex-col space-y-4 font-bold text-3xl max-w-3xl mb-56" >
       <div>
         Ideology The core philosophy of Team Ignition can be attributed to one
         trait alone-Obsession. The obsession to challenge oneself, continuously

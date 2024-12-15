@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sponsors = () => {
   return (
-    <div className="w-full text-white mb-56 flex flex-col justify-center items-center">
+    <div id="sponsors" className="w-full text-white mb-56 flex flex-col justify-center items-center">
       <div className="text-6xl mb-16">Featured Sponsors</div>
       <div className="bg-white/10 h-56 w-56 rounded-full flex justify-center items-center">
         Altium
