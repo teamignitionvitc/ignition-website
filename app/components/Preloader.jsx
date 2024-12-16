@@ -220,12 +220,12 @@ const Preloader = ({
             }}
             animate={{
               backgroundColor: animationStep >= 1 ? "#ffffff" : "#ffffff20",
-              boxShadow:
-                animationStep >= 1
-                  ? "0 0 20px 1px rgba(255, 255, 255, 0.5)"
-                  : "0 0 0px 0px rgba(255, 255, 255, 0)",
+              boxShadow: "0 0 20px 1px rgba(255, 255, 255, 0.5)"
             }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            transition={{
+              backgroundColor: { duration: 0.3, delay: 0.1 },
+              boxShadow: { duration: 1, delay: 1.5 },
+            }}
           />
         ))}
         {outerPositions.map((pos, index) => (
@@ -248,7 +248,7 @@ const Preloader = ({
             }}
             transition={{
               duration: 0.3,
-              delay: index % 2 === 0 ? 0.5: 0.0,
+              delay: index % 2 === 0 ? 0.5 : 0.0,
             }}
           />
         ))}

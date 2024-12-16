@@ -85,8 +85,6 @@ export default function Hero() {
         variants={fadeVariants}
         className="absolute left-10 top-[8rem] h-full text-[125px] font-semibold font-bn"
       >
-        {/* <BlurIn word="TEAM" className="text-white/60" />
-        <BlurIn word="IGNITION" className="text-white" /> */}
         <p className="-mb-20 text-[#b3b3b3]">TEAM</p>
         <p className="">IGNITION</p>
       </motion.div>

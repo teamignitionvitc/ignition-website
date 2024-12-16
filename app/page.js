@@ -77,19 +77,19 @@ export default function Home() {
         )}
       </AnimatePresence>
       <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl z-10 rounded-b-3xl">
+        {/* <Background /> */}
         <Particles
           className="absolute inset-0 w-full h-screen"
           quantity={500}
-          ease={200}
-          refresh
+          ease={300}
         />
         <Hero />
         <TagLine />
 
-        <About id="about" />
-        {/* <Projects id="projects" /> */}
-        <Departments id="departments" />
-        <Sponsors id="sponsors" />
+        <About />
+        {/* <Projects /> */}
+        {/* <Departments id="departments" /> */}
+        <Sponsors />
       </div>
       <Footer className="sticky bottom-0 left-0 right-0" />
     </div>

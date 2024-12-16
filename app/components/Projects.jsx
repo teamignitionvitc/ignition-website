@@ -47,7 +47,6 @@ const sections = [
   },
 ];
 
-
 export default function Projects() {
   const [activeSection, setActiveSection] = useState(null);
   const sectionRefs = useRef({});
@@ -81,45 +80,23 @@ export default function Projects() {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="flex w-full">
-        <div className="w-1/3 sticky top-0 h-screen overflow-hidden">
+      <div className="flex w-full relative">
+        <div className="w-full sticky inset-0 top-0 h-screen overflow-hidden">
           <div className="relative w-full h-full">
-            <AnimatePresence>
-              {sections.map((section) =>
-                activeSection === section.id ? (
-                  <motion.div
-                    key={section.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="absolute inset-0 text-white m-8 mt-16 mr-0"
-                  >
-                    <div className="h-full flex flex-col justify-center p-8 bg-white/10 backdrop-blur-sm rounded-xl">
-                      <h2 className="text-2xl font-semibold mb-4">
-                        {section.title}
-                      </h2>
-                      <p className="mb-4">{section.content}</p>
-                      <p className="font-medium">
-                        <strong>Status:</strong> {section.status}
-                      </p>
-                      <p className="font-medium">
-                        <strong>Achievement:</strong> {section.achievement}
-                      </p>
-                    </div>
-                  </motion.div>
-                ) : null
-              )}
-            </AnimatePresence>
+            <div className="absolute inset-0 text-white m-8 mt-16 mr-0">
+              <div className="h-full flex flex-col justify-center p-8 bg-white/10">
+                <h2 className="text-2xl font-semibold mb-4">Title</h2>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="w-2/3 space-y-8 pt-8">
+        <div className="w-full space-y-8 pt-8">
           {sections.map((section, index) => (
             <div key={index}>
               <div
                 id={section.id}
                 ref={(el) => (sectionRefs.current[section.id] = el)}
-                className="m-8 rounded-xl flex items-center justify-center text-2xl font-bold bg-white/10 backdrop-blur-sm"
+                className="m-8 rounded-xl flex items-center justify-center text-2xl font-bold bg-white/10 "
               >
                 {/* {section.title} */}
                 <Image
@@ -129,7 +106,6 @@ export default function Projects() {
                   height={300}
                   className="-rotate-90"
                 />
-                
               </div>
             </div>
           ))}
