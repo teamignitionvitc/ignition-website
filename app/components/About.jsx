@@ -8,7 +8,7 @@ const fadeInVariants = {
 
 const About = () => {
   return (
-    <div id="about" className="flex flex-col font-bold text-3xl text-white p-16 space-y-36 my-56">
+    <div className="flex flex-col font-semibold text-3xl text-white p-16 space-y-36 my-56">
       <motion.div
         className="w-1/2"
         variants={fadeInVariants}

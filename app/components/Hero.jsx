@@ -77,17 +77,17 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div>
+      {/* <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div> */}
 
       <motion.div
         initial="hidden"
         animate={controls}
         variants={fadeVariants}
-        className="absolute left-10 top-[8rem] h-full text-[150px] font-semibold"
+        className="absolute left-10 top-[8rem] h-full text-[125px] font-semibold font-bn"
       >
         {/* <BlurIn word="TEAM" className="text-white/60" />
         <BlurIn word="IGNITION" className="text-white" /> */}
-        <p className="-mb-24 text-white/60">TEAM</p>
+        <p className="-mb-20 text-[#b3b3b3]">TEAM</p>
         <p className="">IGNITION</p>
       </motion.div>
 
