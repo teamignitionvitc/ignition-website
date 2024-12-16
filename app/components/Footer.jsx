@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import GridPattern from "../../components/ui/grid";
+import { MousePointer2Icon } from "lucide-react";
 
 const Footer = ({ className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -7,6 +9,7 @@ const Footer = ({ className = "" }) => {
     <div
       className={`relative p-4 pb-0 w-full overflow-hidden bg-white text-black ${className}`}
     >
+      <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray="4 2" />
       <div
         className={`absolute inset-0 flex items-center justify-center
           opacity-0
@@ -34,7 +37,9 @@ const Footer = ({ className = "" }) => {
           <div className="font-bn group-hover:text-black z-10 transition-colors duration-300">
             CONTACT US
           </div>
-          <div className="font-bold w-full text-right group-hover:text-black z-10 transition-colors duration-300"></div>
+          <div className="font-bold w-full flex justify-end group-hover:text-black z-10 transition-colors duration-300">
+            <MousePointer2Icon />
+          </div>
 
           <div className="absolute inset-0 bg-white/90 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left h-full"></div>
 
@@ -107,7 +112,7 @@ const Footer = ({ className = "" }) => {
         </div>
       </div>
 
-      <div className="w-full text-center pb-4 mt-10 bg-white text-black">
+      <div className="w-full text-center pb-4 mt-10 bg-white text-black font-bn">
         Copyright 2024 © Team Ignition. All Rights Reserved.
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Sponsors = () => {
   return (
-    <div className="w-full text-white pb-56 flex flex-col justify-center items-center bg-black">
+    <div className="w-full text-white pb-56 flex flex-col justify-center items-center">
       <div className="text-6xl mb-16">Featured Sponsors</div>
 
       {/* Top Diamond */}
