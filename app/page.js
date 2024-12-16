@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import ProjectsTwo from "./components/ProjectsTwo";
 import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
 // import Background from "./components/Background";
@@ -87,6 +88,7 @@ export default function Home() {
         <TagLine />
 
         <About />
+        <ProjectsTwo />
         {/* <Projects /> */}
         {/* <Departments id="departments" /> */}
         <Sponsors />
