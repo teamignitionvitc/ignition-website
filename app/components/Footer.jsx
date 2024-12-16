@@ -9,7 +9,7 @@ const Footer = ({ className = "" }) => {
     <div
       className={`relative p-4 pb-0 w-full overflow-hidden bg-white text-black ${className}`}
     >
-      <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray="4 2" />
+      <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" />
       <div
         className={`absolute inset-0 flex items-center justify-center
           opacity-0
