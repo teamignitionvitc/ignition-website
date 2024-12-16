@@ -19,7 +19,7 @@ const TagLine = () => {
         className="invert translate-x-[1050px]"
       />
       <div className="relative z-10">
-        Fueling Innovation, Reaching New Heights in Rocketry
+        Fueling Innovation, Reaching New Heights in Rocketry.
       </div>
     </div>
   );

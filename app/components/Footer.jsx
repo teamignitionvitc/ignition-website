@@ -57,16 +57,16 @@ const Footer = ({ className = "" }) => {
           <div className="flex">
             <div className="mr-6 pt-2">LINKS</div>
             <div className="overflow-hidden">
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Instagram
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Facebook
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Twitter
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white">
                 LinkedIn
               </div>
             </div>
@@ -75,16 +75,16 @@ const Footer = ({ className = "" }) => {
           <div className="flex">
             <div className="mr-6 pt-2">RESOURCES</div>
             <div className="overflow-hidden">
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Blog
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white">
                 FAQs
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Support
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-black/10 backdrop-blur-sm text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white">
                 Contact
               </div>
             </div>

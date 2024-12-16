@@ -65,14 +65,14 @@ export default function Hero() {
         <motion.div
           initial={{ height: 0 }}
           animate={{ height: "100%" }}
-          transition={{ duration: 1, delay: 4.5 }}
+          transition={{ duration: 0.75, delay: 4.5 }}
           className="absolute top-0 right-[10rem] w-[1px] bg-white/20"
         />
         {/* Horizontal Line */}
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
-          transition={{ duration: 1, delay: 4.5 }}
+          transition={{ duration: 0.75, delay: 4.5 }}
           className="absolute top-[8rem] right-0 h-[1px] bg-white/20"
         />
       </div>
@@ -109,7 +109,7 @@ export default function Hero() {
         animate={boxControls}
         className="font-bn absolute bottom-10 left-10 p-1  pl-2 pr-12 text-xl bg-white text-black rounded"
       >
-        ABOUT IGNITION
+        EXPLORE MORE
       </motion.div>
 
       <motion.div
@@ -120,13 +120,13 @@ export default function Hero() {
       >
         <div className="grid grid-cols-2 gap-2">
           <div className="relative bg-white/5 rounded flex justify-center items-center">
-            <div className="absolute -top-1 -left-1 bg-white/10 text-white px-2 rounded-[2px] m-2 font-mono">
+            <div className="absolute -top-1 -left-1 bg-white/5 text-white px-2 rounded-[2px] m-2 font-mono">
               EARTH
             </div>
             <div style={{ perspective: 1000 }}>
-              <div className="relative w-36 h-36 rotate-45">
+              <div className="relative w-36 h-36 rotate-[66.6deg] ">
                 <motion.div
-                  className="absolute top-0 left-0 w-full h-full rounded-full border-[1px] border-dashed border-white/30"
+                  className="absolute top-0 left-0 w-full h-full rounded-full border-[2px] border-dashed border-white/30"
                   animate={{ rotate: 360 }}
                   transition={{
                     repeat: Infinity,
@@ -138,7 +138,7 @@ export default function Hero() {
                   }}
                 ></motion.div>
                 <motion.div
-                  className="absolute top-0 left-0 w-full h-full rounded-full border-[1px] border-dashed border-white/30"
+                  className="absolute top-0 left-0 w-full h-full rounded-full border-[2px] border-dashed border-white/30"
                   animate={{ rotateX: 360 }}
                   transition={{
                     repeat: Infinity,
