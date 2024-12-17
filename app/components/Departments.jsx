@@ -28,26 +28,7 @@ const Departments = () => {
         description:
           "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat, contributing valuable insights to various research objectives.",
       },
-      {
-        id: "section-3",
-        x: 45,
-        y: 25,
-        width: 20,
-        height: 50,
-        title: "Avionics",
-        description:
-          "Develops the electronic systems needed for flight control, including sensors, flight computers, and telemetry. The department uses microcontrollers to monitor flight data and control functions such as parachute deployment.",
-      },
-      {
-        id: "section-2",
-        x: 65,
-        y: 25,
-        width: 20,
-        height: 50,
-        title: "Propulsion",
-        description:
-          "Responsible for designing, developing, and testing solid rocket motors. This department handles fuel composition, nozzle design, and motor casings, ensuring the motor generates sufficient thrust and performs reliably during flight and static fire tests.",
-      },
+
       {
         id: "section-4",
         x: 40,
@@ -67,6 +48,26 @@ const Departments = () => {
         title: "Software",
         description:
           "Handles coding and software implementation for avionics and telemetry systems. They process real-time data, manage communication between the flight computer and ground stations, and ensure proper data storage and analysis.",
+      },
+      {
+        id: "section-3",
+        x: 45,
+        y: 25,
+        width: 20,
+        height: 50,
+        title: "Avionics",
+        description:
+          "Develops the electronic systems needed for flight control, including sensors, flight computers, and telemetry. The department uses microcontrollers to monitor flight data and control functions such as parachute deployment.",
+      },
+      {
+        id: "section-2",
+        x: 65,
+        y: 25,
+        width: 20,
+        height: 50,
+        title: "Propulsion",
+        description:
+          "Responsible for designing, developing, and testing solid rocket motors. This department handles fuel composition, nozzle design, and motor casings, ensuring the motor generates sufficient thrust and performs reliably during flight and static fire tests.",
       },
       {
         id: "section-7",
@@ -102,87 +103,178 @@ const Departments = () => {
   };
 
   return (
-    <div className="relative w-full text-black  p-24 flex justify-center items-center">
-      <div className="flex space-x-12">
-        <div className="grid grid-cols-1 gap-6 w-1/3">
-          {data.sections.slice(0, 4).map((section) => (
-            <motion.div
+    <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-y-2 border-white/20 border-dashed my-36">
+      <div className="flex w-full justify-center h-full">
+        <div className="grid grid-cols-1 w-1/3">
+          {data.sections.slice(0, 4).map((section, index) => (
+            <div
               key={section.id}
-              className="w-full bg-white/10 cursor-pointer p-8 text-white rounded-xl"
-              onHoverStart={() => handleMouseEnter(section)}
-              onHoverEnd={handleMouseLeave}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
+                index == 3 || index == 7 ? "" : "border-b"
+              }`}
+              onMouseEnter={() => handleMouseEnter(section)}
+              onMouseLeave={handleMouseLeave}
             >
-              <h3 className="text-lg text-center font-semibold mb-2">
-                {section.title}
-              </h3>
-              <p className="text-sm text-center">{section.description}</p>
-            </motion.div>
+              {/* Corner L Shapes */}
+              <div className="absolute inset-0 pointer-events-none">
+                <span
+                  className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+              </div>
+
+              {/* Content */}
+              <div className="m-12 absolute flex justify-center items-center w-full p-8">
+                <h3
+                  className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-0"
+                      : "opacity-100"
+                  }`}
+                >
+                  {section.title}
+                </h3>
+
+                <p
+                  className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                >
+                  {section.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="rocket bg-white/20 relative rounded-xl flex justify-center items-center w-1/3 overflow-hidden">
+
+        <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed">
           <GridPattern
-            width={30}
-            height={30}
+            width={50}
+            height={50}
             x={-1}
             y={-1}
             strokeDasharray="4 2"
           />
           <AnimatePresence>
-            {hoveredSection && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  top: `${hoveredSection.y}%`,
-                  left: `${hoveredSection.x}%`,
-                  width: `${hoveredSection.width}%`,
-                  height: `${hoveredSection.height}%`,
-                }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
-              />
-            )}
+            {hoveredSection &&
+              hoveredSection.width !== 0 &&
+              hoveredSection.height !== 0 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    top: `${hoveredSection.y}%`,
+                    left: `${hoveredSection.x}%`,
+                    width: `${hoveredSection.width}%`,
+                    height: `${hoveredSection.height}%`,
+                  }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
+                />
+              )}
           </AnimatePresence>
           <div className="relative w-full h-full flex justify-center items-center">
             <Image
-              src="/ignitex-insideview.png"
+              src="/models/rocket-model.png"
               alt="Description of image"
               layout="fill"
               objectFit="contain"
-              className="transform rotate-90"
+              className="transform invert -rotate-90 scale-110"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 w-1/3">
-          {data.sections.slice(4, 8).map((section) => (
-            <motion.div
+        <div className="grid grid-cols-1 w-1/3">
+          {data.sections.slice(4, 8).map((section, index) => (
+            <div
               key={section.id}
-              className="w-full bg-white/10 cursor-pointer p-8 text-white rounded-xl"
-              onHoverStart={() => handleMouseEnter(section)}
-              onHoverEnd={handleMouseLeave}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
+                index == 3 || index == 7 ? "" : "border-b"
+              }`}
+              onMouseEnter={() => handleMouseEnter(section)}
+              onMouseLeave={handleMouseLeave}
             >
-              <h3 className="text-lg text-center font-semibold mb-2">
-                {section.title}
-              </h3>
-              <p className="text-sm text-center">{section.description}</p>
-            </motion.div>
+              {/* Corner L Shapes */}
+              <div className="absolute inset-0 pointer-events-none">
+                <span
+                  className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                ></span>
+              </div>
+              <div className="m-12 absolute flex justify-center items-center w-full p-8">
+                <h3
+                  className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-0"
+                      : "opacity-100"
+                  }`}
+                >
+                  {section.title}
+                </h3>
+
+                <p
+                  className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
+                    hoveredSection?.id === section.id
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                >
+                  {section.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
