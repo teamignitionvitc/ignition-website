@@ -103,7 +103,7 @@ const Departments = () => {
   };
 
   return (
-    <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-y-2 border-white/20 border-dashed my-36">
+    <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-y-2 border-white/20 border-dashed">
       <div className="flex w-full justify-center h-full">
         <div className="grid grid-cols-1 w-1/3">
           {data.sections.slice(0, 4).map((section, index) => (

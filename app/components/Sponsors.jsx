@@ -30,32 +30,39 @@ const icons = {
 };
 
   return (
-    <div className="w-full flex flex-col rounded-b-2xl">
-      <div className="w-full text-left text-[100px] -mb-10">SPONSORS</div>
-      <div className="bg-white">
-        {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section) => {
+    <div className="w-full flex flex-col rounded-b-2xl -mt-12">
+      <div className="w-full text-left text-[150px] -mb-16">SPONSORS</div>
+      <div className="">
+        {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
           const Icon = icons[section];
+          const bgColors = ["bg-white", "bg-white/80", "bg-white/60"]; // Background shades
+          const textColors = ["text-black/60", "text-black/80", "text-black/90"]; // Text colors
+
           return (
             <div
               key={section}
-              className="group w-full relative flex items-center justify-center border-2 border-dashed border-black/20"
+              className={`${bgColors[index]} w-full flex items-center justify-between h-[6rem] pl-2 pr-10 overflow-hidden relative`}
             >
-              <Icon
-                className="absolute left-5 top-1/2 -translate-y-1/2 transition-transform group-hover:rotate-90 text-black"
-                size={24}
-              />
-              <p className="text-black font-bold text-[100px]">{section}</p>
-              <Icon
-                className="absolute right-5 top-1/2 -translate-y-1/2 transition-transform group-hover:rotate-90 text-black"
-                size={24}
-              />
+              <p
+                className={`${textColors[index]} font-bold text-[100px] -mb-[10.5px]`}
+              >
+                {section}
+              </p>
+              <span
+                className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans mr-[50px]`}
+              >
+                #
+                <span className={`text-[90px] font-bn absolute right-2 -mb-[10px]`}>
+                  {index + 1}
+                </span>
+              </span>
             </div>
           );
         })}
       </div>
 
       {/* Section 4 - Contact Form */}
-      <div className="w-full border-2 border-dashed border-black flex justify-center items-center mb-[500px]">
+      <div className="w-full border-2 border-dashed border-black flex justify-center items-center mb-[500px] bg-white">
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-4xl space-y-4 p-4 border border-black"

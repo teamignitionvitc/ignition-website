@@ -67,8 +67,8 @@ const StackedScroll = () => {
   }px)`;
 
   return (
-    <div className="relative w-full mb-56" style={{ height: totalHeight }}>
-      <div className="w-full text-right text-[100px] -mb-10">PROJECTS</div>
+    <div className="relative w-full" style={{ height: totalHeight }}>
+      <div className="w-full text-right text-[150px] -mb-16">PROJECTS</div>
       {sections.map((section, index) => {
         const topOffset = index * heightReduction;
 

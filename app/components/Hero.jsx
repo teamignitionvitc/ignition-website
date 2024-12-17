@@ -83,9 +83,9 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
         variants={fadeVariants}
-        className="absolute left-10 top-[8rem] h-full text-[150px] font-semibold font-bn"
+        className="absolute left-10 top-[8rem] h-full text-[20vh] font-semibold font-bn"
       >
-        <p className="-mb-20 text-[#b3b3b3]">TEAM</p>
+        <p className="-mb-[13vh] text-[#b3b3b3]">TEAM</p>
         <p className="">IGNITION</p>
       </motion.div>
 
@@ -118,7 +118,7 @@ export default function Hero() {
       >
         <div className="grid grid-cols-2 gap-2">
           <div className="relative bg-white/5 rounded flex justify-center items-center">
-            <div className="absolute -top-1 -left-1 bg-white/5 text-white px-2 rounded-[2px] m-2 font-mono">
+            <div className="absolute -top-1 -left-1 bg-white/5 text-white px-2 rounded-[2px] m-2 font-bn">
               EARTH
             </div>
             <div style={{ perspective: 1000 }}>
