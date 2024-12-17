@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GridPattern from "../../components/ui/grid";
 import { MousePointer2Icon } from "lucide-react";
+import DotPattern from "@/components/ui/dot";
 
 const Footer = ({ className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -9,7 +10,8 @@ const Footer = ({ className = "" }) => {
     <div
       className={`relative p-4 pb-0 w-full overflow-hidden bg-white text-black ${className}`}
     >
-      <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray="4 2" />
+      {/* <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" /> */}
+      <DotPattern width={20} height={20} cx={1} cy={1} cr={1} />
       <div
         className={`absolute inset-0 flex items-center justify-center
           opacity-0
@@ -57,16 +59,16 @@ const Footer = ({ className = "" }) => {
           <div className="flex">
             <div className="mr-6 pt-2">LINKS</div>
             <div className="overflow-hidden">
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-white hover:text-black">
                 Instagram
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black">
                 Facebook
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black">
                 Twitter
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white w-44 h-[46.9px] text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-white hover:text-black">
                 LinkedIn
               </div>
             </div>
@@ -75,16 +77,16 @@ const Footer = ({ className = "" }) => {
           <div className="flex">
             <div className="mr-6 pt-2">RESOURCES</div>
             <div className="overflow-hidden">
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-white hover:text-black">
                 Blog
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black">
                 FAQs
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white border-b-2 border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black">
                 Support
               </div>
-              <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
+              <div className="bg-[#b8b8b8] text-white w-44 h-[46.9px] text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-white hover:text-black">
                 Contact
               </div>
             </div>
