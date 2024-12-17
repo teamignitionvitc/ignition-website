@@ -89,7 +89,7 @@ export default function Home() {
         <About />
         <ProjectsTwo />
         {/* <Projects /> */}
-        {/* <Departments id="departments" /> */}
+        <Departments />
         <Sponsors />
       </div>
       <Footer className="sticky bottom-0 left-0 right-0" />

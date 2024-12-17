@@ -108,7 +108,7 @@ const Departments = () => {
           {data.sections.slice(0, 4).map((section) => (
             <motion.div
               key={section.id}
-              className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
+              className="w-full bg-white/10 cursor-pointer p-8 text-white rounded-xl"
               onHoverStart={() => handleMouseEnter(section)}
               onHoverEnd={handleMouseLeave}
               initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ const Departments = () => {
           {data.sections.slice(4, 8).map((section) => (
             <motion.div
               key={section.id}
-              className="w-full bg-white/10 backdrop-blur-sm cursor-pointer p-8 text-white rounded-xl"
+              className="w-full bg-white/10 cursor-pointer p-8 text-white rounded-xl"
               onHoverStart={() => handleMouseEnter(section)}
               onHoverEnd={handleMouseLeave}
               initial={{ opacity: 0, y: 20 }}
