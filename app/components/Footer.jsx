@@ -57,18 +57,26 @@ const Footer = ({ className = "" }) => {
           <div className="flex">
             <div className="mr-6 pt-2">LINKS</div>
             <div className="overflow-hidden">
+            <a href="https://www.instagram.com/ignition_vitc" target="_blank">
               <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
                 Instagram
               </div>
+            </a>
+            <a href="https://youtube.com/@ignitiontechnologies?si=dvUQgRFw5WiiltoL" target="_blank">
               <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
-                Facebook
+                YouTube
               </div>
+            </a>
+            <a href="https://x.com/ignitiontech23" target="_blank">
               <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
                 Twitter
               </div>
+            </a>
+            <a href="https://in.linkedin.com/company/ignition-technologies" target="_blank">
               <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
                 LinkedIn
               </div>
+            </a>
             </div>
           </div>
 
@@ -100,15 +108,32 @@ const Footer = ({ className = "" }) => {
         <h3 className="text-xl font-bold">Contact Info</h3>
         <div className="mt-4">
           <div className="font-semibold">Phone:</div>
-          <div>+91 919191919191</div>
+          <div>Captain: Easwara Gokulan R A <br></br>
+          Phone no: 9344597660</div>
+          <div>General Manager: Kishaunjith S <br></br>
+          Phone no: 9176506408</div>
+
         </div>
         <div className="mt-2">
           <div className="font-semibold">Email:</div>
-          <div>contact@teamignition.com</div>
+          <a href="teamignition@vit.ac.in">teamignition@vit.ac.in</a>
         </div>
         <div className="mt-2">
           <div className="font-semibold">Address:</div>
-          <div>Pineapple Pizza St, VIT Chennai, India</div>
+          <div className="w-auto">
+          
+            Team Ignition Garage,
+            AB-2 Basement 006,
+            <br></br>
+            Vellore Institute of Technology University,
+            Vandalur-Kelambakkam Road,
+            <br></br>
+            Keelakotaiyur,
+            Chennai, Tamil Nadu – 600 127
+          
+          </div>
+
+          
         </div>
       </div>
 
