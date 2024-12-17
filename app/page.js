@@ -86,7 +86,6 @@ export default function Home() {
         />
         <Hero />
         <TagLine />
-
         <About />
         <ProjectsTwo />
         {/* <Projects /> */}

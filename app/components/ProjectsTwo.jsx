@@ -4,8 +4,8 @@ const StackedScroll = () => {
   const sections = [
     {
       id: 1,
-      color: "bg-red-500",
-      heading: "Section 1 Heading",
+      heading: "Poseidon",
+      date: "12/06/2023",
       image: "https://via.placeholder.com/150",
       description: "This is the description for section 1.",
       status: "Completed",
@@ -13,8 +13,8 @@ const StackedScroll = () => {
     },
     {
       id: 2,
-      color: "bg-green-500",
-      heading: "Section 2 Heading",
+      heading: "Jericho",
+      date: "06/08/2023",
       image: "https://via.placeholder.com/150",
       description: "This is the description for section 2.",
       status: "In Progress",
@@ -22,8 +22,8 @@ const StackedScroll = () => {
     },
     {
       id: 3,
-      color: "bg-blue-500",
-      heading: "Section 3 Heading",
+      heading: "Pioneer",
+      date: "31/10/2023",
       image: "https://via.placeholder.com/150",
       description: "This is the description for section 3.",
       status: "Pending",
@@ -36,8 +36,8 @@ const StackedScroll = () => {
     },
     {
       id: 4,
-      color: "bg-yellow-500",
-      heading: "Section 4 Heading",
+      heading: "IgniteX",
+      date: "24/12/2024",
       image: "https://via.placeholder.com/150",
       description: "This is the description for section 4.",
       status: "Completed",
@@ -58,18 +58,34 @@ const StackedScroll = () => {
         return (
           <div
             key={section.id}
-            className={`sticky ${section.color} flex items-start w-full p-2`}
+            className={`sticky flex items-start w-full bg-black border-t-2 border-dashed rounded-t-xl border-white/20 overflow-hidden`}
             style={{
               top: `${topOffset + 80}px`,
               height: `calc(100vh - ${index * heightReduction + 80}px)`,
               zIndex: index + 1,
             }}
           >
-            <div className="w-full mb-4 lg:mb-0 lg:w-1/4">
-              <h2 className="text-2xl font-bold mb-2">{section.heading}</h2>
+            <div className="w-full mb-4 lg:mb-0 lg:w-1/3">
+              <div className="text-2xl font-bold font-bn text-[30px] my-[25px] ml-10 flex justify-center items-center ">{section.date}
+                <div className="h-[1px] bg-white/40 w-full mx-6" />
+              </div>
+              <div className="w-full ml-8 lg:w-2/4">
+                <p className="mb-4">{section.description}</p>
+                <p className="mb-2">
+                  <strong>Status:</strong> {section.status}
+                </p>
+                <div>
+                  <strong>Key Achievements:</strong>
+                  <ul className="list-disc list-inside">
+                    {section.achievements.map((achievement, idx) => (
+                      <li key={idx}>{achievement}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="bg-white rounded shadow-md w-full h-full flex flex-col">
-              <div className="text-black text-[50px]">{section.heading}</div>
+            <div className="w-full h-full flex flex-col text-white">
+              <div className="text-white text-[55px]">{section.heading}</div>
 
               <div className="flex">
                 <div className="w-full mb-4 lg:mb-0 lg:w-1/4">

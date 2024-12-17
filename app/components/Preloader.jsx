@@ -247,7 +247,7 @@ const Preloader = ({
               backgroundColor: animationStep >= 2 ? "#ffffff" : "#ffffff20",
             }}
             transition={{
-              duration: 0.3,
+              duration: 0.5,
               delay: index % 2 === 0 ? 0.5 : 0.0,
             }}
           />

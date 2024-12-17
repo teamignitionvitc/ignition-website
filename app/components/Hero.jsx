@@ -83,7 +83,7 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
         variants={fadeVariants}
-        className="absolute left-10 top-[8rem] h-full text-[125px] font-semibold font-bn"
+        className="absolute left-10 top-[8rem] h-full text-[150px] font-semibold font-bn"
       >
         <p className="-mb-20 text-[#b3b3b3]">TEAM</p>
         <p className="">IGNITION</p>
