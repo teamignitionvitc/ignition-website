@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Box, Compass, Gauge, Ruler } from "lucide-react";
+import RotatingSphere from "@/components/ui/globe";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -123,7 +124,7 @@ export default function Hero() {
             </div>
             <div style={{ perspective: 1000 }}>
               <div className="relative w-36 h-36 rotate-[66.6deg] ">
-                <motion.div
+                {/* <motion.div
                   className="absolute top-0 left-0 w-full h-full rounded-full border-[2px] border-dashed border-white/30"
                   animate={{ rotate: 360 }}
                   transition={{
@@ -146,7 +147,9 @@ export default function Hero() {
                   style={{
                     transformOrigin: "center",
                   }}
-                ></motion.div>
+                ></motion.div> */}
+              
+              <RotatingSphere />
               </div>
             </div>
           </div>

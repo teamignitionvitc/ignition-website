@@ -1,3 +1,4 @@
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import React, { useState } from "react";
 
 const Footer = () => {
@@ -19,23 +20,23 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full flex flex-col rounded-b-2xl -mt-12">
+    <div className="w-full flex flex-col rounded-b-2xl mt-24">
       <div className="w-full text-left text-[150px] -mb-16">SPONSORS</div>
       <div className="">
         {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
-          // const bgColors = ["bg-white", "bg-white/80", "bg-white/60"]; // Background shades
-          // const textColors = [
-          //   "text-black/60",
-          //   "text-black/80",
-          //   "text-black/90",
-          // ]; // Text colors
-
-          const bgColors = ["bg-white/50", "bg-white/30", "bg-white/10"];
+          const bgColors = ["bg-white", "bg-white/80", "bg-white/60"]; // Background shades
           const textColors = [
-            "text-white/60",
-            "text-white/80",
-            "text-white/90",
-          ];
+            "text-black/60",
+            "text-black/80",
+            "text-black/90",
+          ]; // Text colors
+
+          // const bgColors = ["bg-white/50", "bg-white/30", "bg-white/10"];
+          // const textColors = [
+          //   "text-white/60",
+          //   "text-white/80",
+          //   "text-white/90",
+          // ];
 
           return (
             <div
@@ -65,23 +66,26 @@ const Footer = () => {
       {/* Section 4 - Contact Form */}
       <div className="w-full p-2 flex justify-center items-center mb-[500px]">
         <div className="flex flex-col items-center w-full pl-2 pr-10 overflow-hidden relative">
-          <h3 className="text-[150px] font-bold w-ful text-centerl">BE OUR NEXT?</h3>
-          <button
+          <h3 className="text-[150px] font-bold w-ful text-centerl">
+            BE OUR NEXT?
+          </h3>
+          <RainbowButton
             onClick={() => setIsModalOpen(true)}
-            className="p-3 bg-white text-black font-semibold hover:bg-gray-700 rounded-lg font-bn"
-          >
-            Sponsor
-          </button>
+            className="font-semibold text-black rounded-lg font-bn"
+            children={"Become a Sponsor"}
+          />
 
           {isModalOpen && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-              <div className="bg-white p-6 rounded-lg shadow-lg w-1/2">
-                <h3 className="text-2xl font-bold mb-4">Sponsor Form</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-95 z-50">
+              <div className="bg-gray-900 p-8 rounded-lg shadow-2xl w-1/2">
+                <h3 className="text-3xl font-bold text-white mb-6">
+                  Sponsor Form
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-lg font-semibold"
+                      className="block text-lg font-semibold text-gray-300"
                     >
                       Name:
                     </label>
@@ -92,13 +96,13 @@ const Footer = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-2 border border-black"
+                      className="w-full p-3 bg-gray-800 border border-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-lg font-semibold"
+                      className="block text-lg font-semibold text-gray-300"
                     >
                       Email:
                     </label>
@@ -109,13 +113,13 @@ const Footer = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-2 border border-black"
+                      className="w-full p-3 bg-gray-800 border border-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-lg font-semibold"
+                      className="block text-lg font-semibold text-gray-300"
                     >
                       Message:
                     </label>
@@ -125,20 +129,20 @@ const Footer = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-2 border border-black"
+                      className="w-full p-3 bg-gray-800 border border-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
                     />
                   </div>
                   <div className="flex justify-end space-x-4">
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(false)}
-                      className="p-2 bg-gray-300 font-semibold hover:bg-gray-400"
+                      className="p-3 bg-gray-700 text-gray-300 font-semibold rounded hover:bg-gray-600"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="p-2 bg-black text-white font-semibold hover:bg-gray-700"
+                      className="p-3 bg-gray-800 text-white font-semibold rounded hover:bg-gray-700"
                     >
                       Send
                     </button>
@@ -149,7 +153,7 @@ const Footer = () => {
           )}
         </div>
       </div>
-      <div className="absolute bottom-0 w-full h-auto flex items-center justify-center overflow-hidden">
+      <div className="absolute bottom-0 w-full h-auto flex items-center justify-center overflow-hidden rounded-b-2xl">
         <div className="w-fit left-0 right-0 text-[23vw] -mr-[0.5vw] -mb-[4.7vw] leading-none text-white/30 text-center text-nowrap">
           <span className="text-white/20">TEAM</span> IGNITION
         </div>

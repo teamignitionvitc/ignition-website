@@ -77,7 +77,7 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl   z-10 rounded-b-2xl">
+      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-[0px_4px_20px_rgba(0,0,0,0.5)]   z-10 rounded-b-2xl">
         {/* <Background /> */}
         <Particles
           className="absolute inset-0 w-full h-screen"
