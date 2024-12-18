@@ -6,10 +6,13 @@ const StackedScroll = () => {
       id: 1,
       heading: "Poseidon",
       date: "12/06/2023",
-      image: "https://via.placeholder.com/150",
-      description: "This is the description for section 1.",
+      image: "/poseidon.png",
+      description:
+        "Poseidon, our inaugural build for the Technoxian Water Rocket Challenge, marked Ignition's entry into competitive rocketry. It provided key insights into aerodynamics and design, fueling progress for future projects.",
       status: "Completed",
-      achievements: ["Achievement 1.1", "Achievement 1.2", "Achievement 1.3"],
+      achievements: [
+        "Achieved a top 10 finish at the Technoxian World Cup, setting a strong foundation for Ignition's competitive journey.",
+      ],
       distance: "400 km",
       apogee: "150 km",
       thrust: "1,500 kN",
@@ -19,10 +22,13 @@ const StackedScroll = () => {
       id: 2,
       heading: "Jericho",
       date: "06/08/2023",
-      image: "https://via.placeholder.com/150",
-      description: "This is the description for section 2.",
-      status: "In Progress",
-      achievements: ["Achievement 2.1", "Achievement 2.2"],
+      image: "/jericho.png",
+      description:
+        "Jericho introduced Ignition to solid-fuel rocketry, expanding our knowledge of rocket mechanics and system integration. This project deepened our expertise and prepared us for more advanced builds.",
+      status: "Discontinued",
+      achievements: [
+        "Provided foundational experience in solid-fuel rocketry, significantly enhancing our technical understanding despite technical challenges.",
+      ],
       distance: "350 km",
       apogee: "120 km",
       thrust: "1,200 kN",
@@ -32,14 +38,12 @@ const StackedScroll = () => {
       id: 3,
       heading: "Pioneer",
       date: "31/10/2023",
-      image: "https://via.placeholder.com/150",
-      description: "This is the description for section 3.",
-      status: "Pending",
+      image: "/pioneer.png",
+      description:
+        "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions.",
+      status: "Ongoing",
       achievements: [
-        "Achievement 3.1",
-        "Achievement 3.2",
-        "Achievement 3.3",
-        "Achievement 3.4",
+        "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
       distance: "300 km",
       apogee: "100 km",
@@ -50,10 +54,13 @@ const StackedScroll = () => {
       id: 4,
       heading: "IgniteX",
       date: "24/12/2024",
-      image: "https://via.placeholder.com/150",
-      description: "This is the description for section 4.",
-      status: "Completed",
-      achievements: ["Achievement 4.1"],
+      image: "/ignitexx.png",
+      description:
+        "IgniteX is our entry for the InSpace competition, featuring innovative recovery systems and a deployable CANSAT at 1 km. This project showcases our advancements in design, creativity, and engineering.",
+      status: "Ongoing",
+      achievements: [
+        "This is our first entry in an Indian competition, with the launch set for March 2025, highlighting our commitment to pushing the boundaries of rocketry and CANSAT deployment technology.",
+      ],
       distance: "500 km",
       apogee: "180 km",
       thrust: "1,800 kN",
@@ -82,16 +89,13 @@ const StackedScroll = () => {
               zIndex: index + 1,
             }}
           >
-            <div className="w-full mb-4 lg:mb-0 lg:w-1/3">
-              <div className="text-2xl font-bold font-bn text-[30px] my-[25px] ml-10 flex justify-center items-center">
+            <div className="w-full mb-4 lg:mb-0 lg:w-1/3  font-bn">
+              <div className="text-2xl font-bold text-[30px] my-[25px] ml-10 flex justify-center items-center">
                 {section.date}
                 <div className="h-[1px] bg-white/40 w-full mx-6" />
               </div>
-              <div className="w-full ml-8 lg:w-2/4">
-                <p className="mb-4">{section.description}</p>
-                <p className="mb-2">
-                  <strong>Status:</strong> {section.status}
-                </p>
+              <div className="w-full ml-8 lg:w-3/4">
+                <p className="mb-4 w-full">{section.description}</p>
                 <div>
                   <strong>Key Achievements:</strong>
                   <ul className="list-disc list-inside">
@@ -105,40 +109,34 @@ const StackedScroll = () => {
             <div className="w-full h-full flex flex-col text-white">
               <div className="text-white text-[55px]">{section.heading}</div>
               <div className="flex">
-                <div className="w-full mb-4 lg:mb-0 lg:w-1/4">
+                <div className="w-full mb-4 lg:mb-0 lg:w-3/4 -mt-10">
                   <img
                     src={section.image}
                     alt={`Section ${section.id} Image`}
-                    className="rounded h-full w-full"
+                    className="h-full w-full -rotate-90 object-cover filter grayscale"
                   />
                 </div>
-                <div className="w-full ml-8 lg:w-2/4">
-                  <p className="mb-4">{section.description}</p>
-                  <p className="mb-2">
+                <div className="w-full ml-8 lg:w-2/4 flex flex-col justify-center items-center  pr-6 rounded-lg border border-white/20 border-dashed">
+                  <div className="w-full bg-white/20 text-white text-center py-4 rounded-t-lg">
                     <strong>Status:</strong> {section.status}
-                  </p>
-                  <div>
-                    <strong>Key Achievements:</strong>
-                    <ul className="list-disc list-inside">
-                      {section.achievements.map((achievement, idx) => (
-                        <li key={idx}>{achievement}</li>
-                      ))}
-                    </ul>
                   </div>
-                  <div className="mt-4">
-                    <p>
+                  <div className="grid grid-cols-2 gap-4 mt-4 w-full h-full">
+                    <div className="flex justify-center items-center bg-white/20 rounded-md">
                       <strong>Distance:</strong> {section.distance}
-                    </p>
-                    <p>
+                    </div>
+                    <div className="flex justify-center items-center bg-white/20 rounded-md">
                       <strong>Apogee:</strong> {section.apogee}
-                    </p>
-                    <p>
+                    </div>
+                    <div className="flex justify-center items-center bg-white/20 rounded-md">
                       <strong>Thrust:</strong> {section.thrust}
-                    </p>
-                    <p>
+                    </div>
+                    <div className="flex justify-center items-center bg-white/20 rounded-md">
                       <strong>Weight:</strong> {section.weight}
-                    </p>
+                    </div>
                   </div>
+                  <button className="bg-white/20 text-white w-full mt-4 py-3 rounded-b-lg hover:bg-gray-700">
+                    Learn More
+                  </button>
                 </div>
               </div>
             </div>

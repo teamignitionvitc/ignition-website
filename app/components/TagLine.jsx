@@ -24,6 +24,7 @@ const TagLine = () => {
       <div className="relative z-10">
         <BlurIn
           word="Fueling Innovation, Reaching New Heights in Rocketry."
+          duration="0.5"
           className="text-[30px]"
         />
       </div>

@@ -10,9 +10,9 @@ const Departments = () => {
     sections: [
       {
         id: "section-1",
-        x: 10,
+        x: 35,
         y: 5,
-        width: 80,
+        width: 30,
         height: 90,
         title: "Airframe and Structures",
         description:
@@ -20,10 +20,10 @@ const Departments = () => {
       },
       {
         id: "section-6",
-        x: 22,
-        y: 25,
+        x: 40,
+        y: 8,
         width: 20,
-        height: 50,
+        height: 20,
         title: "Payload",
         description:
           "This department designs CANSATs for scientific research, integrating sensors that collect data during flight. They ensure successful deployment and recovery of cansat, contributing valuable insights to various research objectives.",
@@ -51,20 +51,20 @@ const Departments = () => {
       },
       {
         id: "section-3",
-        x: 45,
-        y: 25,
+        x: 40,
+        y: 40,
         width: 20,
-        height: 50,
+        height: 30,
         title: "Avionics",
         description:
           "Develops the electronic systems needed for flight control, including sensors, flight computers, and telemetry. The department uses microcontrollers to monitor flight data and control functions such as parachute deployment.",
       },
       {
         id: "section-2",
-        x: 65,
-        y: 25,
-        width: 20,
-        height: 50,
+        x: 37.5,
+        y: 70,
+        width: 25,
+        height: 20,
         title: "Propulsion",
         description:
           "Responsible for designing, developing, and testing solid rocket motors. This department handles fuel composition, nozzle design, and motor casings, ensuring the motor generates sufficient thrust and performs reliably during flight and static fire tests.",
