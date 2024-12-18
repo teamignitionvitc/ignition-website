@@ -1,9 +1,32 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="fixed top-0 left-0 right-0 flex justify-between p-4 px-8 backdrop-blur-sm bg-black/50 text-white z-50">
+    <div
+      className={`fixed top-0 left-0 right-0 flex justify-between p-4 px-8 bg-black/50 text-white z-50 transition-opacity duration-300 ${
+        isVisible ? "backdrop-blur-sm" : ""
+      }`}
+    >
       <div className="flex items-center space-x-4">
         {/* <Image
           src="/logo/indian-flag.png"

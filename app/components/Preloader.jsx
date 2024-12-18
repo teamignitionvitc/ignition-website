@@ -214,11 +214,18 @@ const Preloader = ({
               transform: `translate(${pos.x}px, ${pos.y}px)`,
               zIndex: 30,
             }}
-            initial={{ backgroundColor: "#ffffff20" }}
+            initial={{
+              backgroundColor: "#ffffff20",
+              boxShadow: "0 0 0px 0px rgba(255, 255, 255, 0)",
+            }}
             animate={{
               backgroundColor: animationStep >= 1 ? "#ffffff" : "#ffffff20",
+              boxShadow: "0 0 20px 1px rgba(255, 255, 255, 0.5)"
             }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            transition={{
+              backgroundColor: { duration: 0.3, delay: 0.1 },
+              boxShadow: { duration: 1, delay: 1.5 },
+            }}
           />
         ))}
         {outerPositions.map((pos, index) => (
@@ -240,8 +247,8 @@ const Preloader = ({
               backgroundColor: animationStep >= 2 ? "#ffffff" : "#ffffff20",
             }}
             transition={{
-              duration: 0.3,
-              delay: index % 2 === 0 ? 0.4 : 0.0,
+              duration: 0.5,
+              delay: index % 2 === 0 ? 0.5 : 0.0,
             }}
           />
         ))}
