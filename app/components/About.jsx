@@ -9,13 +9,13 @@ const fadeInVariants = {
 const About = () => {
   return (
     <div id="about" className="bg-white flex flex-col font-semibold text-3xl text-black h-[170vh] relative border-black/20 border-t-[1.5px] border-dashed">
-      <motion.div
+      <div
         className="w-1/2 h-screen sticky top-0 p-16 pt-32 border-r-[1.5px] border-dashed border-black/20"
-        variants={fadeInVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        // variants={fadeInVariants}
+        // initial="hidden"
+        // whileInView="visible"
+        // viewport={{ once: true, amount: 0.3 }}
+        // transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="text-[75px] mb-4">About</div>
         <div className="font-bn">
@@ -24,23 +24,23 @@ const About = () => {
           interdisciplinary teamwork. We are committed to expanding our
           knowledge and pushing the limits of space technology.
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
+      <div
         className="w-full flex justify-end h-[70vh]"
-        variants={fadeInVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
+        // variants={fadeInVariants}
+        // initial="hidden"
+        // whileInView="visible"
+        // viewport={{ once: true, amount: 0.3 }}
+        // transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
       >
-        <motion.div
+        <div
           className="w-1/2 text-right p-16 mt-auto"
-          variants={fadeInVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
+          // variants={fadeInVariants}
+          // initial="hidden"
+          // whileInView="visible"
+          // viewport={{ once: true, amount: 0.3 }}
+          // transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
         >
           <div className="text-[75px] mb-4">Ideology</div>
           <div className="font-bn">
@@ -49,8 +49,8 @@ const About = () => {
             learn from mistakes, and push the boundaries of what is possible
             defines the team's work culture and ethos.
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
