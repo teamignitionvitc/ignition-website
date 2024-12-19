@@ -103,179 +103,211 @@ const Departments = () => {
   };
 
   return (
-    <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-y-2 border-white/20 border-dashed">
-      <div className="flex w-full justify-center h-full">
-        <div className="grid grid-cols-1 w-1/3">
-          {data.sections.slice(0, 4).map((section, index) => (
-            <div
-              key={section.id}
-              className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
-                index == 3 || index == 7 ? "" : "border-b"
-              }`}
-              onMouseEnter={() => handleMouseEnter(section)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Corner L Shapes */}
-              <div className="absolute inset-0 pointer-events-none">
-                <span
-                  className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
+    <div id="departments" className="w-full z-30">
+      <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-t-2 border-white/20 border-dashed">
+        <div className="flex w-full justify-center h-full">
+          <div className="grid grid-cols-1 w-1/3">
+            {data.sections.slice(0, 4).map((section, index) => (
+              <div
+                key={section.id}
+                className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
+                  index == 3 || index == 7 ? "" : "border-b"
+                }`}
+                onMouseEnter={() => handleMouseEnter(section)}
+                onMouseLeave={handleMouseLeave}
+              >
+                {/* Corner L Shapes */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <span
+                    className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                </div>
+
+                {/* Content */}
+                <div className="m-12 absolute flex justify-center items-center w-full p-8">
+                  <h3
+                    className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-0"
+                        : "opacity-100"
+                    }`}
+                  >
+                    {section.title}
+                  </h3>
+
+                  <p
+                    className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  >
+                    {section.description}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Content */}
-              <div className="m-12 absolute flex justify-center items-center w-full p-8">
-                <h3
-                  className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-0"
-                      : "opacity-100"
-                  }`}
-                >
-                  {section.title}
-                </h3>
-
-                <p
-                  className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                >
-                  {section.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed">
-          <GridPattern
-            width={50}
-            height={50}
-            x={-1}
-            y={-1}
-            strokeDasharray="4 2"
-          />
-          <AnimatePresence>
-            {hoveredSection &&
-              hoveredSection.width !== 0 &&
-              hoveredSection.height !== 0 && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                    top: `${hoveredSection.y}%`,
-                    left: `${hoveredSection.x}%`,
-                    width: `${hoveredSection.width}%`,
-                    height: `${hoveredSection.height}%`,
-                  }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
-                />
-              )}
-          </AnimatePresence>
-          <div className="relative w-full h-full flex justify-center items-center">
-            <Image
-              src="/models/rocket-model.png"
-              alt="Description of image"
-              layout="fill"
-              objectFit="contain"
-              className="transform invert -rotate-90 scale-110"
+          <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed">
+            <GridPattern
+              width={50}
+              height={50}
+              x={-1}
+              y={-1}
+              strokeDasharray="4 2"
             />
+            <AnimatePresence>
+              {hoveredSection &&
+                hoveredSection.width !== 0 &&
+                hoveredSection.height !== 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      top: `${hoveredSection.y}%`,
+                      left: `${hoveredSection.x}%`,
+                      width: `${hoveredSection.width}%`,
+                      height: `${hoveredSection.height}%`,
+                    }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="absolute bg-white/20 border-2 border-white rounded-xl z-10"
+                  />
+                )}
+            </AnimatePresence>
+            <div className="relative w-full h-full flex justify-center items-center">
+              <Image
+                src="/models/rocket-model.png"
+                alt="Description of image"
+                layout="fill"
+                objectFit="contain"
+                className="transform invert -rotate-90 scale-110"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 w-1/3">
+            {data.sections.slice(4, 8).map((section, index) => (
+              <div
+                key={section.id}
+                className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
+                  index == 3 || index == 7 ? "" : "border-b"
+                }`}
+                onMouseEnter={() => handleMouseEnter(section)}
+                onMouseLeave={handleMouseLeave}
+              >
+                {/* Corner L Shapes */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <span
+                    className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  ></span>
+                </div>
+                <div className="m-12 absolute flex justify-center items-center w-full p-8">
+                  <h3
+                    className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-0"
+                        : "opacity-100"
+                    }`}
+                  >
+                    {section.title}
+                  </h3>
+
+                  <p
+                    className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
+                      hoveredSection?.id === section.id
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  >
+                    {section.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-
-        <div className="grid grid-cols-1 w-1/3">
-          {data.sections.slice(4, 8).map((section, index) => (
-            <div
-              key={section.id}
-              className={`relative w-full bg-black hover:bg-white text-white hover:text-black cursor-pointer p-8 overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center border-white/20 border-dashed ${
-                index == 3 || index == 7 ? "" : "border-b"
-              }`}
-              onMouseEnter={() => handleMouseEnter(section)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Corner L Shapes */}
-              <div className="absolute inset-0 pointer-events-none">
-                <span
-                  className={`absolute top-1 left-1 w-8 h-8 border-t-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute top-1 right-1 w-8 h-8 border-t-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute bottom-1 left-1 w-8 h-8 border-b-2 border-l-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute bottom-1 right-1 w-8 h-8 border-b-2 border-r-2 border-black/50 transition-all duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                ></span>
-              </div>
-              <div className="m-12 absolute flex justify-center items-center w-full p-8">
-                <h3
-                  className={`text-lg font-semibold transition-opacity duration-300 ease-in-out ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-0"
-                      : "opacity-100"
-                  }`}
-                >
-                  {section.title}
-                </h3>
-
-                <p
-                  className={`font-bn text-sm absolute opacity-0 transition-opacity duration-300 ease-in-out m-16 ${
-                    hoveredSection?.id === section.id
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
-                >
-                  {section.description}
-                </p>
-              </div>
+      </div>
+      <div className="bg-red-600 text-white text-end text-[150px] p-2">
+        <div className="border-2 border-black border-dashed w-full h-full flex justify-between">
+          <div className="flex justify-center items-center border-r-[2px] border-black border-dashed w-36 text-transparent relative">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none ">
+              <line
+                x1="0"
+                y1="0"
+                x2="100%"
+                y2="100%"
+                className="stroke-black"
+                strokeWidth="1"
+                style={{ strokeDasharray: "4, 2" }}
+              />
+              <line
+                x1="0"
+                y1="100%"
+                x2="100%"
+                y2="0"
+                className="stroke-black"
+                strokeWidth="1"
+                style={{ strokeDasharray: "4, 2" }}
+              />
+            </svg>
+            <div className="w-14 h-14 rounded-full border-[2px] border-black border-dashed flex justify-center items-center p-[4px] bg-red-800 z-50">
+              <div className="rounded-full bg-black w-full h-full"></div>
             </div>
-          ))}
+          </div>
+          <div className="-mb-[58px] -mt-[43px] m-2">REMOVE BEFORE FLIGHT</div>
         </div>
       </div>
     </div>

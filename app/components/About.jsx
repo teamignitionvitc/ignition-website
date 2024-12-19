@@ -8,9 +8,9 @@ const fadeInVariants = {
 
 const About = () => {
   return (
-    <div className="flex flex-col font-semibold text-3xl text-white p-16 space-y-36 mt-56">
+    <div id="about" className="bg-white flex flex-col font-semibold text-3xl text-black h-[170vh] relative border-black/20 border-t-[1.5px] border-dashed">
       <motion.div
-        className="w-1/2"
+        className="w-1/2 h-screen sticky top-0 p-16 pt-32 border-r-[1.5px] border-dashed border-black/20"
         variants={fadeInVariants}
         initial="hidden"
         whileInView="visible"
@@ -27,7 +27,7 @@ const About = () => {
       </motion.div>
 
       <motion.div
-        className="w-full flex justify-end"
+        className="w-full flex justify-end h-[70vh]"
         variants={fadeInVariants}
         initial="hidden"
         whileInView="visible"
@@ -35,7 +35,7 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
       >
         <motion.div
-          className="w-1/2 text-right"
+          className="w-1/2 text-right p-16 mt-auto"
           variants={fadeInVariants}
           initial="hidden"
           whileInView="visible"
