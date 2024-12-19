@@ -74,15 +74,17 @@ const StackedScroll = () => {
   }px)`;
 
   return (
-    <div className="relative w-full" style={{ height: totalHeight }}>
-      <div className="w-full text-right text-[150px] -mb-16">PROJECTS</div>
+    <div id="projects" className="relative w-full" style={{ height: totalHeight }}>
+      <div className="w-full text-right text-[150px] -mb-16 -mt-12 p-2">
+        PROJECTS
+      </div>
       {sections.map((section, index) => {
         const topOffset = index * heightReduction;
 
         return (
           <div
             key={section.id}
-            className={`sticky flex items-start w-full bg-black border-t-2 border-dashed rounded-t-xl border-white/20 overflow-hidden`}
+            className={`sticky flex items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden`}
             style={{
               top: `${topOffset + 80}px`,
               height: `calc(100vh - ${index * heightReduction + 80}px)`,

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Box, Compass, Gauge, Ruler } from "lucide-react";
 import RotatingSphere from "@/components/ui/globe";
+import TagLine from "./TagLine";
+import Particles from "@/components/ui/particles";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -57,74 +59,80 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative h-screen text-white w-full">
-      <div className="absolute flex flex-col items-center w-full h-full">
-        <div className="absolute top-[8rem] right-[10rem] -mt-[10.258px] -mr-[6.4px] text-white">
-          &#10011;
+    <div className="relative h-[200vh] w-full">
+      <div className="h-screen text-white w-full sticky top-0">
+        <Particles
+          className="absolute inset-0 w-full h-screen"
+          quantity={500}
+          ease={100}
+        />
+        <div className="absolute flex flex-col items-center w-full h-full">
+          <div className="absolute top-[8rem] right-[10rem] -mt-[10.258px] -mr-[6.4px] text-white">
+            &#10011;
+          </div>
+          {/* Vertical Line */}
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "100%" }}
+            transition={{ duration: 0.75, delay: 4.5 }}
+            className="absolute top-0 right-[10rem] w-[1px] bg-white/20"
+          />
+          {/* Horizontal Line */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 0.75, delay: 4.5 }}
+            className="absolute top-[8rem] right-0 h-[1px] bg-white/20"
+          />
         </div>
-        {/* Vertical Line */}
+
+        {/* <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div> */}
+
         <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "100%" }}
-          transition={{ duration: 0.75, delay: 4.5 }}
-          className="absolute top-0 right-[10rem] w-[1px] bg-white/20"
-        />
-        {/* Horizontal Line */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 0.75, delay: 4.5 }}
-          className="absolute top-[8rem] right-0 h-[1px] bg-white/20"
-        />
-      </div>
+          initial="hidden"
+          animate={controls}
+          variants={fadeVariants}
+          className="absolute left-10 top-[8rem] h-full text-[20vh] font-semibold font-bn"
+        >
+          <p className="-mb-[13vh] text-[#b3b3b3]">TEAM</p>
+          <p className="">IGNITION</p>
+        </motion.div>
 
-      {/* <div className="absolute left-0 bottom-0 right-0 h-[1px] bg-white/20"></div> */}
-
-      <motion.div
-        initial="hidden"
-        animate={controls}
-        variants={fadeVariants}
-        className="absolute left-10 top-[8rem] h-full text-[20vh] font-semibold font-bn"
-      >
-        <p className="-mb-[13vh] text-[#b3b3b3]">TEAM</p>
-        <p className="">IGNITION</p>
-      </motion.div>
-
-      <div
-        onClick={handleScrollDown}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer flex flex-col items-center"
-      >
-        <p className="text-sm mb-2">Scroll Down</p>
-        {/* <motion.div
+        <div
+          onClick={handleScrollDown}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer flex flex-col items-center"
+        >
+          <p className="text-sm mb-2">Scroll Down</p>
+          {/* <motion.div
           variants={scrollDownVariants}
           animate="animate"
           className="w-6 h-6 border-l-2 border-b-2 border-white rotate-45"
         /> */}
-      </div>
+        </div>
 
-      <motion.div
-        variants={boxVariants}
-        initial="initial"
-        animate={boxControls}
-        className="font-bn absolute bottom-10 left-10 p-1  pl-2 pr-12 text-xl bg-white text-black rounded"
-      >
-        EXPLORE MORE
-      </motion.div>
+        <div
+          // variants={boxVariants}
+          // initial="initial"
+          // animate={boxControls}
+          className="font-bn absolute bottom-10 left-10 p-1  pl-2 pr-12 text-xl bg-white text-black rounded"
+        >
+          EXPLORE MORE
+        </div>
 
-      <motion.div
-        variants={boxVariants}
-        initial="initial"
-        animate={boxControls}
-        className="absolute bottom-10 right-10 bg-black/10 backdrop-blur-sm border border-white/20 rounded p-2 flex space-x-2"
-      >
-        <div className="grid grid-cols-2 gap-2">
-          <div className="relative bg-white/5 rounded flex justify-center items-center">
-            <div className="absolute -top-1 -left-1 bg-white/5 text-white px-2 rounded-[2px] m-2 font-bn">
-              EARTH
-            </div>
-            <div style={{ perspective: 1000 }}>
-              <div className="relative w-36 h-36 rotate-[66.6deg] ">
-                {/* <motion.div
+        <div
+          // variants={boxVariants}
+          // initial="initial"
+          // animate={boxControls}
+          className="absolute bottom-10 right-10 bg-black/10 backdrop-blur-sm border border-white/20 rounded p-2 flex space-x-2"
+        >
+          <div className="grid grid-cols-2 gap-2">
+            <div className="relative bg-white/5 rounded flex justify-center items-center">
+              <div className="absolute -top-1 -left-1 bg-white/5 text-white px-2 rounded-[2px] m-2 font-bn">
+                EARTH
+              </div>
+              <div style={{ perspective: 1000 }}>
+                <div className="relative w-36 h-36 rotate-[66.6deg] ">
+                  {/* <motion.div
                   className="absolute top-0 left-0 w-full h-full rounded-full border-[2px] border-dashed border-white/30"
                   animate={{ rotate: 360 }}
                   transition={{
@@ -148,58 +156,62 @@ export default function Hero() {
                     transformOrigin: "center",
                   }}
                 ></motion.div> */}
-              
-              <RotatingSphere />
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
-              <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Ruler className="w-3 h-3 -mt-[1px]" />
-                <span>DIAMETER</span>
-              </div>
-              <div className="flex flex-col mt-2">
-                <span className="text-2xl">12,742</span>
-                <span className="text-white/60 text-sm -mt-1">Km</span>
-              </div>
-            </div>
 
-            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
-              <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Gauge className="w-3 h-3 -mt-[1px]" />
-                <span>GRAVITY</span>
-              </div>
-              <div className="flex flex-col mt-2">
-                <span className="text-2xl">9.81</span>
-                <span className="text-white/60 text-sm -mt-1">m/s²</span>
+                  <RotatingSphere />
+                </div>
               </div>
             </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
+                <div className="flex items-center gap-1 text-white/60 mb-1">
+                  <Ruler className="w-3 h-3 -mt-[1px]" />
+                  <span>DIAMETER</span>
+                </div>
+                <div className="flex flex-col mt-2">
+                  <span className="text-2xl">12,742</span>
+                  <span className="text-white/60 text-sm -mt-1">Km</span>
+                </div>
+              </div>
 
-            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
-              <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Box className="w-3 h-3 -mt-[2.5px]" />
-                <span>DENSITY</span>
+              <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
+                <div className="flex items-center gap-1 text-white/60 mb-1">
+                  <Gauge className="w-3 h-3 -mt-[1px]" />
+                  <span>GRAVITY</span>
+                </div>
+                <div className="flex flex-col mt-2">
+                  <span className="text-2xl">9.81</span>
+                  <span className="text-white/60 text-sm -mt-1">m/s²</span>
+                </div>
               </div>
-              <div className="flex flex-col mt-2">
-                <span className="text-2xl">5,513</span>
-                <span className="text-white/60 text-sm -mt-1">kg/m³</span>
-              </div>
-            </div>
 
-            <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
-              <div className="flex items-center gap-1 text-white/60 mb-1">
-                <Compass className="w-3 h-3 -mt-[1px]" />
-                <span>INCLINATION</span>
+              <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
+                <div className="flex items-center gap-1 text-white/60 mb-1">
+                  <Box className="w-3 h-3 -mt-[2.5px]" />
+                  <span>DENSITY</span>
+                </div>
+                <div className="flex flex-col mt-2">
+                  <span className="text-2xl">5,513</span>
+                  <span className="text-white/60 text-sm -mt-1">kg/m³</span>
+                </div>
               </div>
-              <div className="flex flex-col mt-2">
-                <span className="text-2xl">23.5</span>
-                <span className="text-white/60 text-sm -mt-1">degrees</span>
+
+              <div className="bg-white/5 p-2 pr-6 rounded flex flex-col justify-between">
+                <div className="flex items-center gap-1 text-white/60 mb-1">
+                  <Compass className="w-3 h-3 -mt-[1px]" />
+                  <span>INCLINATION</span>
+                </div>
+                <div className="flex flex-col mt-2">
+                  <span className="text-2xl">23.5</span>
+                  <span className="text-white/60 text-sm -mt-1">degrees</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
+      <div className="h-screen bg-white z-50 rounded-t-2xl overflow-hidden">
+        <TagLine />
+      </div>
     </div>
   );
 }

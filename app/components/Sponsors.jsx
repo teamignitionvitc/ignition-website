@@ -20,13 +20,13 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full flex flex-col rounded-b-2xl mt-24">
-      <div className="w-full text-left text-[150px] -mb-16">SPONSORS</div>
+    <div id="sponsors" className="w-full flex flex-col rounded-b-2xl -mt-[50px]">
+      <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">SPONSORS</div>
       <div className="">
         {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
-          const bgColors = ["bg-white", "bg-white/80", "bg-white/60"]; // Background shades
+          const bgColors = ["bg-white/90", "bg-white/80", "bg-white/60"]; // Background shades
           const textColors = [
-            "text-black/60",
+            "text-black/70",
             "text-black/80",
             "text-black/90",
           ]; // Text colors
