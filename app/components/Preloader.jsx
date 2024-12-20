@@ -17,8 +17,8 @@ const Preloader = ({
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationStep(1), 1000), // Inner circles turn white
-      setTimeout(() => setAnimationStep(2), 2000), // Outer circles turn white
+      setTimeout(() => setAnimationStep(1), 1000), // Inner circles turn [#ffffff]
+      setTimeout(() => setAnimationStep(2), 2000), // Outer circles turn [#ffffff]
       setTimeout(() => setAnimationStep(3), 3100), // Start expansion
       setTimeout(() => setAnimationStep(4), 3450), // End expansion
       setTimeout(() => setAnimationStep(5), 4000), // Fade out
@@ -152,7 +152,7 @@ const Preloader = ({
       {/* Expanding Circle Animation */}
       {(animationStep === 3 || animationStep === 4) && (
         <motion.div
-          className="fixed bg-white rounded-full z-30"
+          className="fixed bg-[#ffffff] rounded-full z-30"
           style={{
             top: "50% - 100",
             left: "50% - 100",
@@ -177,7 +177,7 @@ const Preloader = ({
       )}
 
       {/* Overlay Content */}
-      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-white z-50 font-mono text-nowrap">
+      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-[#ffffff] z-50 font-mono text-nowrap">
         <div className="w-24 text-center">
           {milliseconds > 0 ? "TEAM IGNITION" : "WE GO BOOM"}
         </div>
@@ -255,7 +255,7 @@ const Preloader = ({
 
         {/* ----- Central Circle with Lines ----- */}
         <motion.div
-          className="absolute rounded-full border border-white flex items-center justify-center z-40"
+          className="absolute rounded-full border border-[#ffffff] flex items-center justify-center z-40"
           style={{
             width: outerRotateCircle,
             height: outerRotateCircle,
@@ -274,7 +274,7 @@ const Preloader = ({
         >
           {/* Top Horizontal Corner */}
           <div
-            className="absolute bg-white"
+            className="absolute bg-[#ffffff]"
             style={{
               width: 10,
               height: 2,
@@ -285,7 +285,7 @@ const Preloader = ({
           />
           {/* Bottom Horizontal Corner */}
           <div
-            className="absolute bg-white"
+            className="absolute bg-[#ffffff]"
             style={{
               width: 10,
               height: 2,
@@ -296,7 +296,7 @@ const Preloader = ({
           />
           {/* Left Vertical Corner */}
           <div
-            className="absolute bg-white"
+            className="absolute bg-[#ffffff]"
             style={{
               width: 2,
               height: 10,
@@ -307,7 +307,7 @@ const Preloader = ({
           />
           {/* Right Vertical Corner */}
           <div
-            className="absolute bg-white"
+            className="absolute bg-[#ffffff]"
             style={{
               width: 2,
               height: 10,
@@ -339,7 +339,7 @@ const Preloader = ({
         style={{ height: `calc(100% + 100px)` }}
       >
         <motion.path
-          className="fill-white"
+          className="fill-[#ffffff]"
           variants={curve}
           initial="initial"
           exit="exit"
