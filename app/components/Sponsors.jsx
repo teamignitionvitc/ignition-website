@@ -31,7 +31,7 @@ const Footer = () => {
       </div> */}
       <VelocityScroll
         text="SPONSORS &#183; "
-        default_velocity={1}
+        default_velocity={2}
         className="text-[150px] bg-white text-black/60 h-[175px] p-2"
       />
       <div className="">
@@ -93,18 +93,18 @@ const Footer = () => {
             background="transparent"
             minSize={0.4}
             maxSize={1}
-            particleDensity={1200}
-            className="w-full h-full"
+            particleDensity={100}
+            className="w-full h-[300px]"
             particleColor="#FFFFFF"
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-          <h3 className="text-[150px] font-bold w-ful text-center">
+          <div className="absolute inset-0 w-full h-[300px] bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          <h3 className="text-[150px] font-bold w-ful text-center z-30 -mt-[280px]">
             BE OUR NEXT?
           </h3>
-          <div className="flex justify-center items-center w-full mb-16 -mt-4">
-            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">
+          <div className="flex justify-center items-center w-full mb-16 mt-1">
+            <div className="h-1 w-full bg-white/20 text-transparent mr-8 rounded-r-full z-30">
               .
             </div>
             <RainbowButton
@@ -112,7 +112,7 @@ const Footer = () => {
               className="font-semibold text-black rounded-lg font-bn w-[600px]"
               children={"Become a Sponsor"}
             />
-            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">
+            <div className="h-1 w-full bg-white/20 text-transparent ml-8 rounded-l-full z-30">
               .
             </div>
           </div>
