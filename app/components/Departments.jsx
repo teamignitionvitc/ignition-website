@@ -104,6 +104,36 @@ const Departments = () => {
 
   return (
     <div id="departments" className="w-full z-30">
+      <div className="bg-red-600 text-white text-end text-[150px] p-2">
+        <div className="border-2 border-black border-dashed w-full h-full flex justify-between">
+          <div className="flex justify-center items-center border-r-[2px] border-black border-dashed w-36 text-transparent relative">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none ">
+              <line
+                x1="0"
+                y1="0"
+                x2="100%"
+                y2="100%"
+                className="stroke-black"
+                strokeWidth="1"
+                style={{ strokeDasharray: "4, 2" }}
+              />
+              <line
+                x1="0"
+                y1="100%"
+                x2="100%"
+                y2="0"
+                className="stroke-black"
+                strokeWidth="1"
+                style={{ strokeDasharray: "4, 2" }}
+              />
+            </svg>
+            <div className="w-14 h-14 rounded-full border-[2px] border-black border-dashed flex justify-center items-center p-[4px] bg-red-800 z-50">
+              <div className="rounded-full bg-black w-full h-full"></div>
+            </div>
+          </div>
+          <div className="-mb-[58px] -mt-[43px] m-2">REMOVE BEFORE FLIGHT</div>
+        </div>
+      </div>
       <div className="relative w-full text-black flex justify-center items-center h-[85vh] border-t-2 border-white/20 border-dashed">
         <div className="flex w-full justify-center h-full">
           <div className="grid grid-cols-1 w-1/3">
@@ -174,7 +204,7 @@ const Departments = () => {
             ))}
           </div>
 
-          <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed">
+          <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed bg-black">
             <GridPattern
               width={50}
               height={50}
@@ -278,36 +308,6 @@ const Departments = () => {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-      <div className="bg-red-600 text-white text-end text-[150px] p-2">
-        <div className="border-2 border-black border-dashed w-full h-full flex justify-between">
-          <div className="flex justify-center items-center border-r-[2px] border-black border-dashed w-36 text-transparent relative">
-            <svg className="absolute inset-0 w-full h-full pointer-events-none ">
-              <line
-                x1="0"
-                y1="0"
-                x2="100%"
-                y2="100%"
-                className="stroke-black"
-                strokeWidth="1"
-                style={{ strokeDasharray: "4, 2" }}
-              />
-              <line
-                x1="0"
-                y1="100%"
-                x2="100%"
-                y2="0"
-                className="stroke-black"
-                strokeWidth="1"
-                style={{ strokeDasharray: "4, 2" }}
-              />
-            </svg>
-            <div className="w-14 h-14 rounded-full border-[2px] border-black border-dashed flex justify-center items-center p-[4px] bg-red-800 z-50">
-              <div className="rounded-full bg-black w-full h-full"></div>
-            </div>
-          </div>
-          <div className="-mb-[58px] -mt-[43px] m-2">REMOVE BEFORE FLIGHT</div>
         </div>
       </div>
     </div>

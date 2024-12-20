@@ -20,8 +20,13 @@ const Footer = () => {
   };
 
   return (
-    <div id="sponsors" className="w-full flex flex-col rounded-b-2xl -mt-[50px]">
-      <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">SPONSORS</div>
+    <div
+      id="sponsors"
+      className="w-full flex flex-col rounded-b-2xl -mt-[50px]"
+    >
+      <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">
+        SPONSORS
+      </div>
       <div className="">
         {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
           const bgColors = ["bg-white/90", "bg-white/80", "bg-white/60"]; // Background shades
@@ -64,16 +69,20 @@ const Footer = () => {
       </div>
 
       {/* Section 4 - Contact Form */}
-      <div className="w-full p-2 flex justify-center items-center mb-[500px]">
-        <div className="flex flex-col items-center w-full pl-2 pr-10 overflow-hidden relative">
-          <h3 className="text-[150px] font-bold w-ful text-centerl">
+      <div className="w-full flex justify-center items-center mb-[500px]">
+        <div className="flex flex-col items-center w-full overflow-hidden relative">
+          <h3 className="text-[150px] font-bold w-ful text-center">
             BE OUR NEXT?
           </h3>
-          <RainbowButton
-            onClick={() => setIsModalOpen(true)}
-            className="font-semibold text-black rounded-lg font-bn"
-            children={"Become a Sponsor"}
-          />
+          <div className="flex justify-center items-center w-full mb-16 -mt-4">
+            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">.</div>
+            <RainbowButton
+              onClick={() => setIsModalOpen(true)}
+              className="font-semibold text-black rounded-lg font-bn w-[600px]"
+              children={"Become a Sponsor"}
+            />
+            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">.</div>
+          </div>
 
           {isModalOpen && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-95 z-50">
