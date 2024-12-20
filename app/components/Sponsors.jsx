@@ -1,4 +1,6 @@
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { VelocityScroll } from "@/components/ui/velocity-scroll";
 import React, { useState } from "react";
 
 const Footer = () => {
@@ -24,9 +26,14 @@ const Footer = () => {
       id="sponsors"
       className="w-full flex flex-col rounded-b-2xl -mt-[50px]"
     >
-      <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">
+      {/* <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">
         SPONSORS
-      </div>
+      </div> */}
+      <VelocityScroll
+        text="SPONSORS &#183; "
+        default_velocity={1}
+        className="text-[150px] bg-white text-black/60 h-[175px] p-2"
+      />
       <div className="">
         {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
           const bgColors = ["bg-white/90", "bg-white/80", "bg-white/60"]; // Background shades
@@ -48,6 +55,17 @@ const Footer = () => {
               key={section}
               className={`${bgColors[index]} w-full flex items-center justify-between h-[6rem] pl-2 pr-10 overflow-hidden relative`}
             >
+              <span
+                className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans ml-[80px]`}
+              >
+                #
+                <span
+                  className={`text-[90px] font-bn absolute left-2 -mb-[10px]`}
+                >
+                  {index + 1}
+                </span>
+              </span>
+
               <p
                 className={`${textColors[index]} font-bold text-[100px] -mb-[10.5px]`}
               >
@@ -71,17 +89,32 @@ const Footer = () => {
       {/* Section 4 - Contact Form */}
       <div className="w-full flex justify-center items-center mb-[500px]">
         <div className="flex flex-col items-center w-full overflow-hidden relative">
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+          />
+
+          {/* Radial Gradient to prevent sharp edges */}
+          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
           <h3 className="text-[150px] font-bold w-ful text-center">
             BE OUR NEXT?
           </h3>
           <div className="flex justify-center items-center w-full mb-16 -mt-4">
-            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">.</div>
+            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">
+              .
+            </div>
             <RainbowButton
               onClick={() => setIsModalOpen(true)}
               className="font-semibold text-black rounded-lg font-bn w-[600px]"
               children={"Become a Sponsor"}
             />
-            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">.</div>
+            <div className="h-1 w-full bg-white/20 text-transparent mx-8 rounded-full">
+              .
+            </div>
           </div>
 
           {isModalOpen && (
