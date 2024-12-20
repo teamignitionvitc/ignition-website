@@ -100,7 +100,7 @@ const StackedScroll = () => {
                 {section.date}
                 <div className="h-[1px] bg-white/40 w-full mx-6" />
               </div>
-              <div className="w-full ml-8 lg:w-3/4">
+              {/* <div className="w-full ml-8 lg:w-3/4">
                 <p className="mb-4 w-full">{section.description}</p>
                 <div>
                   <strong>Key Achievements:</strong>
@@ -109,6 +109,25 @@ const StackedScroll = () => {
                       <li key={idx}>{achievement}</li>
                     ))}
                   </ul>
+                </div>
+              </div> */}
+              <div className="w-full ml-10 lg:w-2/4 flex flex-col justify-center items-center rounded-lg">
+                <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg">
+                  <strong>Status:</strong> {section.status}
+                </div>
+                <div className="space-y-4 mt-4 w-full h-full">
+                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                    <strong>Distance:</strong> {section.distance}
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                    <strong>Apogee:</strong> {section.apogee}
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                    <strong>Thrust:</strong> {section.thrust}
+                  </div>
+                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                    <strong>Weight:</strong> {section.weight}
+                  </div>
                 </div>
               </div>
             </div>
@@ -122,7 +141,7 @@ const StackedScroll = () => {
                     className="h-full w-full -rotate-90 object-cover filter grayscale"
                   />
                 </div>
-                <div className="w-full ml-8 lg:w-2/4 flex flex-col justify-center items-center  pr-6 rounded-lg border border-white/20 border-dashed">
+                {/* <div className="w-full ml-8 lg:w-2/4 flex flex-col justify-center items-center  pr-6 rounded-lg border border-white/20 border-dashed">
                   <div className="w-full bg-white/20 text-white text-center py-4 rounded-t-lg">
                     <strong>Status:</strong> {section.status}
                   </div>
@@ -143,6 +162,17 @@ const StackedScroll = () => {
                   <button className="bg-white/20 text-white w-full mt-4 py-3 rounded-b-lg hover:bg-gray-700">
                     Learn More
                   </button>
+                </div> */}
+                <div className="w-full lg:w-3/4 px-10 text-xl font-bn">
+                  <p className="mb-4 w-full">{section.description}</p>
+                  <div>
+                    <strong>Key Achievements:</strong>
+                    <ul className="list-disc list-inside">
+                      {section.achievements.map((achievement, idx) => (
+                        <li key={idx}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
