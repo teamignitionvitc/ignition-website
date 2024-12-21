@@ -1,4 +1,5 @@
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import ShimmerButton from "@/components/ui/shimmer-button";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VelocityScroll } from "@/components/ui/velocity-scroll";
 import React, { useState } from "react";
@@ -93,26 +94,32 @@ const Footer = () => {
             background="transparent"
             minSize={0.4}
             maxSize={1}
-            particleDensity={100}
+            particleDensity={150}
             className="w-full h-[300px]"
             particleColor="#FFFFFF"
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-[300px] bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-[250px] bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
           <h3 className="text-[150px] font-bold w-ful text-center z-30 -mt-[280px]">
             BE OUR NEXT?
           </h3>
           <div className="flex justify-center items-center w-full mb-16 mt-1">
-            <div className="h-1 w-full bg-white/20 text-transparent mr-8 rounded-r-full z-30">
+            <div className="h-[2px] w-full bg-white/10 text-transparent mr-8 rounded-r-full z-30">
               .
             </div>
-            <RainbowButton
+            {/* <RainbowButton
               onClick={() => setIsModalOpen(true)}
               className="font-semibold text-black rounded-lg font-bn w-[600px]"
               children={"Become a Sponsor"}
-            />
-            <div className="h-1 w-full bg-white/20 text-transparent ml-8 rounded-l-full z-30">
+            /> */}
+            <ShimmerButton
+              className="font-semibold rounded-lg font-bn w-[600px] shadow-[0px_0px_50px_rgba(255,255,255,0.2)]"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <span className="text-white">Become a Sponsor</span>
+            </ShimmerButton>
+            <div className="h-[2px] w-full bg-white/10 text-transparent ml-8 rounded-l-full z-30">
               .
             </div>
           </div>
