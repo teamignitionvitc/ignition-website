@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 flex justify-between p-4 px-8 bg-black/50 text-white z-50 transition-opacity duration-300 font-bn ${
+      className={`fixed top-0 left-0 right-0 flex justify-between p-4 px-8 bg-black/50 text-white z-40 transition-opacity duration-300 font-bn ${
         isVisible ? "backdrop-blur-sm" : ""
       }`}
     >

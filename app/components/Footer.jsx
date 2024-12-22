@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import GridPattern from "../../components/ui/grid";
+// import GridPattern from "../../components/ui/grid";
 import { MousePointer2Icon } from "lucide-react";
 import DotPattern from "@/components/ui/dot";
+// import Image from "next/image";
 
 const Footer = ({ className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
