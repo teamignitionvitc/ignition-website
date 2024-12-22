@@ -7,29 +7,29 @@ import React, { useState } from "react";
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    isCompany: false,
+    companyName: "",
     email: "",
     message: "",
   });
 
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Handle form submission logic here
     console.log(formData);
-    setIsModalOpen(false);
   };
-
-  const handleCheckboxChange = (event) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      isCompany: event.target.checked,
-      companyName: event.target.checked ? prevData.companyName : "",
-    }));
-  };
-
 
   return (
     <div
@@ -135,18 +135,18 @@ const Footer = () => {
           </div>
 
           {isModalOpen && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black/90 backdrop-blur-sm z-50">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-4 rounded-xl w-[50vw] max-w-4xl flex shadow-2xl relative">
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+              <div className="bg-white rounded-3xl w-[50vw] max-w-4xl flex shadow-2xl relative overflow-hidden font-bn">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="absolute top-2 right-2 text-4xl text-black font-bold"
+                >
+                  ×
+                </button>
                 {/* Left Section: Form */}
-                <div className="w-1/2 pr-4 border-r border-gray-700 overflow-y-auto">
-                  <button
-                    onClick={() => setIsModalOpen(false)}
-                    className="absolute top-2 right-2 text-gray-400 hover:text-white transition-colors duration-200 font-bold text-xl"
-                  >
-                    ×
-                  </button>
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center">
-                    Sponsor Form
+                <div className="w-1/2 overflow-y-auto border p-4">
+                  <h3 className="text-2xl font-bold text-black mb-4 text-center">
+                    Contact Form
                   </h3>
                   <form onSubmit={handleSubmit} className="space-y-3">
                     {/* First Name and Last Name */}
@@ -154,7 +154,7 @@ const Footer = () => {
                       <div className="w-1/2">
                         <label
                           htmlFor="firstName"
-                          className="block text-sm font-semibold text-gray-300 mb-1"
+                          className="block text-sm font-semibold text-black mb-1"
                         >
                           First Name:
                         </label>
@@ -165,13 +165,13 @@ const Footer = () => {
                           value={formData.firstName}
                           onChange={handleInputChange}
                           required
-                          className="w-full p-2 bg-gray-800 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                          className="w-full p-2 bg-black/50 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                       </div>
                       <div className="w-1/2">
                         <label
                           htmlFor="lastName"
-                          className="block text-sm font-semibold text-gray-300 mb-1"
+                          className="block text-sm font-semibold text-black mb-1"
                         >
                           Last Name:
                         </label>
@@ -182,13 +182,13 @@ const Footer = () => {
                           value={formData.lastName}
                           onChange={handleInputChange}
                           required
-                          className="w-full p-2 bg-gray-800 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                          className="w-full p-2 bg-black/50 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                       </div>
                     </div>
                     {/* Company Checkbox */}
                     <div>
-                      <label className="flex items-center text-sm font-semibold text-gray-300 mb-1">
+                      <label className="flex items-center text-sm font-semibold text-black mb-1">
                         <input
                           type="checkbox"
                           id="isCompany"
@@ -207,14 +207,14 @@ const Footer = () => {
                         onChange={handleInputChange}
                         placeholder="Enter company name"
                         disabled={!formData.isCompany}
-                        className="w-full p-2 bg-gray-800 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full p-2 bg-black/50 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     {/* Email */}
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-semibold text-gray-300 mb-1"
+                        className="block text-sm font-semibold text-black mb-1"
                       >
                         Email:
                       </label>
@@ -225,14 +225,14 @@ const Footer = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full p-2 bg-gray-800 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                        className="w-full p-2 bg-black/50 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     {/* Message */}
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-semibold text-gray-300 mb-1"
+                        className="block text-sm font-semibold text-black mb-1"
                       >
                         Message:
                       </label>
@@ -242,7 +242,7 @@ const Footer = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         required
-                        className="w-full p-2 bg-gray-800 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                        className="w-full p-2 bg-black/50 text-white text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                         rows={3}
                       />
                     </div>
@@ -250,7 +250,7 @@ const Footer = () => {
                     <div className="pt-2">
                       <button
                         type="submit"
-                        className="w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition duration-200 transform hover:scale-105"
+                        className="w-full px-4 py-2 bg-black/30 text-white text-sm font-semibold rounded-lg"
                       >
                         Send
                       </button>
@@ -259,18 +259,18 @@ const Footer = () => {
                 </div>
 
                 {/* Right Section: Sponsorship Leagues */}
-                <div className="w-1/2 pl-4 overflow-y-auto">
+                <div className="w-1/2 overflow-y-auto border bg-black/30 p-4 m-4 rounded-2xl">
                   <h3 className="text-2xl font-bold text-white mb-4 text-center">
                     Sponsorship Leagues
                   </h3>
                   <div className="space-y-3">
-                    <div className="p-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-sm rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105">
+                    <div className="p-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-sm rounded-lg shadow-lg">
                       Gold League
                     </div>
-                    <div className="p-3 bg-gradient-to-r from-gray-400 to-gray-600 text-black font-bold text-sm rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105">
+                    <div className="p-3 bg-gradient-to-r from-gray-400 to-gray-600 text-black font-bold text-sm rounded-lg shadow-lg">
                       Silver League
                     </div>
-                    <div className="p-3 bg-gradient-to-r from-orange-400 to-orange-600 text-black font-bold text-sm rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105">
+                    <div className="p-3 bg-gradient-to-r from-orange-400 to-orange-600 text-black font-bold text-sm rounded-lg shadow-lg">
                       Bronze League
                     </div>
                   </div>
@@ -279,17 +279,13 @@ const Footer = () => {
                     <h4 className="text-xl font-bold text-white mb-3">
                       Contact Us
                     </h4>
-                    <p className="text-gray-300 text-sm mb-1">
+                    <p className="text-black text-sm mb-1">
                       Phone:{" "}
-                      <span className="text-blue-400 hover:text-blue-300 transition-colors duration-200">
-                        +1-234-567-890
-                      </span>
+                      <span className="text-blue-400">+1-234-567-890</span>
                     </p>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-black text-sm">
                       Email:{" "}
-                      <span className="text-blue-400 hover:text-blue-300 transition-colors duration-200">
-                        contact@example.com
-                      </span>
+                      <span className="text-blue-400">contact@example.com</span>
                     </p>
                   </div>
                 </div>
