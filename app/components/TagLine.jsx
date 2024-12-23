@@ -36,6 +36,13 @@ const TagLine = () => {
         objectFit="contain"
         className="scale-90 mt-12"
       />
+      {/* <div className="mt-56">
+        <BlurIn
+          word="SINCE 2023"
+          duration="0.5"
+          className="text-[2vw]"
+        />
+      </div> */}
     </div>
   );
 };

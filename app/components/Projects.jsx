@@ -69,7 +69,9 @@ const Projects = () => {
   ];
 
   const heightReduction = 80;
-  const totalHeight = `calc((${sections.length * 100}vh - 100 -  ${(sections.length - 1) * heightReduction})px)`;
+  const totalHeight = `calc((${sections.length * 100}vh - 100 -  ${
+    (sections.length - 1) * heightReduction
+  })px)`;
 
   return (
     <div
@@ -77,8 +79,28 @@ const Projects = () => {
       className="relative w-full"
       style={{ height: totalHeight }}
     >
-      <div className="w-full text-left text-[150px] p-2 text-white bg-white h-[140px] -mb-4">
-        <div className="-mt-[50px] text-black">PROJECTS</div>
+      <div className="w-full text-left text-[150px] text-white bg-white h-[140px] -mb-4 flex items-center overflow-hidden">
+        <div className=" text-black m-2">PROJECTS</div>
+        {/* <div className="flex flex-col items-cente h-full w-full -mt-[15px] overflow-hidden">
+          <div
+            className="flex-1 h-1/2 text-transparent"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.20) 0, rgba(0, 0, 0, 0.20) 1px, transparent 1px, transparent 40px)",
+            }}
+          >
+            .
+          </div>
+          <div
+            className="flex-1 h-1/2 text-transparent"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(-135deg, rgba(0, 0, 0, 0.20) 0, rgba(0, 0, 0, 0.20) 1px, transparent 1px, transparent 40px)",
+            }}
+          >
+            .
+          </div>
+        </div> */}
       </div>
       {sections.map((section, index) => {
         const topOffset = index * heightReduction;

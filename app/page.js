@@ -14,6 +14,7 @@ import Preloader from "./components/Preloader";
 // import TagLine from "./components/TagLine";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Form from "./components/Form";
 // import Particles from "../components/ui/particles";
 
 export default function Home() {
@@ -28,7 +29,6 @@ export default function Home() {
     };
   }, []);
 
-  
   const locoScrollRef = useRef(null);
 
   useEffect(() => {
@@ -56,16 +56,21 @@ export default function Home() {
       locoScrollRef.current.scrollTo(element);
     }
   };
-  
+
   const [showPreloader, setShowPreloader] = useState(true);
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Navbar className="fixed top-0 left-0 right-0" handleScrollTo={handleScrollTo}/>
+      <Navbar
+        className="fixed top-0 left-0 right-0"
+        handleScrollTo={handleScrollTo}
+      />
       <AnimatePresence>
         {showPreloader && (
           <motion.div
@@ -99,8 +104,14 @@ export default function Home() {
         <Projects />
         {/* <Projects /> */}
         <Departments />
-        <Sponsors />
+        <Sponsors setIsModalOpen={setIsModalOpen} />
       </div>
+      {isModalOpen && (
+        <Form
+          setIsModalOpen={setIsModalOpen}
+          scrollInstance={locoScrollRef.current}
+        />
+      )}
       <Footer className="sticky bottom-0 left-0 right-0" />
     </div>
   );
