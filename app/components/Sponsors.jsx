@@ -1,8 +1,7 @@
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VelocityScroll } from "@/components/ui/velocity-scroll";
-import React, { useState } from "react";
+import React from "react";
 
 const Footer = ({setIsModalOpen}) => {
  

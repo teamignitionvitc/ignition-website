@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import GridPattern from "../../components/ui/grid";
 import { MousePointer2Icon } from "lucide-react";
 import DotPattern from "@/components/ui/dot";
 // import Image from "next/image";
@@ -11,7 +10,6 @@ const Footer = ({ className = "" }) => {
     <div
       className={`relative p-4 pb-0 w-full overflow-hidden bg-white text-black ${className}`}
     >
-      {/* <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" /> */}
       <DotPattern width={20} height={20} cx={1} cy={1} cr={1} />
       <div
         className={`absolute inset-0 flex items-center justify-center

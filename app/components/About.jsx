@@ -1,10 +1,10 @@
 import React from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 0 },
-  visible: { opacity: 1, y: 0 },
-};
+// const fadeInVariants = {
+//   hidden: { opacity: 0, y: 0 },
+//   visible: { opacity: 1, y: 0 },
+// };
 
 const About = () => {
   return (

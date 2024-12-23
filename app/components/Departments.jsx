@@ -130,9 +130,10 @@ const Departments = () => {
 
   return (
     <div id="departments" className="w-full z-30">
-      <div className="bg-red-600 text-white text-end text-[150px] p-2">
-        <div className="border-2 border-black border-dashed w-full h-full flex justify-between">
-          <div className="flex justify-center items-center border-r-[2px] border-black border-dashed w-36 text-transparent relative">
+      <div className="bg-red-600 text-white text-end p-[2px] md:p-2 w-full">
+        <div className="border-[1.5px] md:border-2 border-black border-dashed w-full flex justify-between h-full text-[40px] md:text-[150px]">
+          {/* Left section with circle and cross */}
+          <div className="flex justify-center items-center border-r-[1.5px] md:border-r-[2px] border-black border-dashed w-12 md:w-36  text-transparent relative">
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
               <line
                 x1="0"
@@ -153,11 +154,15 @@ const Departments = () => {
                 style={{ strokeDasharray: "4, 2" }}
               />
             </svg>
-            <div className="w-14 h-14 rounded-full border-[2px] border-black border-dashed flex justify-center items-center p-[4px] bg-red-800 z-50">
+            <div className="w-6 h-6 md:w-14 md:h-14 rounded-full border-[1.5px] md:border-[2px] border-black border-dashed flex justify-center items-center p-[2px]  md:p-[4px] bg-red-800 z-50">
               <div className="rounded-full bg-black w-full h-full"></div>
             </div>
           </div>
-          <div className="-mb-[58px] -mt-[43px] m-2">REMOVE BEFORE FLIGHT</div>
+
+          {/* Right section with text */}
+          <div className="flex-1 flex items-center justify-end px-1  md:px-3">
+            <div className="-mb-[14px] -mt-[10px] md:-mb-[55px] md:-mt-[40px]">REMOVE BEFORE FLIGHT</div>
+          </div>
         </div>
       </div>
 
