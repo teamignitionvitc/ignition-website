@@ -50,7 +50,7 @@ const Footer = () => {
           const textColors = [
             "text-black/70",
             "text-black/80",
-            "text-black/90",
+            "text-black/85",
           ]; // Text colors
 
           // const bgColors = ["bg-white/50", "bg-white/30", "bg-white/10"];

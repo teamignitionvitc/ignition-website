@@ -8,9 +8,9 @@ const fadeInVariants = {
 
 const About = () => {
   return (
-    <div id="about" className="bg-white/80 flex flex-col font-semibold text-3xl text-black h-[170vh] relative border-black/20 border-t-[1.5px] border-dashed">
+    <div id="about" className="bg-white flex flex-col font-semibold text-3xl text-black h-[170vh] relative border-black/20 border-y-[1.5px] border-dashed">
       <div
-        className="w-1/2 h-screen sticky top-0 p-16 pt-32 border-r-[1.5px] border-dashed border-black/20"
+        className="w-1/2 h-screen sticky top-0 p-16 pt-36 border-r-[1.5px] border-dashed border-black/20"
         // variants={fadeInVariants}
         // initial="hidden"
         // whileInView="visible"

@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import BlurIn from "@/components/ui/blur-in";
+import GridPattern from "@/components/ui/grid";
 
 const TagLine = () => {
   return (
     <div className="relative py-72 text-[30px] font-bn border border-white/20 border-dashed w-full text-center overflow-hidden bg-white z-30 text-black rounded-t-lg h-full">
+      <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" />
+
       {/* <Image
         src="/models/rocket-model.png"
         alt="Description of image"

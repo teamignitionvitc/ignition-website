@@ -59,7 +59,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative h-[200vh] w-full">
+    <div id="hero" className="relative h-[200vh] w-full">
       <div className="h-screen text-white w-full sticky top-0">
         <Particles
           className="absolute inset-0 w-full h-screen"

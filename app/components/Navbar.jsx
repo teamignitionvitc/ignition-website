@@ -29,7 +29,7 @@ const Navbar = ({ handleScrollTo }) => {
     >
       <div
         className="flex items-center space-x-4"
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={() => handleScrollTo("#hero")}
       >
         {/* <Image
           src="/logo/indian-flag.png"
