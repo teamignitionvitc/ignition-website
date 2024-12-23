@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -27,13 +28,14 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    let locomotiveScroll = null;
+  
+  const locoScrollRef = useRef(null);
 
+  useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
 
-      locomotiveScroll = new LocomotiveScroll({
+      locoScrollRef.current = new LocomotiveScroll({
         el: document.querySelector(".scroll"),
         smooth: true,
         smoothMobile: true,
@@ -42,12 +44,19 @@ export default function Home() {
     })();
 
     return () => {
-      if (locomotiveScroll) {
-        locomotiveScroll.destroy();
+      if (locoScrollRef.current) {
+        locoScrollRef.current.destroy();
       }
     };
   }, []);
 
+  const handleScrollTo = (id) => {
+    const element = document.querySelector(id);
+    if (element && locoScrollRef.current) {
+      locoScrollRef.current.scrollTo(element);
+    }
+  };
+  
   const [showPreloader, setShowPreloader] = useState(true);
 
   const handlePreloaderComplete = () => {
@@ -56,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Navbar className="fixed top-0 left-0 right-0" />
+      <Navbar className="fixed top-0 left-0 right-0" handleScrollTo={handleScrollTo}/>
       <AnimatePresence>
         {showPreloader && (
           <motion.div
