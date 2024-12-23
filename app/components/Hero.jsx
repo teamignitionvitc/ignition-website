@@ -71,7 +71,7 @@ export default function Hero() {
           ease={100}
         />
         <div className="absolute flex flex-col items-center w-full h-full">
-          <div className="absolute top-[8rem] right-[10rem] -mt-[10.258px] -mr-[6.4px] text-white">
+          <div className="absolute top-[6rem] md:top-[8rem] right-[5rem] md:right-[10rem] -mt-[10.258px] -mr-[6.4px] text-white">
             &#10011;
           </div>
           {/* Vertical Line */}
@@ -79,14 +79,14 @@ export default function Hero() {
             initial={{ height: 0 }}
             animate={{ height: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-0 right-[10rem] w-[1px] bg-white/20"
+            className="absolute top-0 right-[5rem] md:right-[10rem] w-[1px] bg-white/20"
           />
           {/* Horizontal Line */}
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-[8rem] right-0 h-[1px] bg-white/20"
+            className="absolute top-[6rem] md:top-[8rem] right-0 h-[1px] bg-white/20"
           />
         </div>
 
@@ -94,9 +94,9 @@ export default function Hero() {
           initial="hidden"
           animate={controls}
           variants={fadeVariants}
-          className="absolute left-10 top-[8rem] h-full text-[15vw] md:text-[20vh] font-semibold font-bn"
+          className="absolute left-4 md:left-10 top-[8rem] h-full text-[20vw] md:text-[20vh] font-semibold font-bn"
         >
-          <p className="-mb-[13vh] text-[#b3b3b3]">TEAM</p>
+          <p className="-mb-[12vw] md:-mb-[13vh] text-[#b3b3b3]">TEAM</p>
           <p className="">IGNITION</p>
         </motion.div>
 
@@ -118,8 +118,17 @@ export default function Hero() {
                 EARTH
               </div>
               <div style={{ perspective: 1000 }}>
-                <div className="relative w-28 h-28 md:w-36 md:h-36 rotate-[66.6deg]">
-                  <RotatingSphere />
+                <div className="relative w-36 h-36 rotate-[66.6deg]">
+                  <div className="hidden md:block">
+                    <RotatingSphere />
+                  </div>
+                  <div className="md:hidden p-6">
+                    <RotatingSphere
+                      width={100}
+                      height={100}
+                      sphereRadius={50}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
