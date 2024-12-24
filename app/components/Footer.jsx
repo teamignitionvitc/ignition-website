@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GridPattern from "../../components/ui/grid";
-import { MousePointer2Icon, PhoneIcon, MailIcon } from 'lucide-react';
+import { MousePointer2Icon, PhoneIcon, MailIcon } from "lucide-react";
 import DotPattern from "@/components/ui/dot";
 
 const Footer = ({ className = "" }) => {
@@ -32,7 +32,7 @@ const Footer = ({ className = "" }) => {
 
       <div className="flex p-8 px-8 h-full relative z-10">
         <div
-          className={`relative text-4xl bg-black text-white rounded-lg w-72 p-4 flex flex-col justify-between overflow-hidden group hover:shadow-[0px 0px 10px rgba(0, 0, 0, 1)] transition-shadow duration-300`}
+          className={`relative text-4xl bg-black text-white  rounded-2xl w-72 p-4 flex flex-col justify-between overflow-hidden group  duration-300`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -52,66 +52,89 @@ const Footer = ({ className = "" }) => {
         </div>
 
         <div
-          className={`bg-gray-100/80 rounded-lg p-8 flex-1 ml-8 transition-opacity duration-500
+          className={`bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.2)] rounded-2xl p-8 flex-1 ml-8 transition-opacity duration-500 font-bn
             ${isHovered ? "opacity-0 pointer-events-none" : "opacity-100"}
           `}
         >
-          <div className="flex  h-full">
+          <div className="flex  h-full justify-between">
             {/* <div className="w-24 p-16">
             <h4 className="font-bn text-lg font-semibold mb-4 writing-vertical-rl transform -rotate-90">CONTACT US</h4></div> */}
-          <div className="w-24 h-full flex items-center justify-center">
-            <h4 className="font-bn text-2xl font-bold writing-vertical-rl transform -rotate-90 text-center">
-              CONTACT US
-            </h4>
-          </div>
+            {/* <div className="w-24 h-full flex items-center justify-center">
+              <h4 className="font-bn text-2xl font-bold writing-vertical-rl transform -rotate-90 text-center">
+                CONTACT US
+              </h4>
+            </div> */}
 
-            <div className="w-1/3 items-center justify-center">
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <PhoneIcon size={18} className="mr-2" />
-                  <div>
-                    <div>Captain: Easwara Gokulan R A</div>
-                    <div>Phone no: 9344597660</div>
+            <div className="flex flex-col items-start justify-between">
+              <div className="flex items-center">
+                <PhoneIcon size={18} className="mr-2" />
+                <div>
+                  <div className="font-semibold">
+                    Captain: Easwara Gokulan R A
                   </div>
-                </div>
-                <div className="flex items-center">
-                  <PhoneIcon size={18} className="mr-2" />
-                  <div>
-                    <div>General Manager: Kishaunjith S</div>
-                    <div>Phone no: 9176506408</div>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <MailIcon size={18} className="mr-2" />
-                  <a href="mailto:teamignition@vit.ac.in" className="text-black/60 hover:text-black transition-colors duration-300">
-                    teamignition@vit.ac.in
-                  </a>
+                  <div className="font-semibold">Phone no: 9344597660</div>
                 </div>
               </div>
+              <div className="flex items-center">
+                <PhoneIcon size={18} className="mr-2" />
+                <div>
+                  <div className="font-semibold">
+                    General Manager: Kishaunjith S
+                  </div>
+                  <div className="font-semibold">Phone no: 9176506408</div>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <MailIcon size={18} className="mr-2" />
+                <a
+                  href="mailto:teamignition@vit.ac.in"
+                  className="text-black/60 hover:text-black transition-colors duration-300"
+                >
+                  teamignition@vit.ac.in
+                </a>
+              </div>
             </div>
-            <div className="w-1/3 flex flex-col items-end">
-              <h4 className="font-bn text-lg font-semibold mb-4">LINKS</h4>
-              <div className="overflow-hidden">
-                <a href="https://www.instagram.com/ignition_vitc" target="_blank" rel="noopener noreferrer">
-                  <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-t-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
-                    Instagram
-                  </div>
-                </a>
-                <a href="https://youtube.com/@ignitiontechnologies?si=dvUQgRFw5WiiltoL" target="_blank" rel="noopener noreferrer">
-                  <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
-                    YouTube
-                  </div>
-                </a>
-                <a href="https://x.com/ignitiontech23" target="_blank" rel="noopener noreferrer">
-                  <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
-                    Twitter
-                  </div>
-                </a>
-                <a href="https://in.linkedin.com/company/ignition-technologies" target="_blank" rel="noopener noreferrer">
-                  <div className="bg-black/10 text-black/60 border border-black/10 w-44 text-center p-2 rounded-b-lg transition-all duration-300 hover:bg-black/20 hover:text-white hover:scale-105">
-                    LinkedIn
-                  </div>
-                </a>
+
+            <div className="flex">
+              <h4 className="font-bn text-2xl font-semibold mr-4">LINKS</h4>
+              <div className="overflow-hidden border border-black/10 rounded-lg">
+                {[
+                  {
+                    href: "https://www.instagram.com/ignition_vitc",
+                    label: "Instagram",
+                    roundedClass: "rounded-t-lg border-b",
+                  },
+                  {
+                    href: "https://youtube.com/@ignitiontechnologies?si=dvUQgRFw5WiiltoL",
+                    label: "YouTube",
+                    roundedClass: "border-b",
+                  },
+                  {
+                    href: "https://x.com/ignitiontech23",
+                    label: "Twitter",
+                    roundedClass: "border-b",
+                  },
+                  {
+                    href: "https://in.linkedin.com/company/ignition-technologies",
+                    label: "LinkedIn",
+                    roundedClass: "rounded-b-lg",
+                  },
+                ].map(({ href, label, roundedClass }, idx) => (
+                  <a
+                    key={idx}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div
+                      className={`bg-[#101010] text-white border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center ${
+                        roundedClass || ""
+                      }`}
+                    >
+                      {label}
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -128,19 +151,17 @@ const Footer = ({ className = "" }) => {
         <div className="mt-2">
           <div className="font-semibold">Address:</div>
           <div className="w-72">
-            Team Ignition Garage,
-            AB-2 Basement 006,
+            Team Ignition Garage, AB-2 Basement 006,
             <br />
-            Vellore Institute of Technology University,
-            Vandalur-Kelambakkam Road,
+            Vellore Institute of Technology University, Vandalur-Kelambakkam
+            Road,
             <br />
-            Keelakotaiyur,
-            Chennai, Tamil Nadu – 600 127
+            Keelakotaiyur, Chennai, Tamil Nadu – 600 127
           </div>
         </div>
       </div>
 
-      <div className="w-full text-center pb-4 mt-10 bg-white text-black font-bn">
+      <div className="w-full text-center pb-4 mt-4 bg-white text-black font-bn">
         Copyright 2024 © Team Ignition. All Rights Reserved.
       </div>
     </div>
@@ -148,4 +169,3 @@ const Footer = ({ className = "" }) => {
 };
 
 export default Footer;
-
