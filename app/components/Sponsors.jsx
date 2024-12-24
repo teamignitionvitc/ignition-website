@@ -4,8 +4,7 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { VelocityScroll } from "@/components/ui/velocity-scroll";
 import React, { useState } from "react";
 
-const Footer = ({setIsModalOpen}) => {
- 
+const Sponsors = ({setIsModalOpen}) => {
 
   return (
     <div
@@ -122,4 +121,4 @@ const Footer = ({setIsModalOpen}) => {
   );
 };
 
-export default Footer;
+export default Sponsors;
