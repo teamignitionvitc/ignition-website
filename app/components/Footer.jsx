@@ -56,7 +56,7 @@ const Footer = ({ className = "" }) => {
 
       <div className="flex p-8 px-8 h-full relative z-10">
         <div
-          className={`relative text-4xl bg-black text-white rounded-2xl w-[400px] p-4 flex flex-col justify-between overflow-hidden group duration-300 shadow-[0px_0px_10px_rgba(0,0,0,0.2)]`}
+          className={`relative text-4xl bg-[#101010] text-white rounded-2xl w-[400px] p-4 flex flex-col justify-between overflow-hidden group duration-300 shadow-[0px_0px_10px_rgba(0,0,0,0.2)]`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -137,7 +137,7 @@ const Footer = ({ className = "" }) => {
               <div className="flex items-center">
                 <a
                   href="mailto:teamignition@vit.ac.in"
-                  className="font-bold text-black hover:text-white bg-[#f0f0f0] hover:shadow-[0px_0px_5px_rgba(0,0,0,0.1)]  hover:bg-black rounded-md transition-colors duration-300 flex items-center p-2"
+                  className="font-bold text-black hover:text-white bg-[#f0f0f0] hover:shadow-[0px_0px_5px_rgba(0,0,0,0.1)]  hover:bg-[#101010] rounded-md transition-colors duration-300 flex items-center p-2 px-4"
                 >
                   <MailIcon size={18} className="mr-2" />
                   teamignition@vit.ac.in
@@ -200,7 +200,7 @@ const Footer = ({ className = "" }) => {
           ${isHovered ? "opacity-100" : "pointer-events-none"}
         `}
       >
-        <div className="font-semibold text-black/80">LOCAL TIME:</div>
+        <div className="font-semibold text-black/80">LOCAL TIME</div>
         <div className="text-4xl font-bold mb-6">{time}</div>
       </div>
 
