@@ -1,18 +1,21 @@
 "use client";
 
+import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+// import ProjectsTwo from "./components/ProjectsTwo";
 import Departments from "./components/Departments";
 import Sponsors from "./components/Sponsors";
 // import Background from "./components/Background";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
-import TagLine from "./components/TagLine";
+// import TagLine from "./components/TagLine";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Particles from "../components/ui/particles";
+import Form from "./components/Form";
+// import Particles from "../components/ui/particles";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -26,13 +29,13 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    let locomotiveScroll = null;
+  const locoScrollRef = useRef(null);
 
+  useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
 
-      locomotiveScroll = new LocomotiveScroll({
+      locoScrollRef.current = new LocomotiveScroll({
         el: document.querySelector(".scroll"),
         smooth: true,
         smoothMobile: true,
@@ -41,11 +44,18 @@ export default function Home() {
     })();
 
     return () => {
-      if (locomotiveScroll) {
-        locomotiveScroll.destroy();
+      if (locoScrollRef.current) {
+        locoScrollRef.current.destroy();
       }
     };
   }, []);
+
+  const handleScrollTo = (id) => {
+    const element = document.querySelector(id);
+    if (element && locoScrollRef.current) {
+      locoScrollRef.current.scrollTo(element);
+    }
+  };
 
   const [showPreloader, setShowPreloader] = useState(true);
 
@@ -53,9 +63,14 @@ export default function Home() {
     setShowPreloader(false);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Navbar className="fixed top-0 left-0 right-0 z-20" />
+      <Navbar
+        className="fixed top-0 left-0 right-0"
+        handleScrollTo={handleScrollTo}
+      />
       <AnimatePresence>
         {showPreloader && (
           <motion.div
@@ -76,21 +91,27 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-xl z-10 rounded-b-3xl">
-        <Particles
+      <div className="relative w-full flex flex-col flex-grow justify-center items-center bg-black shadow-[0px_4px_20px_rgba(0,0,0,0.5)] z-10 rounded-b-2xl">
+        {/* <Background /> */}
+        {/* <Particles
           className="absolute inset-0 w-full h-screen"
           quantity={500}
-          ease={200}
-          refresh
-        />
+          ease={100}
+        /> */}
         <Hero />
-        <TagLine />
-
-        <About id="about" />
-        {/* <Projects id="projects" /> */}
-        <Departments id="departments" />
-        <Sponsors id="sponsors" />
+        {/* <TagLine /> */}
+        <About />
+        <Projects />
+        {/* <Projects /> */}
+        <Departments />
+        <Sponsors setIsModalOpen={setIsModalOpen} />
       </div>
+      {isModalOpen && (
+        <Form
+          setIsModalOpen={setIsModalOpen}
+          scrollInstance={locoScrollRef.current}
+        />
+      )}
       <Footer className="sticky bottom-0 left-0 right-0" />
     </div>
   );
