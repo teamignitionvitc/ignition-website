@@ -56,7 +56,7 @@ const Sponsors = ({ setIsModalOpen }) => {
 
       {/* <SponsorsList /> */}
       <div className="w-full flex justify-center items-center my-16 text-3xl font-bn">
-        Fuel the ignited minds at Ignition.
+        Fueling the ignited minds at Ignition.
       </div>
       <div
         className="relative flex w-full items-center justify-center px-24"

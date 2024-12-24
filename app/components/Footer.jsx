@@ -32,7 +32,7 @@ const Footer = ({ className = "" }) => {
 
   return (
     <div
-      className={`relative p-4  w-full overflow-hidden bg-white text-black ${className}`}
+      className={`relative p-4  w-full overflow-hidden bg-white text-black select-text ${className}`}
     >
       {/* <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" /> */}
       <DotPattern width={20} height={20} cx={1} cy={1} cr={1} />
