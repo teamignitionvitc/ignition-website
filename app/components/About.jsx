@@ -22,13 +22,13 @@ const About = () => {
     {
       src: "/group-pictures/image-4.jpg",
       alt: "Image 4",
-    title: "Sugar Candy Engine Test (pls i hope)",
+    title: "Sugar Candy Engine Test Run (pls i hope)",
     },
   ];
   return (
     <div
       id="about"
-      className="bg-black flex flex-col font-semibold text-white h-[200vh] relative border-black/20 border-y-[1.5px] border-dashed w-full"
+      className="bg-[#0f0f0f] flex flex-col font-semibold text-white h-[200vh] relative border-black/20 border-y-[1.5px] border-dashed w-full"
     >
       <div className="w-full flex h-screen sticky top-0">
         <div className="w-1/2 h-screen pt-[4.5rem] flex flex-col items-center z-30">
@@ -42,7 +42,7 @@ const About = () => {
                 alt="Group Picture"
                 height={500}
                 width={800}
-                className="grayscale"
+                className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out"
               />
             </div>
             <div className="w-full flex items-center justify-center text-[4rem] font-semibold font-bn">

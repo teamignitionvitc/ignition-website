@@ -81,7 +81,7 @@ const ImageAccordion = ({ images }) => {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`
-                  transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] grayscale
+                  transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] grayscale hover:grayscale-0 duration-500 
                   ${
                     isExpanded
                       ? "object-cover scale-100"
@@ -93,7 +93,7 @@ const ImageAccordion = ({ images }) => {
             <div
               className={`
                 absolute bottom-0 left-0 right-0 font-bn  
-                bg-black/50 backdrop-blur-lg text-white/90 p-4 
+                bg-black/50 backdrop-blur-lg text-white/90 p-4 px-5 
                 transition-transform duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]
                 ${isExpanded ? "translate-y-0" : "translate-y-full"}
               `}
