@@ -37,13 +37,13 @@ const Sponsors = ({ setIsModalOpen }) => {
         className="w-full h-[295px] absolute top-[175px]"
         particleColor="#FFFFFF"
       /> */}
-      <GridPattern className="h-[295px] absolute top-[175px]" />
+      <GridPattern className="h-[400px] absolute top-[175px]" />
       {/* <DotPattern className="h-[400px] absolute top-[175px] fill-white/20"/> */}
 
       <div className="absolute top-[175px] inset-0 w-full h-[400px] bg-gradient-to-b from-transparent to-black"></div>
 
       {/* <SponsorsList /> */}
-      <div className="w-full flex justify-center items-center my-16 text-3xl font-bn z-40">
+      <div className="w-full flex justify-center items-center my-16 text-4xl font-bn z-40">
         Fueling the ignited minds at Ignition.
       </div>
       <div
@@ -55,6 +55,7 @@ const Sponsors = ({ setIsModalOpen }) => {
             <div className="w-full flex justify-center items-center space-x-[8rem]">
               <div
                 className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                onClick={() => (window.location.href = "https://altium.com")}
                 ref={div1Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
@@ -69,6 +70,7 @@ const Sponsors = ({ setIsModalOpen }) => {
               </div>
               <div
                 className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                onClick={() => (window.location.href = "https://ansys.com")}
                 ref={div2Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
@@ -85,6 +87,9 @@ const Sponsors = ({ setIsModalOpen }) => {
             <div className="w-full flex justify-center items-center space-x-[35rem]">
               <div
                 className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                onClick={() =>
+                  (window.location.href = "https://solidworks.com")
+                }
                 ref={div3Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
@@ -147,12 +152,14 @@ const Sponsors = ({ setIsModalOpen }) => {
           fromRef={div3Ref}
           toRef={nodeRef}
           curvature={-300}
+          endYOffset={-30}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div4Ref}
           toRef={nodeRef}
           curvature={-300}
+          endYOffset={-30}
           reverse
         />
       </div>
