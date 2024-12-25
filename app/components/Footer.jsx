@@ -196,12 +196,19 @@ const Footer = ({ className = "" }) => {
       </div>
 
       <div
-        className={`font-bn absolute top-0 right-12 h-full flex flex-col justify-center p-8 transition-opacity duration-500 opacity-0 text-right 
+        className={`font-bn absolute top-0 right-12 h-full flex justify-center items-center p-8 transition-opacity duration-500 opacity-0 text-right 
           ${isHovered ? "opacity-100" : "pointer-events-none"}
         `}
       >
-        <div className="font-semibold text-black/80">LOCAL TIME</div>
-        <div className="text-4xl font-bold mb-6">{time}</div>
+        <div className="">
+          <div className="font-semibold text-black/80">LOCAL TIME</div>
+          <div className="text-4xl font-bold mb-6">{time}</div>
+        </div>
+        <div className="mx-1 -mt-6 flex flex-col items-center justify-center font-bold">
+          <div className="text-red-500">N</div>
+          <div className="h-24 w-[2px] bg-black/80" />
+          <div>S</div>
+        </div>
       </div>
 
       <div className="w-full text-center pb-4 bg-white text-black font-bn font-semibold">

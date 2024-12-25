@@ -1,26 +1,12 @@
 import ShimmerButton from "@/components/ui/shimmer-button";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { VelocityScroll } from "@/components/ui/velocity-scroll";
-import React, { useState, useRef, forwardRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
-import { cn } from "@/lib/utils";
-
-const Circle = forwardRef(({ className, children }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-});
-
-Circle.displayName = "Circle";
+import GridPattern from "@/components/ui/grid";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+// import DotPattern from "@/components/ui/dot";
 
 const Sponsors = ({ setIsModalOpen }) => {
   const containerRef = useRef(null);
@@ -50,79 +36,87 @@ const Sponsors = ({ setIsModalOpen }) => {
         particleDensity={150}
         className="w-full h-[295px] absolute top-[175px]"
         particleColor="#FFFFFF"
-      />
+      /> */}
+      <GridPattern className="h-[295px] absolute top-[175px]" />
+      {/* <DotPattern className="h-[400px] absolute top-[175px] fill-white/20"/> */}
 
-      <div className="absolute top-[175px] inset-0 w-full h-[295px] bg-gradient-to-b from-transparent to-black"></div> */}
+      <div className="absolute top-[175px] inset-0 w-full h-[400px] bg-gradient-to-b from-transparent to-black"></div>
 
       {/* <SponsorsList /> */}
-      <div className="w-full flex justify-center items-center my-16 text-3xl font-bn">
+      <div className="w-full flex justify-center items-center my-16 text-3xl font-bn z-40">
         Fueling the ignited minds at Ignition.
       </div>
       <div
         className="relative flex w-full items-center justify-center px-24"
         ref={containerRef}
       >
-        <div className="flex flex-col justify-center items-center space-y-10 w-full">
-          <div className="w-full flex justify-between items-center mb-24">
-            <div
-              className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-36 w-56 z-40 shadow-[0px_0px_40px_#ffffff50]"
-              ref={div1Ref}
-            >
-              <div className="bg-white h-full w-full rounded-md flex items-center justify-center">
-                <Image
-                  src={"/sponsors/altium.png"}
-                  alt="Altium"
-                  width={190}
-                  height={80}
-                  className=""
-                />
+        <div className="flex flex-col justify-center items-center  w-full">
+          <div className="w-full flex flex-col items-center mt-6">
+            <div className="w-full flex justify-center items-center space-x-[8rem]">
+              <div
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                ref={div1Ref}
+              >
+                <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
+                  <Image
+                    src={"/sponsors/altium.png"}
+                    alt="Altium"
+                    width={190}
+                    height={80}
+                    className="-rotate-45 invert"
+                  />
+                </div>
+              </div>
+              <div
+                className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                ref={div2Ref}
+              >
+                <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
+                  <Image
+                    src={"/sponsors/ansys-white.png"}
+                    alt="Ansys"
+                    width={170}
+                    height={80}
+                    className="-rotate-45"
+                  />
+                </div>
               </div>
             </div>
-            <div
-              className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-36 w-56 z-40 shadow-[0px_0px_40px_#ffffff50]"
-              ref={div2Ref}
-            >
-              <div className="bg-white h-full w-full rounded-md flex items-center justify-center">
-                <Image
-                  src={"/sponsors/ansys-black.png"}
-                  alt="Ansys"
-                  width={170}
-                  height={80}
-                  className=""
-                />
+            <div className="w-full flex justify-center items-center space-x-[35rem]">
+              <div
+                className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                ref={div3Ref}
+              >
+                <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
+                  <Image
+                    src={"/sponsors/solidworks.png"}
+                    alt="Altium"
+                    width={180}
+                    height={80}
+                    className="-rotate-45"
+                  />
+                </div>
               </div>
-            </div>
-            <div
-              className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-36 w-56 z-40 shadow-[0px_0px_40px_#ffffff50]"
-              ref={div3Ref}
-            >
-              <div className="bg-white h-full w-full rounded-md flex items-center justify-center">
-                <Image
-                  src={"/sponsors/solidworks.png"}
-                  alt="Altium"
-                  width={180}
-                  height={80}
-                  className=""
-                />
-              </div>
-            </div>
-            <div
-              className="bg-gradient-to-r from-stone-500 to-stone-700  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-36 w-56 z-40 shadow-[0px_0px_40px_#ffffff50]"
-              ref={div4Ref}
-            >
-              <div className="bg-white h-full w-full rounded-md flex items-center justify-center">
-                <Image
-                  src={"/sponsors/innovator-academy.png"}
-                  alt="Altium"
-                  width={130}
-                  height={80}
-                  className=""
-                />
+              <div
+                className="bg-gradient-to-r from-stone-500 to-stone-700  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                ref={div4Ref}
+              >
+                <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
+                  <Image
+                    src={"/sponsors/innovator-academy.png"}
+                    alt="Altium"
+                    width={130}
+                    height={80}
+                    className="-rotate-45 invert"
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <div
-            className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center ring-1 ring-white/10 shadow-[0px_0px_40px_#ffffff30]"
+          <HoverBorderGradient
+            className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_40px_#ffffff30] hover:shadow-[0px_0px_60px#ffffff30] transition-transform duration-300 ease-in-out"
+            containerClassName="rounded-2xl border-0"
+            // as="button"
             ref={nodeRef}
           >
             <Image
@@ -132,26 +126,7 @@ const Sponsors = ({ setIsModalOpen }) => {
               height={80}
               className=""
             />
-          </div>
-          {/* <div className="w-full max-w-[60vw] flex justify-between items-center ">
-            <div className="bg-white rounded-lg h-36 w-56" ref={div1Ref}>
-              1
-            </div>
-            <div className="bg-white rounded-lg h-36 w-56" ref={div2Ref}>
-              2
-            </div>
-          </div>
-          <div className="text-4xl text-white bg-blue-200" ref={nodeRef}>
-            Team Ignition
-          </div>
-          <div className="w-full max-w-[60vw] flex justify-between items-center">
-            <div className="bg-white rounded-lg h-36 w-56 z-40" ref={div3Ref}>
-              Cont1
-            </div>
-            <div className="bg-white rounded-lg h-36 w-56" ref={div4Ref}>
-              Con2
-            </div>
-          </div> */}
+          </HoverBorderGradient>
         </div>
 
         <AnimatedBeam
@@ -165,13 +140,13 @@ const Sponsors = ({ setIsModalOpen }) => {
           fromRef={div2Ref}
           toRef={nodeRef}
           curvature={-300}
+          reverse
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div3Ref}
           toRef={nodeRef}
           curvature={-300}
-          reverse
         />
         <AnimatedBeam
           containerRef={containerRef}
