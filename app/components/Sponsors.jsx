@@ -171,9 +171,10 @@ const Sponsors = ({ setIsModalOpen }) => {
 
           {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-[252.5px] bg-black [mask-image:radial-gradient(400px_250px_at_top,transparent_20%,white)]"></div>
-          <h3 className="text-[150px] font-bold w-ful text-center z-30 -mt-[275px]">
+          <h3 className="text-[150px] font-bold w-full text-center z-30 -mt-[275px] bg-clip-text text-transparent bg-gradient-to-b from-white to-[#9f9f9f]">
             BE OUR NEXT?
           </h3>
+
           <div className="flex justify-center items-center w-full pb-8">
             <div className="h-[2px] w-full bg-white/10 text-transparent mr-8 rounded-r-full z-30">
               .

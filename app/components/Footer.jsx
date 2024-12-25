@@ -72,7 +72,7 @@ const Footer = ({ className = "" }) => {
               isHovered ? "opacity-0" : "group-hover:text-black"
             }`}
           >
-            <MousePointer2Icon className="h-8 w-8" />
+            <MousePointer2Icon className="h-8 w-8 animate-pulse" />
           </div>
 
           <div
