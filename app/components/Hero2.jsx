@@ -1,9 +1,9 @@
-// Hero.jsx
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import TagLine from "./TagLine";
 import Particles from "@/components/ui/particles";
 import NumberFlow from "@number-flow/react";
+import RotatingSphere from "@/components/ui/globe";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -12,9 +12,10 @@ export default function Hero() {
     const timeout = setTimeout(() => {
       controls.start("visible");
     }, 4500);
-
     return () => clearTimeout(timeout);
   }, [controls]);
+
+  //   -------------------------------------
 
   const targetDate = "2024-12-31T23:59:59";
   const [timerData, setTimerData] = useState({
@@ -23,7 +24,6 @@ export default function Hero() {
     minutes: 0,
     seconds: 0,
   });
-
   const [timeLeft, setTimeLeft] = useState("00:00:00");
 
   useEffect(() => {
@@ -36,7 +36,6 @@ export default function Hero() {
         clearInterval(interval);
         setTimeLeft("00:00:00");
         setTimerData({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-        onTimeUpdate(0, 0, 0, 0); // Pass updated time to parent
         return;
       }
 
@@ -64,6 +63,17 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [targetDate]);
 
+  // ------------------------------------------
+
+  const [hovered, setHovered] = useState(false);
+
+ const handleScrollDown = () => {
+   window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+ };
+
+
+  // -------------------------------------------
+
   return (
     <div id="hero" className="relative h-[200vh] w-full">
       <div className="h-screen text-white w-full sticky top-0">
@@ -89,16 +99,38 @@ export default function Hero() {
 
         <div className="w-full h-full flex pt-[4.5rem]">
           <CircleIcon />
-          <div className="h-full w-32 relative border-r border-white/20">
-            <div className="absolute top-0 bottom-[60%] left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"></div>
-            <h2 className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2  px-2 -rotate-90 font-bn text-2xl">
+          <motion.div
+            className="h-full w-32 relative"
+            initial={{ borderRightWidth: 0 }}
+            animate={{ borderRightWidth: 1 }}
+            transition={{ duration: 0.75, delay: 4.7 }}
+            style={{ borderColor: "rgba(255,255,255,0.2)" }}
+          >
+            <motion.div
+              className="absolute top-0 bottom-[60%] left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 0.75, delay: 4.9 }}
+            />
+            <h2 className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 -rotate-90 font-bn text-2xl border-[1.5px] border-white/20 bg-black z-40">
               INDIA
             </h2>
-            <div className="absolute top-[40%] bottom-0 left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"></div>
-          </div>
+            <motion.div
+              className="absolute top-[40%] bottom-0 left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 0.75, delay: 5.1 }}
+            />
+          </motion.div>
 
           <div className="w-full h-full flex flex-col items-center justify-between">
-            <div className="w-full border-b-[1.5px] border-white/20 p-10 pb-0">
+            <motion.div
+              className="w-full p-10 pb-0"
+              initial={{ borderBottomWidth: 0 }}
+              animate={{ borderBottomWidth: 1.5 }}
+              transition={{ duration: 2, delay: 5.3 }}
+              style={{ borderColor: "rgba(255,255,255,0.2)" }}
+            >
               <div className="w-72 text-2xl leading-none">
                 <p>Engineered by</p>
               </div>
@@ -110,44 +142,90 @@ export default function Hero() {
                     </h1>
                   </div>
 
-                  <div className="w-1/4 border-r-[1.5px] border-white/20 font-bn p-[19px] flex justify-start items-center">
-                    <p className="max-w-72">
+                  <motion.div
+                    className="relative w-1/4 font-bn p-[19px] flex justify-start items-center"
+                    initial={{ borderRightWidth: 0 }}
+                    animate={{ borderRightWidth: 1.5 }}
+                    transition={{ duration: 1.5, delay: 5.5 }}
+                    style={{ borderColor: "rgba(255,255,255,0.2)" }}
+                  >
+                    <div className="mt-[2px] mb-[1px] absolute bg-black text-transparent h-[99%] w-10 right-20 -translate-x-1/2">
+                      .
+                    </div>
+                    <p className="max-w-72 z-30">
                       Dedicated to advancing space technology through
                       collaboration, innovation, and expertise in sounding
                       rockets, representing VIT Chennai and India on a global
                       stage.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="w-full relative h-20">
-              <div className="absolute top-1/2 w-full h-[1.5px] bg-white/20 transform -translate-y-1/2"></div>
-              <div className="absolute top-1/2 left-[65%] w-[200px] aspect-square border-[1.5px] border-white/20 rounded-full transform -translate-y-1/2 rotate-[66.6deg] bg-black">
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-full rounded-full border-[1.5px] border-white/40 bg-white/5"
-                  animate={{ rotateX: 360 }}
+              <motion.div
+                className="absolute top-1/2 w-full h-[1.5px] bg-white/20 transform -translate-y-1/2"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 5 }}
+              />
+              <div
+                className="absolute top-1/2 left-[65%] w-[200px] aspect-square rounded-full transform -translate-y-1/2  bg-black overflow-hidden border-[1.5px] border-white/20 hover:border-white hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-500"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <div className="relative h-full">
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center bg-white text-black text-lg font-semibold cursor-pointer font-bn transition-opacity duration-700 ease-in-out ${
+                      hovered ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                    onClick={handleScrollDown}
+                  >
+                    KNOW MORE
+                  </div>
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out rotate-[66.6deg] ${
+                      hovered ? "opacity-0 z-0" : "opacity-100 z-10"
+                    }`}
+                  >
+                    <RotatingSphere />
+                  </div>
+                </div>
+
+                {/* <motion.div
+                  className="absolute top-0 left-0 w-full h-full rounded-full bg-white/5 flex items-center justify-center cursor-pointer"
+                  initial={{ borderWidth: 0 }}
+                  animate={{
+                    borderWidth: 1.5,
+                    rotateX: 360,
+                  }}
                   transition={{
-                    repeat: Infinity,
-                    duration: 10,
-                    ease: "linear",
+                    borderWidth: { duration: 2, delay: 6.1 },
+                    rotateX: {
+                      repeat: Infinity,
+                      duration: 10,
+                      ease: "linear",
+                    },
                   }}
                   style={{
                     transformOrigin: "center",
+                    borderColor: "rgba(255,255,255,0.2)",
                   }}
-                ></motion.div>
+                >
+                  <div className="-rotate-90">Know More</div>
+                </motion.div> */}
               </div>
             </div>
 
-            <div className="w-full flex justify-between items-end p-10 z-40">
+            <motion.div className="w-full flex justify-between items-end p-10 z-40">
               <div className="flex flex-col font-bn">
                 <h1 className="text-2xl font-bold">Driven by Obsession</h1>
                 <p className="font-bn text-2xl">
                   A relentless pursuit to challenge, learn, and innovate.
                 </p>
               </div>
-              <div className="bg-black/20 backdrop-blur-[1px] text-white p-4  border-[1.5px] border-white/20 flex items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)]">
+              <div className="bg-black/20 backdrop-blur-[1px] text-white p-4 flex items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)] border-[1.5px] border-white/20">
                 <h2 className="text-xl font-bold text-center tracking-wide font-bn ml-2 pr-4 mr-3 border-r-[1.5px] border-white/20">
                   NEXT LAUNCH
                 </h2>
@@ -159,11 +237,11 @@ export default function Hero() {
                     { label: "MINUTES", value: timerData.minutes },
                     { label: "SECONDS", value: timerData.seconds },
                   ].map((item, index, array) => (
-                    <div className="flex justify-center items-center">
-                      <div
-                        key={index}
-                        className="flex flex-col items-center"
-                      >
+                    <div
+                      key={index}
+                      className="flex justify-center items-center"
+                    >
+                      <div className="flex flex-col items-center">
                         <div className="aspect-square bg-white/5 rounded-lg flex items-center justify-center mb-2">
                           <NumberFlow
                             value={item.value}
@@ -177,13 +255,15 @@ export default function Hero() {
                         <span className="text-xs">{item.label}</span>
                       </div>
                       {index < array.length - 1 && (
-                        <span className="text-xl font-mono translate-x-3">:</span>
+                        <span className="text-xl font-mono translate-x-3">
+                          :
+                        </span>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -204,12 +284,15 @@ export function CircleIcon() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle
+        <motion.circle
           cx="300"
           cy="300"
           r="299"
           stroke="rgba(255,255,255,0.2)"
           strokeWidth="0.2"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 7, delay: 1 }}
         />
       </svg>
     </div>
