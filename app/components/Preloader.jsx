@@ -177,7 +177,7 @@ const Preloader = ({
       )}
 
       {/* Overlay Content */}
-      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-[#ffffff] z-50 font-mono text-nowrap">
+      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-[#ffffff] z-50 font-bn text-nowrap">
         <div className="w-24 text-center">
           {milliseconds > 0 ? "TEAM IGNITION" : "WE GO BOOM"}
         </div>

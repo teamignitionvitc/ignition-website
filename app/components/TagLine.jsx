@@ -5,7 +5,7 @@ import GridPattern from "@/components/ui/grid";
 
 const TagLine = () => {
   return (
-    <div className="relative py-72 text-[30px] font-bn border border-white/20 border-dashed w-full text-center overflow-hidden bg-white z-30 text-black rounded-t-lg h-full">
+    <div className="relative py-72 text-[30px] font-bn border border-white/20 border-dashed w-full text-center overflow-hidden bg-[#0f0f0f] z-30 text-white rounded-t-lg h-full">
       <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" />
 
       {/* <Image
@@ -34,7 +34,7 @@ const TagLine = () => {
         alt="Description of image"
         layout="fill"
         objectFit="contain"
-        className="scale-90 mt-12"
+        className="scale-90 mt-12 invert"
       />
       {/* <div className="mt-56">
         <BlurIn

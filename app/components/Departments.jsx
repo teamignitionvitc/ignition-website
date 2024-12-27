@@ -271,8 +271,8 @@ const Departments = () => {
           {/* ----------------------------- */}
           <div className="rocket relative flex justify-center items-center w-1/3 overflow-hidden border-x border-white/20 border-dashed bg-black">
             <GridPattern
-              width={50}
-              height={50}
+              // width={50}
+              // height={50}
               x={-1}
               y={-1}
               strokeDasharray="4 2"

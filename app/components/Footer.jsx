@@ -1,14 +1,38 @@
-import React, { useState } from "react";
-import GridPattern from "../../components/ui/grid";
-import { MousePointer2Icon, PhoneIcon, MailIcon } from "lucide-react";
+"use client";
+import React, { useState, useEffect } from "react";
+// import GridPattern from "../../components/ui/grid";
+import { MousePointer2Icon, MailIcon } from "lucide-react";
 import DotPattern from "@/components/ui/dot";
+// import Image from "next/image";
 
 const Footer = ({ className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const [mounted, setMounted] = useState(false);
+  const [time, setTime] = useState(null);
+  const timezone = "Asia/Kolkata";
+
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: timezone,
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  });
+
+  useEffect(() => {
+    setMounted(true);
+    const timer = setInterval(() => {
+      setTime(formatter.format(new Date()));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div
-      className={`relative p-4 pb-0 w-full overflow-hidden bg-white text-black ${className}`}
+      className={`relative p-4  w-full overflow-hidden bg-white text-black select-text ${className}`}
     >
       {/* <GridPattern width={47.4} height={47.4} x={-1} y={-1} strokeDasharray="4 2" /> */}
       <DotPattern width={20} height={20} cx={1} cy={1} cr={1} />
@@ -32,20 +56,46 @@ const Footer = ({ className = "" }) => {
 
       <div className="flex p-8 px-8 h-full relative z-10">
         <div
-          className={`relative text-4xl bg-black text-white  rounded-2xl w-72 p-4 flex flex-col justify-between overflow-hidden group  duration-300`}
+          className={`relative text-4xl bg-[#101010] text-white rounded-2xl w-[400px] p-4 flex flex-col justify-between overflow-hidden group duration-300 shadow-[0px_0px_10px_rgba(0,0,0,0.2)]`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="font-bn group-hover:text-black z-10 transition-colors duration-300">
+          <div
+            className={`font-bn text-6xl -mt-1 z-10 transition-colors duration-300 ${
+              isHovered ? "opacity-0" : "group-hover:text-black"
+            }`}
+          >
             FIND US
           </div>
-          <div className="font-bold w-full flex justify-end group-hover:text-black z-10 transition-colors duration-300">
-            <MousePointer2Icon />
+          <div
+            className={`font-bold w-full flex justify-end z-10 transition-colors duration-300 ${
+              isHovered ? "opacity-0" : "group-hover:text-black"
+            }`}
+          >
+            <MousePointer2Icon className="h-8 w-8 animate-pulse" />
           </div>
 
-          <div className="absolute inset-0 bg-white/90 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left h-full"></div>
+          <div
+            className={`absolute inset-0 bg-white/90 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left h-full`}
+          ></div>
 
-          <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div
+            className={`absolute inset-0 flex flex-col items-start justify-center text-black opacity-0 group-hover:opacity-100 z-20 transition-opacity duration-300  p-8 font-bn text-lg text-nowrap`}
+          >
+            <div className="font-bold text-2xl">Address:</div>
+            <div className="flex flex-col -space-y-1 font-semibold text-black/80">
+              <div className="w-72">Team Ignition Garage,</div>
+              <div>AB-2 Basement 006,</div>
+              <div>VIT Chennai,</div>
+              <div>Vandalur-Kelambakkam Road,</div>
+              <div>
+                Keelakotaiyur, Chennai,
+                <br /> Tamil Nadu – 600 127
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute top-10 left-0 w-full h-full pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full border-t border-l border-dashed border-white group-hover:border-black opacity-40 transform rotate-45"></div>
             <div className="absolute top-0 left-0 w-full h-full border-t border-r border-dashed border-white group-hover:border-black opacity-40 transform -rotate-45"></div>
           </div>
@@ -57,46 +107,50 @@ const Footer = ({ className = "" }) => {
           `}
         >
           <div className="flex  h-full justify-between">
-            {/* <div className="w-24 p-16">
-            <h4 className="font-bn text-lg font-semibold mb-4 writing-vertical-rl transform -rotate-90">CONTACT US</h4></div> */}
-            {/* <div className="w-24 h-full flex items-center justify-center">
-              <h4 className="font-bn text-2xl font-bold writing-vertical-rl transform -rotate-90 text-center">
-                CONTACT US
-              </h4>
-            </div> */}
-
             <div className="flex flex-col items-start justify-between">
               <div className="flex items-center">
-                <PhoneIcon size={18} className="mr-2" />
+                {/* <PhoneIcon size={18} className="mr-2" /> */}
                 <div>
-                  <div className="font-semibold">
-                    Captain: Easwara Gokulan R A
+                  <div className="">
+                    <span className="font-semibold">Captain: </span>Easwara
+                    Gokulan R A
                   </div>
-                  <div className="font-semibold">Phone no: 9344597660</div>
+                  <div>
+                    <span className="font-semibold">Contact:</span> +91
+                    9344597660
+                  </div>
                 </div>
               </div>
               <div className="flex items-center">
-                <PhoneIcon size={18} className="mr-2" />
+                {/* <PhoneIcon size={18} className="mr-2" /> */}
                 <div>
-                  <div className="font-semibold">
-                    General Manager: Kishaunjith S
+                  <div>
+                    <span className="font-semibold">General Manager:</span>{" "}
+                    Kishaunjith S
                   </div>
-                  <div className="font-semibold">Phone no: 9176506408</div>
+                  <div>
+                    <span className="font-semibold">Contact:</span> +91
+                    9176506408
+                  </div>
                 </div>
               </div>
               <div className="flex items-center">
-                <MailIcon size={18} className="mr-2" />
                 <a
                   href="mailto:teamignition@vit.ac.in"
-                  className="text-black/60 hover:text-black transition-colors duration-300"
+                  className="font-bold text-black hover:text-white bg-[#f0f0f0] hover:shadow-[0px_0px_5px_rgba(0,0,0,0.1)]  hover:bg-[#101010] rounded-md transition-colors duration-300 flex items-center p-2 px-4"
                 >
+                  <MailIcon size={18} className="mr-2" />
                   teamignition@vit.ac.in
                 </a>
               </div>
             </div>
 
             <div className="flex">
-              <h4 className="font-bn text-2xl font-semibold mr-4">LINKS</h4>
+              <div className="font-bn text-6xl font-semibold  text-[#101010]">
+                <div className="-rotate-90 translate-x-12 translate-y-16 ">
+                  LINKS
+                </div>
+              </div>
               <div className="overflow-hidden border border-black/10 rounded-lg">
                 {[
                   {
@@ -127,7 +181,7 @@ const Footer = ({ className = "" }) => {
                     rel="noopener noreferrer"
                   >
                     <div
-                      className={`bg-[#101010] text-white border-black/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center ${
+                      className={`bg-[#101010] text-white border-white/10 w-44 h-[46.9px] text-center p-2 transition-all duration-300 hover:bg-black/80 hover:text-white flex items-center justify-center ${
                         roundedClass || ""
                       }`}
                     >
@@ -142,26 +196,22 @@ const Footer = ({ className = "" }) => {
       </div>
 
       <div
-        className={`font-bn absolute top-0 right-0 h-full flex flex-col justify-center p-8 transition-opacity duration-500 opacity-0 
+        className={`font-bn absolute top-0 right-12 h-full flex justify-center items-center p-8 transition-opacity duration-500 opacity-0 text-right 
           ${isHovered ? "opacity-100" : "pointer-events-none"}
         `}
       >
-        <h3 className="text-xl font-bold">Contact Info</h3>
-
-        <div className="mt-2">
-          <div className="font-semibold">Address:</div>
-          <div className="w-72">
-            Team Ignition Garage, AB-2 Basement 006,
-            <br />
-            Vellore Institute of Technology University, Vandalur-Kelambakkam
-            Road,
-            <br />
-            Keelakotaiyur, Chennai, Tamil Nadu – 600 127
-          </div>
+        <div className="">
+          <div className="font-semibold text-black/80">LOCAL TIME</div>
+          <div className="text-4xl font-bold mb-6">{time}</div>
+        </div>
+        <div className="mx-1 -mt-6 flex flex-col items-center justify-center font-bold">
+          <div className="text-red-500">N</div>
+          <div className="h-24 w-[2px] bg-black/80" />
+          <div>S</div>
         </div>
       </div>
 
-      <div className="w-full text-center pb-4 mt-4 bg-white text-black font-bn">
+      <div className="w-full text-center pb-4 bg-white text-black font-bn font-semibold">
         Copyright 2024 © Team Ignition. All Rights Reserved.
       </div>
     </div>
