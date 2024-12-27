@@ -138,15 +138,15 @@ const Projects = () => {
                   <strong>Status:</strong> {section.status}
                 </div>
                 <div className="space-y-4 mt-4 w-full h-full">
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Distance:</strong> {section.distance}
-                  </div>
+                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Apogee:</strong> {section.apogee}
                   </div>
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Thrust:</strong> {section.thrust}
-                  </div>
+                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Weight of Motor:</strong> {section.weight}
                   </div>

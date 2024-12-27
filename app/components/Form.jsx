@@ -183,7 +183,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
               Phone: <span className="text-blue-400">9344597660</span>
             </p>
             <p className="text-white/80 text-lg">
-              Email: <span className="text-blue-400">contact@example.com</span>
+              Email: <span className="text-blue-400">teamignition@vit.ac.in</span>
             </p>
           </div>
         </div>

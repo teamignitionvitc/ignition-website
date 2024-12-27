@@ -7,22 +7,22 @@ const About = () => {
     {
       src: "/group-pictures/image-2.jpg",
       alt: "Club Expo VIT 2023",
-      title: "Club Expo VIT 2023 (is that what its called?)",
+      title: "Club Expo VIT 2024",
     },
     {
       src: "/group-pictures/image-5.jpg",
       alt: "Image 2",
-      title: "Lift Off (seems like it)",
+      title: "Lift Off 2024",
     },
     {
       src: "/group-pictures/image-3.jpg",
       alt: "Image 3",
-      title: "cath didnt tell me what this is ;-;",
+      title: "SRAD : Static Fire Test 1",
     },
     {
       src: "/group-pictures/image-4.jpg",
       alt: "Image 4",
-    title: "Sugar Candy Engine Test Run (pls i hope)",
+    title: "SRAD 2 : Static Fire test 2",
     },
   ];
   return (
