@@ -54,7 +54,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           <div className="w-full flex flex-col items-center mt-6">
             <div className="w-full flex justify-center items-center space-x-[8rem]">
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out cursor-pointer"
                 onClick={() => (window.location.href = "https://altium.com")}
                 ref={div1Ref}
               >
@@ -69,7 +69,7 @@ const Sponsors = ({ setIsModalOpen }) => {
                 </div>
               </div>
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out cursor-pointer"
                 onClick={() => (window.location.href = "https://ansys.com")}
                 ref={div2Ref}
               >
@@ -86,7 +86,7 @@ const Sponsors = ({ setIsModalOpen }) => {
             </div>
             <div className="w-full flex justify-center items-center space-x-[35rem]">
               <div
-                className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out cursor-pointer"
                 onClick={() =>
                   (window.location.href = "https://solidworks.com")
                 }
@@ -103,7 +103,7 @@ const Sponsors = ({ setIsModalOpen }) => {
                 </div>
               </div>
               <div
-                className="bg-gradient-to-r from-stone-500 to-stone-700  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out"
+                className="bg-gradient-to-r from-stone-500 to-stone-700  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-transform duration-300 ease-in-out cursor-pointer"
                 ref={div4Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
@@ -119,7 +119,7 @@ const Sponsors = ({ setIsModalOpen }) => {
             </div>
           </div>
           <HoverBorderGradient
-            className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_40px_#ffffff30] hover:shadow-[0px_0px_60px#ffffff30] transition-transform duration-300 ease-in-out"
+            className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_40px_#ffffff30] hover:shadow-[0px_0px_60px#ffffff30] transition-transform duration-300 ease-in-out cursor-pointer"
             containerClassName="rounded-2xl border-0"
             // as="button"
             ref={nodeRef}

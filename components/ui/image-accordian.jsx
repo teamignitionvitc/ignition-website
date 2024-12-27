@@ -81,13 +81,7 @@ const ImageAccordion = ({ images }) => {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`
-                  transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] grayscale hover:grayscale-0 duration-500 
-                  ${
-                    isExpanded
-                      ? "object-cover scale-100"
-                      : "object-cover scale-105"
-                  }
-                `}
+                  transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] grayscale hover:grayscale-0 duration-500 object-cover`}
               />
             </div>
             <div

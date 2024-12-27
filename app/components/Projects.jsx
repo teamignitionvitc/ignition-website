@@ -82,7 +82,7 @@ const Projects = () => {
     >
       <div className="w-full text-left text-[150px] text-white bg-white h-[140px] -mb-4 flex items-center overflow-hidden relative">
         <DotPattern />
-        <div className=" text-black m-2 z-30">PROJECTS</div>
+        <div className=" text-black m-2 z-30 w-full text-right">PROJECTS</div>
         {/* <div className="flex flex-col items-cente h-full w-full -mt-[15px] overflow-hidden">
           <div
             className="flex-1 h-1/2 text-transparent"

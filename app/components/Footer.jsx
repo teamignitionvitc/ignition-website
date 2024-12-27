@@ -88,10 +88,8 @@ const Footer = ({ className = "" }) => {
               <div>AB-2 Basement 006,</div>
               <div>VIT Chennai,</div>
               <div>Vandalur-Kelambakkam Road,</div>
-              <div>
-                Keelakotaiyur, Chennai,
-                <br /> Tamil Nadu – 600 127
-              </div>
+              <div>Keelakotaiyur, Chennai,</div>
+              <div>Tamil Nadu – 600 127</div>
             </div>
           </div>
 
