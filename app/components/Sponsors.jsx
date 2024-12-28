@@ -187,7 +187,7 @@ const Sponsors = ({ setIsModalOpen }) => {
             background="transparent"
             minSize={0.4}
             maxSize={1}
-            particleDensity={200}
+            particleDensity={150}
             className="w-full h-[295px]"
             particleColor="#FFFFFF"
           />
