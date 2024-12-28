@@ -67,10 +67,9 @@ export default function Hero() {
 
   const [hovered, setHovered] = useState(false);
 
- const handleScrollDown = () => {
-   window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
- };
-
+  const handleScrollDown = () => {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+  };
 
   // -------------------------------------------
 
@@ -112,7 +111,7 @@ export default function Hero() {
               animate={{ scaleY: 1 }}
               transition={{ duration: 0.75, delay: 4.9 }}
             />
-            <h2 className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 -rotate-90 font-bn text-2xl border-[1.5px] border-white/20 bg-black z-40">
+            <h2 className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 -rotate-90 font-bn text-2xl border-[1.5px] border-white/20 bg-black hover:bg-white hover:text-black z-40 hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-700 hover:rounded-lg ">
               INDIA
             </h2>
             <motion.div
@@ -225,7 +224,7 @@ export default function Hero() {
                   A relentless pursuit to challenge, learn, and innovate.
                 </p>
               </div>
-              <div className="bg-black/20 backdrop-blur-[1px] text-white p-4 flex items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)] border-[1.5px] border-white/20">
+              <div className="bg-black/20 hover:bg-white backdrop-blur-[1px] text-white hover:text-black transition-all duration-700 p-4 flex items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)] border-[1.5px] border-white/20 hover:shadow-[0px_0px_20px_#ffffff] hover:rounded-lg">
                 <h2 className="text-xl font-bold text-center tracking-wide font-bn ml-2 pr-4 mr-3 border-r-[1.5px] border-white/20">
                   NEXT LAUNCH
                 </h2>
