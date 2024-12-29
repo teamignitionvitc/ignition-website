@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+// import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
 // import ProjectsTwo from "./components/ProjectsTwo";
@@ -16,6 +16,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Form from "./components/Form";
 // import Particles from "../components/ui/particles";
+import Hero from "./components/Hero2";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

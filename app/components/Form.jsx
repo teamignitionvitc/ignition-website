@@ -43,7 +43,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
           onClick={() => setIsModalOpen(false)}
           className="absolute top-2 right-2 text-4xl text-white/80 font-bold"
         >
-          <X className="mt-[2px] mr-[2px]"/>
+          <X className="mt-[2px] mr-[2px]" />
         </button>
         {/* Left Section: Form */}
         <div className="w-1/2 overflow-y-auto p-8 border-r border-white/10">
@@ -67,7 +67,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/30 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div className="w-1/2">
@@ -84,7 +84,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/30 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 onChange={handleInputChange}
                 placeholder="Enter company name"
                 disabled={!formData.isCompany}
-                className="w-full p-2 bg-black/30 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1  disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1  disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             {/* Email */}
@@ -127,7 +127,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/30 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
             {/* Message */}
@@ -144,7 +144,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.message}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/30 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 rows={3}
               />
             </div>
@@ -152,7 +152,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-black/30 text-white/80 text-lg font-semibold rounded-lg"
+                className="w-full px-4 py-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg font-semibold rounded-lg"
               >
                 Send
               </button>
@@ -161,18 +161,18 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
         </div>
 
         {/* Right Section: Sponsorship Leagues */}
-        <div className="w-1/2 overflow-y-auto bg-black/30 p-6 m-8 rounded-2xl flex flex-col">
+        <div className="w-1/2 overflow-y-auto bg-black/60 shadow-sm shadow-gray-600/10 p-6 m-8 rounded-2xl flex flex-col">
           <h3 className="text-2xl font-bold text-white/80 mb-4 text-center">
             Sponsorship Leagues
           </h3>
           <div className="space-y-3">
-            <div className="p-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white/80 font-bold text-lg rounded-lg shadow-lg">
+            <div className="p-3 bg-gradient-to-r from-amber-200 to-yellow-500 text-white font-bold text-lg rounded-lg shadow-lg">
               Gold League
             </div>
-            <div className="p-3 bg-gradient-to-r from-gray-400 to-gray-600 text-white/80 font-bold text-lg rounded-lg shadow-lg">
+            <div className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 text-white font-bold text-lg rounded-lg shadow-lg">
               Silver League
             </div>
-            <div className="p-3 bg-gradient-to-r from-[#9a5924] to-[#79461c] text-white/80 font-bold text-lg rounded-lg shadow-lg">
+            <div className="p-3 bg-gradient-to-r from-stone-500 to-stone-700 text-white font-bold text-lg rounded-lg shadow-lg">
               Bronze League
             </div>
           </div>
@@ -180,10 +180,10 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
           <div className="mt-auto">
             <h4 className="text-xl font-bold text-white/80 mb-3">Contact Us</h4>
             <p className="text-white/80 text-lg mb-1">
-              Phone: <span className="text-blue-400">+1-234-567-890</span>
+              Phone: <span className="text-blue-400">9344597660</span>
             </p>
             <p className="text-white/80 text-lg">
-              Email: <span className="text-blue-400">contact@example.com</span>
+              Email: <span className="text-blue-400">teamignition@vit.ac.in</span>
             </p>
           </div>
         </div>

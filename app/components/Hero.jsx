@@ -189,7 +189,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="h-screen bg-white z-50 rounded-t-2xl overflow-hidden">
+      <div className="h-screen z-50 rounded-t-2xl overflow-hidden">
         <TagLine />
       </div>
     </div>

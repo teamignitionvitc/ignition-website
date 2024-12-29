@@ -1,3 +1,4 @@
+import DotPattern from "@/components/ui/dot";
 import React from "react";
 
 const Projects = () => {
@@ -13,8 +14,8 @@ const Projects = () => {
       achievements: [
         "Achieved a top 10 finish at the Technoxian World Cup, setting a strong foundation for Ignition's competitive journey.",
       ],
-      distance: "400 km",
-      apogee: "150 km",
+      // distance: "400 km",
+      apogee: "1 km",
       thrust: "1,500 kN",
       weight: "500 tons",
     },
@@ -29,8 +30,8 @@ const Projects = () => {
       achievements: [
         "Provided foundational experience in solid-fuel rocketry, significantly enhancing our technical understanding despite technical challenges.",
       ],
-      distance: "350 km",
-      apogee: "120 km",
+      // distance: "350 km",
+      apogee: "1 km",
       thrust: "1,200 kN",
       weight: "450 tons",
     },
@@ -41,14 +42,14 @@ const Projects = () => {
       image: "/pioneer.png",
       description:
         "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions.",
-      status: "Ongoing",
+      status: "Completed- launch approval pending",
       achievements: [
         "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
-      distance: "300 km",
-      apogee: "100 km",
-      thrust: "1,000 kN",
-      weight: "400 tons",
+      // distance: "300 km",
+      apogee: "1 km",
+      thrust: "1800 N",
+      weight: "6.7kg",
     },
     {
       id: 4,
@@ -61,8 +62,8 @@ const Projects = () => {
       achievements: [
         "This is our first entry in an Indian competition, with the launch set for March 2025, highlighting our commitment to pushing the boundaries of rocketry and CANSAT deployment technology.",
       ],
-      distance: "500 km",
-      apogee: "180 km",
+      // distance: "500 km",
+      apogee: "1 km",
       thrust: "1,800 kN",
       weight: "550 tons",
     },
@@ -79,8 +80,9 @@ const Projects = () => {
       className="relative w-full"
       style={{ height: totalHeight }}
     >
-      <div className="w-full text-left text-[150px] text-white bg-white h-[140px] -mb-4 flex items-center overflow-hidden">
-        <div className=" text-black m-2">PROJECTS</div>
+      <div className="w-full text-left text-[150px] text-white bg-white h-[140px] -mb-4 flex items-center overflow-hidden relative">
+        <DotPattern />
+        <div className=" text-black m-2 z-30 w-full text-right">PROJECTS</div>
         {/* <div className="flex flex-col items-cente h-full w-full -mt-[15px] overflow-hidden">
           <div
             className="flex-1 h-1/2 text-transparent"
@@ -125,17 +127,17 @@ const Projects = () => {
                   <strong>Status:</strong> {section.status}
                 </div>
                 <div className="space-y-4 mt-4 w-full h-full">
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Distance:</strong> {section.distance}
-                  </div>
+                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Apogee:</strong> {section.apogee}
                   </div>
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Thrust:</strong> {section.thrust}
-                  </div>
+                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                    <strong>Weight:</strong> {section.weight}
+                    <strong>Weight of Motor:</strong> {section.weight}
                   </div>
                 </div>
               </div>
