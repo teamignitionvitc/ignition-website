@@ -18,15 +18,22 @@ module.exports = {
         // white: "#ececec",
       },
       animation: {
-        rainbow: "rainbow var(--speed, 2s) infinite linear",
+        shine: "shine var(--duration) infinite linear",
         "shimmer-slide":
           "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
       },
       keyframes: {
-        rainbow: {
-          "0%": { "background-position": "0%" },
-          "100%": { "background-position": "200%" },
+        shine: {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
         },
         "spin-around": {
           "0%": {

@@ -78,9 +78,9 @@
 import React, { useState, useEffect } from "react";
 
 const RotatingSphere = ({
-  width = 150,
-  height = 150,
-  sphereRadius = 70,
+  width = 200,
+  height = 200,
+  sphereRadius = 90,
   rotationSpeed = 0.25,
   rotationAxis = "z",
   strokeColor = "rgba(255, 255, 255, 0.5)",

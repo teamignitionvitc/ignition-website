@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import { RefObject, useEffect, useId, useState } from "react";
-import { motion } from "framer-motion";
-
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { forwardRef, RefObject, useEffect, useId, useState } from 'react';
 
 export const AnimatedBeam = ({
   className,
@@ -12,35 +11,38 @@ export const AnimatedBeam = ({
   toRef,
   curvature = 0,
   reverse = false, // Include the reverse prop
-  duration = Math.random() * 10 + 4,
-  delay = -10,
-  pathColor = "gray",
-  pathWidth = 3,
+  duration = Math.random() * 10 + 10,
+  delay = 0,
+  pathColor = 'gray',
+  pathWidth = 2.5,
   pathOpacity = 0.2,
-  gradientStartColor = "#ffffff",
-  gradientStopColor = "#ffffff50",
+  gradientStartColor = '#ffffff',
+  gradientStopColor = '#ffffff50',
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
   endYOffset = 0,
+  dotted = false,
+  dotSpacing = 6,
 }) => {
   const id = useId();
-  const [pathD, setPathD] = useState("");
-  const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
+  const [pathD, setPathD] = useState('');
 
+  const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
+  const strokeDasharray = dotted ? `${dotSpacing} ${dotSpacing}` : 'none';
   // Calculate the gradient coordinates based on the reverse prop
   const gradientCoordinates = reverse
     ? {
-        x1: ["90%", "-10%"],
-        x2: ["100%", "0%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
+        x1: ['90%', '-10%'],
+        x2: ['100%', '0%'],
+        y1: ['0%', '0%'],
+        y2: ['0%', '0%'],
       }
     : {
-        x1: ["10%", "110%"],
-        x2: ["0%", "100%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
+        x1: ['10%', '110%'],
+        x2: ['0%', '100%'],
+        y1: ['0%', '0%'],
+        y2: ['0%', '0%'],
       };
 
   useEffect(() => {
@@ -104,12 +106,12 @@ export const AnimatedBeam = ({
 
   return (
     <svg
-      fill="none"
+      fill='none'
       width={svgDimensions.width}
       height={svgDimensions.height}
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns='http://www.w3.org/2000/svg'
       className={cn(
-        "pointer-events-none absolute left-0 top-0 transform-gpu stroke-2",
+        'pointer-events-none absolute left-0 top-0 transform-gpu stroke-2',
         className
       )}
       viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
@@ -119,25 +121,37 @@ export const AnimatedBeam = ({
         stroke={pathColor}
         strokeWidth={pathWidth}
         strokeOpacity={pathOpacity}
-        strokeLinecap="round"
+        strokeLinecap='round'
+        strokeDasharray={strokeDasharray}
       />
-      <path
+      <motion.path
         d={pathD}
-        strokeWidth={pathWidth}
         stroke={`url(#${id})`}
-        strokeOpacity="1"
-        strokeLinecap="round"
+        strokeLinecap='round'
+        strokeDasharray={strokeDasharray}
+        initial={{
+          strokeWidth: pathWidth,
+          strokeOpacity: 0,
+        }}
+        animate={{
+          strokeWidth: pathWidth * 1.5, // or any scale factor you prefer
+          strokeOpacity: 1,
+        }}
+        transition={{
+          duration: 2, // adjust as needed
+          delay: delay, // use the same delay as the gradient animation
+        }}
       />
       <defs>
         <motion.linearGradient
-          className="transform-gpu"
+          className='transform-gpu'
           id={id}
-          gradientUnits={"userSpaceOnUse"}
+          gradientUnits={'userSpaceOnUse'}
           initial={{
-            x1: "0%",
-            x2: "0%",
-            y1: "0%",
-            y2: "0%",
+            x1: '0%',
+            x2: '0%',
+            y1: '0%',
+            y2: '0%',
           }}
           animate={{
             x1: gradientCoordinates.x1,
@@ -153,16 +167,30 @@ export const AnimatedBeam = ({
             repeatDelay: 0,
           }}
         >
-          <stop stopColor={gradientStartColor} stopOpacity="0"></stop>
+          <stop stopColor={gradientStartColor} stopOpacity='0'></stop>
           <stop stopColor={gradientStartColor}></stop>
-          <stop offset="32.5%" stopColor={gradientStopColor}></stop>
+          <stop offset='32.5%' stopColor={gradientStopColor}></stop>
           <stop
-            offset="100%"
+            offset='100%'
             stopColor={gradientStopColor}
-            stopOpacity="0"
+            stopOpacity='0'
           ></stop>
         </motion.linearGradient>
       </defs>
     </svg>
   );
 };
+
+export const Circle = forwardRef(({ className, children }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+});

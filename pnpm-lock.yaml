@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@number-flow/react':
+        specifier: ^0.4.4
+        version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tsparticles/engine':
         specifier: ^3.7.1
         version: 3.7.1
@@ -259,6 +262,12 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@number-flow/react@0.4.4':
+    resolution: {integrity: sha512-m2FW55jnWqiJzKNRETgyxgR7a8x0WYIZ1uyiIW8C5g6HyjIynryJJop1mEcmHG6OyNePkcb8OQIcjKlV5TfHAw==}
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -536,6 +545,9 @@ packages:
   emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
 
+  esm-env@1.2.1:
+    resolution: {integrity: sha512-U9JedYYjCnadUlXk7e1Kr+aENQhtUaoaV9+gZm1T8LC/YBAPJx3NSPIAurFOC0U5vrdSevnUJS2/wUVxGwPhng==}
+
   fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
@@ -747,6 +759,9 @@ packages:
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+
+  number-flow@0.4.2:
+    resolution: {integrity: sha512-YLN73/m8BUU4r/6mq9zqLdpFKt3LSPPRectOECheA9jtNWF4PP8EIz0+Z1giqu/x9nS86KnKwwouLXXiqnjhQQ==}
 
   oauth-sign@0.3.0:
     resolution: {integrity: sha512-Tr31Sh5FnK9YKm7xTUPyDMsNOvMqkVDND0zvK/Wgj7/H9q8mpye0qG2nVzrnsvLhcsX5DtqXD0la0ks6rkPCGQ==}
@@ -1163,6 +1178,13 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
+  '@number-flow/react@0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      esm-env: 1.2.1
+      number-flow: 0.4.2
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -1481,6 +1503,8 @@ snapshots:
 
   emoji-regex@9.2.2: {}
 
+  esm-env@1.2.1: {}
+
   fast-glob@3.3.2:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -1674,6 +1698,10 @@ snapshots:
   node-uuid@1.4.8: {}
 
   normalize-path@3.0.0: {}
+
+  number-flow@0.4.2:
+    dependencies:
+      esm-env: 1.2.1
 
   oauth-sign@0.3.0: {}
 
