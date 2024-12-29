@@ -180,10 +180,10 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
           <div className="mt-auto">
             <h4 className="text-xl font-bold text-white/80 mb-3">Contact Us</h4>
             <p className="text-white/80 text-lg mb-1">
-              Phone: <span className="text-blue-400">+1-234-567-890</span>
+              Phone: <span className="text-blue-400">9344597660</span>
             </p>
             <p className="text-white/80 text-lg">
-              Email: <span className="text-blue-400">contact@example.com</span>
+              Email: <span className="text-blue-400">teamignition@vit.ac.in</span>
             </p>
           </div>
         </div>
