@@ -7,7 +7,7 @@ import { AnimatedBeam } from "@/components/ui/animated-beam";
 import GridPattern from "@/components/ui/grid";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { ShineBorder } from "@/components/ui/shine-border";
-// import DotPattern from "@/components/ui/dot";
+
 
 const Sponsors = ({ setIsModalOpen }) => {
   const containerRef = useRef(null);

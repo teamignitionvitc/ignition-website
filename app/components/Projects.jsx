@@ -122,17 +122,6 @@ const Projects = () => {
                 {section.date}
                 <div className="h-[1px] bg-white/40 w-full mx-6" />
               </div>
-              {/* <div className="w-full ml-8 lg:w-3/4">
-                <p className="mb-4 w-full">{section.description}</p>
-                <div>
-                  <strong>Key Achievements:</strong>
-                  <ul className="list-disc list-inside">
-                    {section.achievements.map((achievement, idx) => (
-                      <li key={idx}>{achievement}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div> */}
               <div className="w-full ml-10 lg:w-2/4 flex flex-col justify-center items-center rounded-lg overflow-auto">
                 <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg">
                   <strong>Status:</strong> {section.status}
@@ -163,28 +152,6 @@ const Projects = () => {
                     className="h-full w-full -rotate-90 object-cover filter grayscale"
                   />
                 </div>
-                {/* <div className="w-full ml-8 lg:w-2/4 flex flex-col justify-center items-center  pr-6 rounded-lg border border-white/20 border-dashed">
-                  <div className="w-full bg-white/20 text-white text-center py-4 rounded-t-lg">
-                    <strong>Status:</strong> {section.status}
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4 w-full h-full">
-                    <div className="flex justify-center items-center bg-white/20 rounded-md">
-                      <strong>Distance:</strong> {section.distance}
-                    </div>
-                    <div className="flex justify-center items-center bg-white/20 rounded-md">
-                      <strong>Apogee:</strong> {section.apogee}
-                    </div>
-                    <div className="flex justify-center items-center bg-white/20 rounded-md">
-                      <strong>Thrust:</strong> {section.thrust}
-                    </div>
-                    <div className="flex justify-center items-center bg-white/20 rounded-md">
-                      <strong>Weight:</strong> {section.weight}
-                    </div>
-                  </div>
-                  <button className="bg-white/20 text-white w-full mt-4 py-3 rounded-b-lg hover:bg-gray-700">
-                    Learn More
-                  </button>
-                </div> */}
                 <div className="w-full lg:w-3/4 px-10 text-xl font-bn">
                   <p className="mb-4 w-full">{section.description}</p>
                   <div>

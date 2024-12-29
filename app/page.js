@@ -68,10 +68,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Navbar
-        className="fixed top-0 left-0 right-0"
-        handleScrollTo={handleScrollTo}
-      />
+      <div className="z-50">
+        <Navbar handleScrollTo={handleScrollTo} />
+      </div>
       <AnimatePresence>
         {showPreloader && (
           <motion.div

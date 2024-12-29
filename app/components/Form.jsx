@@ -38,7 +38,7 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-lg z-50">
-      <div className="bg-[#161616] rounded-2xl w-[60vw] max-w-4xl flex  relative overflow-hidden font-bn ring-1 ring-white/10">
+      <div className="bg-[#1f1f1f] rounded-2xl w-[60vw] max-w-4xl flex  relative overflow-hidden font-bn ring-1 ring-white/10">
         <button
           onClick={() => setIsModalOpen(false)}
           className="absolute top-2 right-2 text-4xl text-white/80 font-bold"
