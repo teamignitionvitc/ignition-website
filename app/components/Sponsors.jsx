@@ -23,39 +23,39 @@ const Sponsors = ({ setIsModalOpen }) => {
       className="w-full flex flex-col rounded-b-2xl -mt-[50px] relative"
     >
       {/* <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">
-        SPONSORS
-      </div> */}
+    SPONSORS
+  </div> */}
       <VelocityScroll
         text="SPONSORS &#183; "
         default_velocity={2}
-        className="text-[150px] text-[#0f0f0f] bg-white h-[175px] p-2"
+        className="md:text-[150px] text-[80px] text-[#0f0f0f] bg-white h-[100px] md:h-[175px] p-2"
       />
       {/* <SparklesCore
-        background="transparent"
-        minSize={0.4}
-        maxSize={1}
-        particleDensity={150}
-        className="w-full h-[295px] absolute top-[175px]"
-        particleColor="#FFFFFF"
-      /> */}
+    background="transparent"
+    minSize={0.4}
+    maxSize={1}
+    particleDensity={150}
+    className="w-full h-[295px] absolute top-[175px]"
+    particleColor="#FFFFFF"
+  /> */}
       <GridPattern className="h-[400px] absolute top-[175px]" />
       {/* <DotPattern className="h-[400px] absolute top-[175px] fill-white/20"/> */}
 
       <div className="absolute top-[175px] inset-0 w-full h-[400px] bg-gradient-to-b from-transparent to-black"></div>
 
       {/* <SponsorsList /> */}
-      <div className="w-full flex justify-center items-center my-16 text-4xl font-bn z-40">
+      <div className="w-full flex justify-center items-center my-8 md:my-16 text-2xl md:text-4xl font-bn z-40 px-4 text-center">
         Fueling the ignited minds at Ignition.
       </div>
       <div
-        className="relative flex w-full items-center justify-center px-24"
+        className="relative flex w-full items-center justify-center px-4 md:px-24"
         ref={containerRef}
       >
-        <div className="flex flex-col justify-center items-center  w-full">
+        <div className="flex flex-col justify-center items-center w-full">
           <div className="w-full flex flex-col items-center mt-6">
-            <div className="w-full flex justify-center items-center space-x-[8rem]">
+            <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-[8rem] space-y-8 md:space-y-0">
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
                 onClick={() => (window.location.href = "https://altium.com")}
                 ref={div1Ref}
               >
@@ -63,14 +63,14 @@ const Sponsors = ({ setIsModalOpen }) => {
                   <Image
                     src={"/sponsors/altium.png"}
                     alt="Altium"
-                    width={190}
-                    height={80}
+                    width={140}
+                    height={60}
                     className="-rotate-45 invert"
                   />
                 </div>
               </div>
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
                 onClick={() => (window.location.href = "https://ansys.com")}
                 ref={div2Ref}
               >
@@ -78,16 +78,16 @@ const Sponsors = ({ setIsModalOpen }) => {
                   <Image
                     src={"/sponsors/ansys-white.png"}
                     alt="Ansys"
-                    width={170}
-                    height={80}
+                    width={120}
+                    height={60}
                     className="-rotate-45"
                   />
                 </div>
               </div>
             </div>
-            <div className="w-full flex justify-center items-center space-x-[35rem]">
+            <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-[35rem] space-y-8 md:space-y-0 mt-8 md:mt-0">
               <div
-                className="bg-gradient-to-r from-slate-300 to-slate-500  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-slate-300 to-slate-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
                 onClick={() =>
                   (window.location.href = "https://solidworks.com")
                 }
@@ -97,22 +97,22 @@ const Sponsors = ({ setIsModalOpen }) => {
                   <Image
                     src={"/sponsors/solidworks.png"}
                     alt="Altium"
-                    width={180}
-                    height={80}
+                    width={130}
+                    height={60}
                     className="-rotate-45"
                   />
                 </div>
               </div>
               <div
-                className="bg-gradient-to-r from-stone-500 to-stone-700  p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-44 w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-stone-500 to-stone-700 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
                 ref={div4Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
                   <Image
                     src={"/sponsors/innovator-academy.png"}
                     alt="Altium"
-                    width={130}
-                    height={80}
+                    width={90}
+                    height={60}
                     className="-rotate-45 invert"
                   />
                 </div>
@@ -120,31 +120,38 @@ const Sponsors = ({ setIsModalOpen }) => {
             </div>
           </div>
           {/* <HoverBorderGradient
-            className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_40px_#ffffff30] hover:shadow-[0px_0px_60px#ffffff30] transition-transform duration-300 ease-in-out cursor-pointer"
-            containerClassName="rounded-2xl border-0"
-            // as="button"
-            ref={nodeRef}
-          >
-            <Image
-              src="/logo/head-logo.png"
-              alt="Team Logo"
-              width={200}
-              height={80}
-              className=""
-            />
-          </HoverBorderGradient> */}
-          <div ref={nodeRef}>
+        className="bg-[#0f0f0f] rounded-2xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_40px_#ffffff30] hover:shadow-[0px_0px_60px#ffffff30] transition-transform duration-300 ease-in-out cursor-pointer"
+        containerClassName="rounded-2xl border-0"
+        // as="button"
+        ref={nodeRef}
+      >
+        <Image
+          src="/logo/head-logo.png"
+          alt="Team Logo"
+          width={200}
+          height={80}
+          className=""
+        />
+      </HoverBorderGradient> */}
+          <div ref={nodeRef} className="mt-8 md:mt-0">
             <ShineBorder
-              className="bg-[#0f0f0f] rounded-3xl h-36 w-72 z-40 flex justify-center items-center shadow-[0px_0px_60px_#ffffff30] hover:shadow-[0px_0px_100px_10px_#7482ff40] transition-all duration-700  ease-in-out cursor-pointer hover:scale-[102%]"
+              className="bg-[#0f0f0f] rounded-3xl h-28 w-64 md:h-36 md:w-72 z-40 flex justify-center items-center shadow-[0px_0px_60px_#ffffff30] hover:shadow-[0px_0px_100px_10px_#7482ff40] transition-all duration-700 ease-in-out cursor-pointer hover:scale-[102%]"
               borderRadius={16}
               color={["#A07CFE", "#FE8FB5", "#FFBE7B", "#A07CFE", "#FFFFFF"]}
             >
               <Image
                 src="/logo/head-logo.png"
                 alt="Team Logo"
+                width={160}
+                height={60}
+                className="md:hidden"
+              />
+              <Image
+                src="/logo/head-logo.png"
+                alt="Team Logo"
                 width={200}
                 height={80}
-                className=""
+                className="hidden md:block"
               />
             </ShineBorder>
           </div>
@@ -155,6 +162,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           fromRef={div1Ref}
           toRef={nodeRef}
           curvature={-300}
+          className="hidden md:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
@@ -162,6 +170,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           toRef={nodeRef}
           curvature={-300}
           reverse
+          className="hidden md:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
@@ -169,6 +178,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           toRef={nodeRef}
           curvature={-300}
           endYOffset={-30}
+          className="hidden md:block"
         />
         <AnimatedBeam
           containerRef={containerRef}
@@ -177,11 +187,12 @@ const Sponsors = ({ setIsModalOpen }) => {
           curvature={-300}
           endYOffset={-30}
           reverse
+          className="hidden md:block"
         />
       </div>
 
       {/* Section 4 - Contact Form */}
-      <div className="w-full flex justify-center items-center mb-[400px]">
+      <div className="w-full flex justify-center items-center mb-[200px] md:mb-[400px]">
         <div className="flex flex-col items-center w-full overflow-hidden relative">
           <SparklesCore
             background="transparent"
@@ -194,27 +205,24 @@ const Sponsors = ({ setIsModalOpen }) => {
 
           {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-[252.5px] bg-black [mask-image:radial-gradient(400px_250px_at_top,transparent_20%,white)]"></div>
-          <h3 className="text-[150px] font-bold w-full text-center z-30 -mt-[275px] bg-clip-text text-transparent bg-gradient-to-b from-white to-[#9f9f9f]">
+          <h3 className="text-[80px] md:text-[150px] font-bold w-full text-center z-30 -mt-[275px] bg-clip-text text-transparent bg-gradient-to-b from-white to-[#9f9f9f]">
             BE OUR NEXT?
           </h3>
 
-          <div className="flex justify-center items-center w-full pb-8">
-            <div className="h-[2px] w-full bg-white/10 text-transparent mr-8 rounded-r-full z-30">
+          <div className="flex justify-center items-center w-full pb-8 px-4">
+            <div className="h-[2px] w-full bg-white/10 text-transparent mr-4 md:mr-8 rounded-r-full z-30">
               .
             </div>
-            {/* <RainbowButton
-              onClick={() => setIsModalOpen(true)}
-              className="font-semibold text-black rounded-lg font-bn w-[600px]"
-              children={"Become a Sponsor"}
-            /> */}
             <ShimmerButton
-              className="font-semibold font-bn w-[600px] shadow-[0px_0px_50px_rgba(255,255,255,0.2)] bg-[#101010] hover:scale-105 mt-[4px]"
+              className="font-semibold font-bn w-[280px] md:w-[600px] shadow-[0px_0px_50px_rgba(255,255,255,0.2)] bg-[#101010] hover:scale-105 mt-[4px]"
               borderRadius="10px"
               onClick={() => setIsModalOpen(true)}
             >
-              <span className="text-white">Become a Sponsor</span>
+              <span className="text-white text-sm md:text-base">
+                Become a Sponsor
+              </span>
             </ShimmerButton>
-            <div className="h-[2px] w-full bg-white/10 text-transparent ml-8 rounded-l-full z-30">
+            <div className="h-[2px] w-full bg-white/10 text-transparent ml-4 md:ml-8 rounded-l-full z-30">
               .
             </div>
           </div>
