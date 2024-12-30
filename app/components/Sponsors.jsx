@@ -233,48 +233,48 @@ export default Sponsors;
 
 // ---------------------------------
 
-export const SponsorsList = () => (
-  <div>
-    {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
-      const bgColors = ["bg-white/90", "bg-white/80", "bg-white/60"]; // Background shades
-      const textColors = ["text-black/70", "text-black/80", "text-black/85"]; // Text colors
+// export const SponsorsList = () => (
+//   <div>
+//     {["ALTIUM", "ANSYS", "INNOVATORS ACADEMY"].map((section, index) => {
+//       const bgColors = ["bg-white/90", "bg-white/80", "bg-white/60"]; // Background shades
+//       const textColors = ["text-black/70", "text-black/80", "text-black/85"]; // Text colors
 
-      // const bgColors = ["bg-white/50", "bg-white/30", "bg-white/10"];
-      // const textColors = [
-      //   "text-white/60",
-      //   "text-white/80",
-      //   "text-white/90",
-      // ];
+//       // const bgColors = ["bg-white/50", "bg-white/30", "bg-white/10"];
+//       // const textColors = [
+//       //   "text-white/60",
+//       //   "text-white/80",
+//       //   "text-white/90",
+//       // ];
 
-      return (
-        <div
-          key={section}
-          className={`${bgColors[index]} w-full flex items-center justify-between h-[6rem] pl-2 pr-10 overflow-hidden relative`}
-        >
-          <span
-            className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans ml-[80px]`}
-          >
-            #
-            <span className={`text-[90px] font-bn absolute left-2 -mb-[10px]`}>
-              {index + 1}
-            </span>
-          </span>
+//       return (
+//         <div
+//           key={section}
+//           className={`${bgColors[index]} w-full flex items-center justify-between h-[6rem] pl-2 pr-10 overflow-hidden relative`}
+//         >
+//           <span
+//             className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans ml-[80px]`}
+//           >
+//             #
+//             <span className={`text-[90px] font-bn absolute left-2 -mb-[10px]`}>
+//               {index + 1}
+//             </span>
+//           </span>
 
-          <p
-            className={`${textColors[index]} font-bold text-[100px] -mb-[10.5px]`}
-          >
-            {section}
-          </p>
-          <span
-            className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans mr-[50px]`}
-          >
-            #
-            <span className={`text-[90px] font-bn absolute right-2 -mb-[10px]`}>
-              {index + 1}
-            </span>
-          </span>
-        </div>
-      );
-    })}
-  </div>
-);
+//           <p
+//             className={`${textColors[index]} font-bold text-[100px] -mb-[10.5px]`}
+//           >
+//             {section}
+//           </p>
+//           <span
+//             className={`${textColors[index]} font-[900]  text-[150px] flex justify-center items-center -mt-[13px] font-sans mr-[50px]`}
+//           >
+//             #
+//             <span className={`text-[90px] font-bn absolute right-2 -mb-[10px]`}>
+//               {index + 1}
+//             </span>
+//           </span>
+//         </div>
+//       );
+//     })}
+//   </div>
+// );

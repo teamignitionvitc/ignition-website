@@ -73,6 +73,7 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
+            className="hidden md:block"
           >
             <Preloader
               onComplete={handlePreloaderComplete}

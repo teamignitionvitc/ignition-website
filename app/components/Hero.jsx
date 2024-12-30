@@ -74,7 +74,7 @@ export default function Hero() {
   // -------------------------------------------
 
   return (
-    <div id="hero" className="relative h-[200vh] w-full">
+    <div id="hero" className="relative h-[200vh] w-screen">
       <div className="h-screen text-white w-full sticky top-0">
         {/* <Particles
           className="absolute inset-0 w-full h-screen"
@@ -94,10 +94,19 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 4.5 }}
             className="absolute top-[8.5rem] right-0 h-[1px] bg-white/20"
           />
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 0.75, delay: 4.5 }}
+            className="absolute top-[73px] right-0 h-[1px] bg-white/20"
+          />
         </div>
 
         <div className="w-full h-full flex pt-[4.5rem]">
-          <CircleIcon />
+          <div className="absolute w-screen h-screen overflow-hidden">
+            <CircleIcon />
+          </div>
+
           <motion.div
             className="h-full w-32 relative"
             initial={{ borderRightWidth: 0 }}
@@ -130,7 +139,7 @@ export default function Hero() {
               transition={{ duration: 2, delay: 5.3 }}
               style={{ borderColor: "rgba(255,255,255,0.2)" }}
             >
-              <div className="w-72 text-2xl leading-none font-bn font-bold">
+              <div className="w-72 text-2xl leading-none font-bn font-bold -translate-y-5">
                 <p>ENGINEERED BY</p>
               </div>
               <div className="w-full flex flex-col">
@@ -252,7 +261,7 @@ export default function Hero() {
 
 export function CircleIcon() {
   return (
-    <div className="absolute -bottom-[3800px] -left-[2000px]">
+    <div className="absolute -bottom-[3725px] -left-[2000px]">
       <svg
         width="4000"
         height="4000"

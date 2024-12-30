@@ -177,7 +177,7 @@ const Preloader = ({
       )}
 
       {/* Overlay Content */}
-      <div className="w-full absolute flex justify-between items-center px-12 text-lg text-[#ffffff] z-50 font-bn text-nowrap">
+      <div className="w-full absolute flex flex-col md:flex-row justify-between items-center px-12 text-lg text-[#ffffff] z-50 font-bn text-nowrap">
         <div className="w-24 text-center">
           {milliseconds > 0 ? "TEAM IGNITION" : "WE GO BOOM"}
         </div>
@@ -220,7 +220,7 @@ const Preloader = ({
             }}
             animate={{
               backgroundColor: animationStep >= 1 ? "#ffffff" : "#ffffff20",
-              boxShadow: "0 0 20px 1px rgba(255, 255, 255, 0.5)"
+              boxShadow: "0 0 20px 1px rgba(255, 255, 255, 0.5)",
             }}
             transition={{
               backgroundColor: { duration: 0.3, delay: 0.1 },
