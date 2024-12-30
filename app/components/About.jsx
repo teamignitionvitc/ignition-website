@@ -38,7 +38,7 @@ const About = () => {
             </div>
             <div className="w-full relative flex justify-center items-center">
               <Image
-                src="/group-pictures/image-0.jpg"
+                src="/group-pictures/image-6.jpeg"
                 alt="Group Picture"
                 height={500}
                 width={800}
