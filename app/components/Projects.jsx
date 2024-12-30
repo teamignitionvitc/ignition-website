@@ -42,7 +42,7 @@ const Projects = () => {
       image: "/pioneer.png",
       description:
         "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions.",
-      status: "Completed- launch approval pending",
+      status: "Ongoing",
       achievements: [
         "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
@@ -80,29 +80,9 @@ const Projects = () => {
       className="relative w-full"
       style={{ height: totalHeight }}
     >
-      <div className="w-full text-left text-[150px] text-white bg-white h-[140px] -mb-4 flex items-center overflow-hidden relative">
+      <div className="w-full text-left text-[4rem] md:text-[150px] text-white bg-white h-[100px] md:h-[140px] -mb-4 flex items-center overflow-hidden relative">
         <DotPattern />
-        <div className=" text-black m-2 z-30 w-full text-right">PROJECTS</div>
-        {/* <div className="flex flex-col items-cente h-full w-full -mt-[15px] overflow-hidden">
-          <div
-            className="flex-1 h-1/2 text-transparent"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.20) 0, rgba(0, 0, 0, 0.20) 1px, transparent 1px, transparent 40px)",
-            }}
-          >
-            .
-          </div>
-          <div
-            className="flex-1 h-1/2 text-transparent"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(-135deg, rgba(0, 0, 0, 0.20) 0, rgba(0, 0, 0, 0.20) 1px, transparent 1px, transparent 40px)",
-            }}
-          >
-            .
-          </div>
-        </div> */}
+        <div className="text-black m-2 z-30 w-full text-right">PROJECTS</div>
       </div>
       {sections.map((section, index) => {
         const topOffset = index * heightReduction;
@@ -110,49 +90,45 @@ const Projects = () => {
         return (
           <div
             key={section.id}
-            className={`sticky flex items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden`}
+            className="sticky flex flex-col md:flex-row items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
             style={{
               top: `${topOffset + 80}px`,
               height: `calc(100vh - ${index * heightReduction + 80}px)`,
               zIndex: index + 1,
             }}
           >
-            <div className="w-full mb-4 lg:mb-0 lg:w-1/3  font-bn">
-              <div className="text-2xl font-bold text-[30px] my-[25px] ml-10 flex justify-center items-center">
+            <div className="w-full md:w-1/3 font-bn p-4 md:p-0">
+              <div className="text-xl md:text-[30px] my-4 md:my-[25px] ml-0 md:ml-10 flex justify-center items-center">
                 {section.date}
                 <div className="h-[1px] bg-white/40 w-full mx-6" />
               </div>
-              <div className="w-full ml-10 lg:w-2/4 flex flex-col justify-center items-center rounded-lg overflow-auto">
+              <div className="w-full md:ml-10 md:w-2/4 flex flex-col justify-center items-center rounded-lg overflow-auto">
                 <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg">
                   <strong>Status:</strong> {section.status}
                 </div>
                 <div className="space-y-4 mt-4 w-full h-full">
-                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                    <strong>Distance:</strong> {section.distance}
-                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Apogee:</strong> {section.apogee}
                   </div>
-                  {/* <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                    <strong>Thrust:</strong> {section.thrust}
-                  </div> */}
                   <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
                     <strong>Weight of Motor:</strong> {section.weight}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-full h-full flex flex-col text-white">
-              <div className="text-white text-[55px]">{section.heading}</div>
-              <div className="flex">
-                <div className="w-full mb-4 lg:mb-0 lg:w-3/4 -mt-10">
+            <div className="w-full h-full flex flex-col text-white p-4 md:p-0">
+              <div className="text-white text-[2rem] md:text-[55px]">
+                {section.heading}
+              </div>
+              <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-3/4 mt-4 md:-mt-10">
                   <img
                     src={section.image}
                     alt={`Section ${section.id} Image`}
-                    className="h-full w-full -rotate-90 object-cover filter grayscale"
+                    className="h-full w-full md:-rotate-90 object-cover filter grayscale"
                   />
                 </div>
-                <div className="w-full lg:w-3/4 px-10 text-xl font-bn">
+                <div className="w-full md:w-3/4 px-4 md:px-10 text-lg md:text-xl font-bn mt-4 md:mt-0">
                   <p className="mb-4 w-full">{section.description}</p>
                   <div>
                     <strong>Key Achievements:</strong>

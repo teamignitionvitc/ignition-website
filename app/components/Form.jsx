@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 
 const Form = ({ setIsModalOpen, scrollInstance }) => {
   const [formData, setFormData] = useState({
@@ -37,26 +38,27 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
   }, [scrollInstance]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-lg z-50">
-      <div className="bg-[#1f1f1f] rounded-2xl w-[60vw] max-w-4xl flex  relative overflow-hidden font-bn ring-1 ring-white/10">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-lg z-50 p-4">
+      <div className="bg-[#1f1f1f] rounded-2xl w-full md:w-[60vw] max-w-4xl flex flex-col md:flex-row relative overflow-hidden font-bn ring-1 ring-white/10 my-4 overflow-y-scroll h-full md:h-fit">
         <button
           onClick={() => setIsModalOpen(false)}
           className="absolute top-2 right-2 text-4xl text-white/80 font-bold"
         >
           <X className="mt-[2px] mr-[2px]" />
         </button>
-        {/* Left Section: Form */}
-        <div className="w-1/2 overflow-y-auto p-8 border-r border-white/10">
-          <h3 className="text-3xl font-bold text-white/80 mb-4 text-center">
+
+        {/* Form Section */}
+        <div className="w-full md:w-1/2 overflow-y-auto p-4 md:p-8 border-b md:border-b-0 md:border-r border-white/10">
+          <h3 className="text-2xl md:text-3xl font-bold text-white/80 mb-4 text-center">
             Contact Form
           </h3>
           <form onSubmit={handleSubmit} className="space-y-3">
             {/* First Name and Last Name */}
-            <div className="flex space-x-2">
-              <div className="w-1/2">
+            <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-2">
+              <div className="w-full md:w-1/2">
                 <label
                   htmlFor="firstName"
-                  className="block text-lg font-semibold text-white/80 mb-1"
+                  className="block text-base md:text-lg font-semibold text-white/80 mb-1"
                 >
                   First Name:
                 </label>
@@ -67,13 +69,13 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <label
                   htmlFor="lastName"
-                  className="block text-lg font-semibold text-white/80 mb-1"
+                  className="block text-base md:text-lg font-semibold text-white/80 mb-1"
                 >
                   Last Name:
                 </label>
@@ -84,13 +86,14 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
+
             {/* Company Checkbox */}
             <div>
-              <label className="flex items-center text-lg font-semibold text-white/80 mb-1">
+              <label className="flex items-center text-base md:text-lg font-semibold text-white/80 mb-1">
                 <input
                   type="checkbox"
                   id="isCompany"
@@ -109,14 +112,15 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 onChange={handleInputChange}
                 placeholder="Enter company name"
                 disabled={!formData.isCompany}
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1  disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
+
             {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="block text-lg font-semibold text-white/80 mb-1"
+                className="block text-base md:text-lg font-semibold text-white/80 mb-1"
               >
                 Email:
               </label>
@@ -127,14 +131,15 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
+
             {/* Message */}
             <div>
               <label
                 htmlFor="message"
-                className="block text-lg font-semibold text-white/80 mb-1"
+                className="block text-base md:text-lg font-semibold text-white/80 mb-1"
               >
                 Message:
               </label>
@@ -144,15 +149,16 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.message}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 rows={3}
               />
             </div>
+
             {/* Send Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-lg font-semibold rounded-lg"
+                className="w-full px-4 py-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg font-semibold rounded-lg hover:bg-black/80 transition-colors"
               >
                 Send
               </button>
@@ -160,31 +166,32 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
           </form>
         </div>
 
-        {/* Right Section: Sponsorship Leagues */}
-        <div className="w-1/2 overflow-y-auto bg-black/60 shadow-sm shadow-gray-600/10 p-6 m-8 rounded-2xl flex flex-col">
-          <h3 className="text-2xl font-bold text-white/80 mb-4 text-center">
-            Sponsorship Leagues
+        {/* Contact Info Section */}
+        <div className="w-full md:w-1/2 overflow-y-auto bg-black/60 shadow-sm shadow-gray-600/10 p-4 md:p-6 m-4 md:m-8 rounded-2xl flex flex-col">
+          <h3 className="text-xl md:text-2xl font-bold text-white/80 mb-4 text-center">
+            Contact Information
           </h3>
-          <div className="space-y-3">
-            <div className="p-3 bg-gradient-to-r from-amber-200 to-yellow-500 text-white font-bold text-lg rounded-lg shadow-lg">
-              Gold League
-            </div>
-            <div className="p-3 bg-gradient-to-r from-slate-300 to-slate-500 text-white font-bold text-lg rounded-lg shadow-lg">
-              Silver League
-            </div>
-            <div className="p-3 bg-gradient-to-r from-stone-500 to-stone-700 text-white font-bold text-lg rounded-lg shadow-lg">
-              Bronze League
-            </div>
-          </div>
-          {/* Contacts Section */}
-          <div className="mt-auto">
-            <h4 className="text-xl font-bold text-white/80 mb-3">Contact Us</h4>
-            <p className="text-white/80 text-lg mb-1">
+
+          <div className="space-y-4">
+            <p className="text-white/80 text-base md:text-lg">
               Phone: <span className="text-blue-400">9344597660</span>
             </p>
-            <p className="text-white/80 text-lg">
-              Email: <span className="text-blue-400">teamignition@vit.ac.in</span>
+            <p className="text-white/80 text-base md:text-lg">
+              Email:{" "}
+              <span className="text-blue-400">teamignition@vit.ac.in</span>
             </p>
+          </div>
+
+          <div className="mt-8">
+            <button
+              onClick={() => {
+                /* Add download brochure logic */
+              }}
+              className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <Download size={20} />
+              <span>Download Brochure</span>
+            </button>
           </div>
         </div>
       </div>

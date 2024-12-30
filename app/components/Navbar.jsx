@@ -62,7 +62,7 @@ const Navbar = ({ handleScrollTo }) => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 right-0 flex justify-between p-4 px-8 bg-black/70 backdrop-blur-lg text-white z-40 transition-all duration-500 font-bn ${
+        className={`fixed top-0 left-0 right-0 flex justify-between p-2 md:p-4 px-4 md:px-8 bg-black/70 backdrop-blur-lg text-white z-40 transition-all duration-500 font-bn ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -76,7 +76,7 @@ const Navbar = ({ handleScrollTo }) => {
               alt="Team Logo"
               width={120}
               height={50}
-              className="-my-10 scale-75 md:scale-100"
+              className="-my-10 scale-75 md:scale-100 -translate-x-4 md:translate-x-0"
             />
           </button>
         </div>

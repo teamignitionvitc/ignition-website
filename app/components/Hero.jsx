@@ -76,55 +76,60 @@ export default function Hero() {
   return (
     <div id="hero" className="relative h-[200vh] w-screen">
       <div className="h-screen text-white w-full sticky top-0">
-        {/* <Particles
-          className="absolute inset-0 w-full h-screen"
-          quantity={500}
-          ease={100}
-        /> */}
         <div className="absolute flex flex-col items-center w-full h-full">
+          <Particles
+            className="hidden md:inline-block absolute inset-0 w-full h-screen"
+            quantity={500}
+            ease={100}
+          />
+          <Particles
+            className="md:hidden absolute inset-0 w-full h-screen"
+            quantity={100}
+            ease={100}
+          />
           <motion.div
             initial={{ height: 0 }}
             animate={{ height: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-0 right-[10rem] w-[1px] bg-white/20"
+            className="absolute top-0 right-[10rem] w-[1px] bg-white/20 md:block hidden"
           />
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-[8.5rem] right-0 h-[1px] bg-white/20"
+            className="absolute top-[8.5rem] right-0 h-[1px] bg-white/20 md:block hidden"
           />
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-[73px] right-0 h-[1px] bg-white/20"
+            className="absolute top-[73px] right-0 h-[1px] bg-white/20 md:block hidden"
           />
         </div>
 
-        <div className="w-full h-full flex pt-[4.5rem]">
+        <div className="w-full h-full flex flex-col md:flex-row pt-[4.5rem]">
           <div className="absolute w-screen h-screen overflow-hidden">
             <CircleIcon />
           </div>
 
           <motion.div
-            className="h-full w-32 relative"
+            className="h-16 md:h-full w-full md:w-32 relative"
             initial={{ borderRightWidth: 0 }}
             animate={{ borderRightWidth: 1 }}
             transition={{ duration: 0.75, delay: 4.7 }}
             style={{ borderColor: "rgba(255,255,255,0.2)" }}
           >
             <motion.div
-              className="absolute top-0 bottom-[60%] left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"
+              className="absolute md:top-0 md:bottom-[60%] left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2 hidden md:block"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 0.75, delay: 4.9 }}
             />
-            <h2 className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 -rotate-90 font-bn text-2xl border-[1.5px] border-white/20 bg-black hover:bg-white hover:text-black z-40 hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-700 hover:rounded-lg ">
+            <h2 className="absolute md:top-[40%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 md:-rotate-90 font-bn text-2xl border-[1.5px] border-white/20 bg-black hover:bg-white hover:text-black z-40 hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-700 hover:rounded-lg">
               INDIA
             </h2>
             <motion.div
-              className="absolute top-[40%] bottom-0 left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2"
+              className="absolute md:top-[40%] md:bottom-0 left-1/2 w-[1px] bg-white/20 transform -translate-x-1/2 hidden md:block"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 0.75, delay: 5.1 }}
@@ -143,24 +148,24 @@ export default function Hero() {
                 <p>ENGINEERED BY</p>
               </div>
               <div className="w-full flex flex-col">
-                <div className="w-full flex justify-between">
-                  <div className="w-3/4 flex justify-start items-center">
-                    <h1 className="text-[10rem] leading-none translate-y-2">
+                <div className="w-full flex flex-col md:flex-row justify-between">
+                  <div className="w-full md:w-3/4 flex justify-start items-center">
+                    <h1 className="text-5xl md:text-[10rem] leading-none translate-y-2">
                       Team Ignition
                     </h1>
                   </div>
 
                   <motion.div
-                    className="relative w-1/4 font-bn p-[19px] flex justify-start items-center"
-                    initial={{ borderRightWidth: 0 }}
-                    animate={{ borderRightWidth: 1.5 }}
+                    className="relative w-full md:w-1/4 font-bn p-4 md:p-[19px] flex justify-start items-center mt-4 md:mt-0 border-r border-l md:border-l-0"
+                    initial={{ borderLeftWidth: 0, borderRightWidth: 0 }}
+                    animate={{ borderLeftWidth: 1.5, borderRightWidth: 1.5 }}
                     transition={{ duration: 1.5, delay: 5.5 }}
                     style={{ borderColor: "rgba(255,255,255,0.2)" }}
                   >
-                    <div className="mt-[2px] mb-[1px] absolute bg-black text-transparent h-[99%] w-10 right-20 -translate-x-1/2">
+                    <div className="mt-[2px] mb-[1px] absolute bg-black text-transparent h-[99%] w-10 right-20 -translate-x-1/2 hidden md:block">
                       .
                     </div>
-                    <p className="max-w-72 z-30">
+                    <p className="max-w-72 z-30 text-sm md:text-base">
                       Dedicated to advancing space technology through
                       collaboration, innovation, and expertise in sounding
                       rockets, representing VIT Chennai and India on a global
@@ -179,7 +184,7 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 5 }}
               />
               <div
-                className="absolute top-1/2 left-[65%] w-[200px] aspect-square rounded-full transform -translate-y-1/2  bg-black overflow-hidden border-[1.5px] border-white/20 hover:border-white hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-500"
+                className="absolute top-1/2 left-1/2 md:left-[65%] w-[150px] md:w-[200px] aspect-square rounded-full transform -translate-x-1/2 -translate-y-1/2 bg-black overflow-hidden border-[1.5px] border-white/20 hover:border-white hover:shadow-[0px_0px_20px_#ffffff] transition-all duration-500"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
               >
@@ -197,25 +202,38 @@ export default function Hero() {
                       hovered ? "opacity-0 z-0" : "opacity-100 z-10"
                     }`}
                   >
-                    <RotatingSphere />
+                    <RotatingSphere
+                      width={200}
+                      height={200}
+                      sphereRadius={90}
+                      backgroundClass="hidden md:block"
+                    />
+                    <RotatingSphere
+                      width={148}
+                      height={148}
+                      sphereRadius={65}
+                      backgroundClass="md:hidden"
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
-            <motion.div className="w-full flex justify-between items-end p-10 z-40">
-              <div className="flex flex-col font-bn">
-                <h1 className="text-2xl font-bold">Driven by Obsession</h1>
-                <p className="font-bn text-2xl">
+            <motion.div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end p-4 md:p-10 z-40 space-y-4 md:space-y-0">
+              <div className="flex flex-col font-bn text-center md:text-left">
+                <h1 className="text-xl md:text-2xl font-bold">
+                  Driven by Obsession
+                </h1>
+                <p className="font-bn text-lg md:text-2xl">
                   A relentless pursuit to challenge, learn, and innovate.
                 </p>
               </div>
-              <div className="bg-black hover:bg-white text-white hover:text-black transition-all duration-700 p-4 flex items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)] border-[1.5px] border-white/20 hover:shadow-[0px_0px_20px_#ffffff] hover:rounded-lg">
-                <h2 className="text-xl font-bold text-center tracking-wide font-bn ml-2 pr-4 mr-3 border-r-[1.5px] border-white/20">
+              <div className="bg-black hover:bg-white text-white hover:text-black transition-all duration-700 p-4 flex flex-col md:flex-row items-center shadow-[0px_0px_10px_rgba(255,255,255,0.2)] border-[1.5px] border-white/20 hover:shadow-[0px_0px_20px_#ffffff] hover:rounded-lg">
+                <h2 className="text-lg md:text-xl font-bold text-center tracking-wide font-bn md:ml-2 md:pr-4 md:mr-3 md:border-r-[1.5px] border-white/20 mb-2 md:mb-0">
                   NEXT LAUNCH
                 </h2>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-4 gap-2 md:gap-4">
                   {[
                     { label: "DAYS", value: timerData.days },
                     { label: "HOURS", value: timerData.hours },
@@ -227,20 +245,22 @@ export default function Hero() {
                       className="flex justify-center items-center"
                     >
                       <div className="flex flex-col items-center">
-                        <div className="aspect-square bg-white/5 rounded-lg flex items-center justify-center mb-2">
+                        <div className="aspect-square bg-white/5 rounded-lg flex items-center justify-center mb-1 md:mb-2 p-1 md:p-2">
                           <NumberFlow
                             value={item.value}
                             format={{
                               notation: "standard",
                               minimumIntegerDigits: 2,
                             }}
-                            className="text-xl font-mono font-bold"
+                            className="text-sm md:text-xl font-mono font-bold"
                           />
                         </div>
-                        <span className="text-xs">{item.label}</span>
+                        <span className="text-[10px] md:text-xs">
+                          {item.label}
+                        </span>
                       </div>
                       {index < array.length - 1 && (
-                        <span className="text-xl font-mono translate-x-3">
+                        <span className="text-xl font-mono translate-x-2 md:translate-x-3">
                           :
                         </span>
                       )}
