@@ -46,9 +46,9 @@ const About = () => {
                 priority
               />
             </div>
-            <div className="w-full flex items-center justify-center text-[2.5rem] md:text-[4rem] font-semibold font-bn mt-4 md:mt-8">
+            {/* <div className="w-full flex items-center justify-center text-[2.5rem] md:text-[4rem] font-semibold font-bn mt-4 md:mt-8">
               THE FOUNDERS
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen">

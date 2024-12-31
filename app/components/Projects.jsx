@@ -14,10 +14,7 @@ const Projects = () => {
       achievements: [
         "Achieved a top 10 finish at the Technoxian World Cup, setting a strong foundation for Ignition's competitive journey.",
       ],
-      // distance: "400 km",
-      apogee: "1 km",
-      thrust: "1,500 kN",
-      weight: "500 tons",
+      apogee: "60 m",
     },
     {
       id: 2,
@@ -30,10 +27,9 @@ const Projects = () => {
       achievements: [
         "Provided foundational experience in solid-fuel rocketry, significantly enhancing our technical understanding despite technical challenges.",
       ],
-      // distance: "350 km",
-      apogee: "1 km",
-      thrust: "1,200 kN",
-      weight: "450 tons",
+      apogee: "300 m",
+      weight: "5 kg",
+      height: "140 cm",
     },
     {
       id: 3,
@@ -46,15 +42,15 @@ const Projects = () => {
       achievements: [
         "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
-      // distance: "300 km",
       apogee: "1 km",
       thrust: "1800 N",
-      weight: "6.7kg",
+      weight: "12kg",
+      height: "194cm",
     },
     {
       id: 4,
       heading: "IgniteX",
-      date: "24/12/2024",
+      date: "24/10/2024",
       image: "/ignitexx.png",
       description:
         "IgniteX is our entry for the InSpace competition, featuring innovative recovery systems and a deployable CANSAT at 1 km. This project showcases our advancements in design, creativity, and engineering.",
@@ -62,10 +58,10 @@ const Projects = () => {
       achievements: [
         "This is our first entry in an Indian competition, with the launch set for March 2025, highlighting our commitment to pushing the boundaries of rocketry and CANSAT deployment technology.",
       ],
-      // distance: "500 km",
       apogee: "1 km",
-      thrust: "1,800 kN",
-      weight: "550 tons",
+      thrust: "1,350 N",
+      weight: "14 kg",
+      height: "180 cm",
     },
   ];
 
@@ -107,12 +103,26 @@ const Projects = () => {
                   <strong>Status:</strong> {section.status}
                 </div>
                 <div className="space-y-4 mt-4 w-full h-full">
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                    <strong>Apogee:</strong> {section.apogee}
-                  </div>
-                  <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                    <strong>Weight of Motor:</strong> {section.weight}
-                  </div>
+                  {section.apogee && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Apogee:</strong> {section.apogee}
+                    </div>
+                  )}
+                  {section.weight && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Weight:</strong> {section.weight}
+                    </div>
+                  )}
+                  {section.height && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Height of Rocket:</strong> {section.height}
+                    </div>
+                  )}
+                  {section.thrust && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Thrust:</strong> {section.thrust}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
