@@ -178,13 +178,13 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
           </div>
 
           <div className="mt-6">
-            <button
+            {/* <button
               onClick={() => {}}
               className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm md:text-base font-semibold rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <Download className="h-4 w-4 md:h-5 md:w-5" />
               <span>Download Brochure</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

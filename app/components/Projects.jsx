@@ -14,10 +14,7 @@ const Projects = () => {
       achievements: [
         "Achieved a top 10 finish at the Technoxian World Cup, setting a strong foundation for Ignition's competitive journey.",
       ],
-      // distance: "400 km",
-      apogee: "1 km",
-      thrust: "1,500 kN",
-      weight: "500T",
+      apogee: "60 m",
     },
     {
       id: 2,
@@ -30,10 +27,9 @@ const Projects = () => {
       achievements: [
         "Provided foundational experience in solid-fuel rocketry, significantly enhancing our technical understanding despite technical challenges.",
       ],
-      // distance: "350 km",
-      apogee: "1 km",
-      thrust: "1,200 kN",
-      weight: "450T",
+      apogee: "300 m",
+      weight: "5 kg",
+      height: "140 cm",
     },
     {
       id: 3,
@@ -42,19 +38,19 @@ const Projects = () => {
       image: "/pioneer.png",
       description:
         "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions.",
-      status: "Ongoing",
+      status: "Ongoing: launch approval pending",
       achievements: [
         "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
-      // distance: "300 km",
       apogee: "1 km",
       thrust: "1800 N",
-      weight: "6.7KG",
+      weight: "12kg",
+      height: "194cm",
     },
     {
       id: 4,
       heading: "IgniteX",
-      date: "24/12/2024",
+      date: "24/10/2024",
       image: "/ignitexx.png",
       description:
         "IgniteX is our entry for the InSpace competition, featuring innovative recovery systems and a deployable CANSAT at 1 km. This project showcases our advancements in design, creativity, and engineering.",
@@ -62,10 +58,10 @@ const Projects = () => {
       achievements: [
         "This is our first entry in an Indian competition, with the launch set for March 2025, highlighting our commitment to pushing the boundaries of rocketry and CANSAT deployment technology.",
       ],
-      // distance: "500 km",
       apogee: "1 km",
-      thrust: "1,800 kN",
-      weight: "550T",
+      thrust: "1,350 N",
+      weight: "14 kg",
+      height: "180 cm",
     },
   ];
 
@@ -90,53 +86,67 @@ const Projects = () => {
         return (
           <div
             key={section.id}
-            className="sticky flex flex-col  items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
+            className="sticky flex flex-col md:flex-row items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
             style={{
-              top: `${topOffset + 0}px`,
-              height: `calc(100vh - ${index * heightReduction + 0}px)`,
+              top: `${topOffset + 80}px`,
+              height: `calc(100vh - ${index * heightReduction + 80}px)`,
               zIndex: index + 1,
             }}
           >
-            <div className="text-xl md:text-[30px] my-4 md:my-[25px] flex justify-center items-center px-5 md:px-6 w-full md:flex-row-reverse">
-              <div>{section.date}</div>
-              <div className="h-[1px] bg-white/40 w-full mx-6 flex-1"/>
-              <div className="text-[2rem] md:text-[55px]">
-                {section.heading}
+            <div className="w-full md:w-1/3 font-bn p-4 md:p-0">
+              <div className="text-xl md:text-[30px] my-4 md:my-[25px] ml-0 md:ml-10 flex justify-center items-center">
+                {section.date}
+                <div className="h-[1px] bg-white/40 w-full mx-6" />
               </div>
-            </div>
-            <div className="flex flex-col md:flex-row w-full">
-              <div className="w-full md:w-1/3 font-bn px-4 md:p-0">
-                <div className="w-full md:ml-10 md:w-2/4 flex flex-row md:flex-col justify-between items-center md:space-y-4 space-x-2 md:space-x-0">
-                  <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg text-sm md:text-base">
-                    <strong>Status:</strong> {section.status}
-                  </div>
-                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
-                    <strong>Apogee:</strong> {section.apogee}
-                  </div>
-                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
-                    <strong>Weight:</strong> {section.weight}
-                  </div>
+              <div className="w-full md:ml-10 md:w-2/4 flex flex-col justify-center items-center rounded-lg overflow-auto">
+                <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg">
+                  <strong>Status:</strong> {section.status}
+                </div>
+                <div className="space-y-4 mt-4 w-full h-full">
+                  {section.apogee && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Apogee:</strong> {section.apogee}
+                    </div>
+                  )}
+                  {section.weight && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Weight:</strong> {section.weight}
+                    </div>
+                  )}
+                  {section.height && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Height of Rocket:</strong> {section.height}
+                    </div>
+                  )}
+                  {section.thrust && (
+                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                      <strong>Thrust:</strong> {section.thrust}
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="w-full md:w-2/3 flex flex-col text-white p-4 md:p-0 overflow-y-auto">
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-3/4 -my-10 md:-my-0">
-                    <img
-                      src={section.image}
-                      alt={`Section ${section.id} Image`}
-                      className=" w-full -rotate-90 scale-150  filter"
-                    />
-                  </div>
-                  <div className="w-full md:w-3/4 px-4 md:px-10 text-sm md:text-xl font-bn mt-4 md:mt-0">
-                    <p className="mb-4 w-full">{section.description}</p>
-                    <div>
-                      <strong>Key Achievements:</strong>
-                      <ul className="list-disc list-inside">
-                        {section.achievements.map((achievement, idx) => (
-                          <li key={idx}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
+            </div>
+            <div className="w-full h-full flex flex-col text-white p-4 md:p-0">
+              <div className="text-white text-[2rem] md:text-[55px]">
+                {section.heading}
+              </div>
+              <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-3/4 mt-4 md:-mt-10">
+                  <img
+                    src={section.image}
+                    alt={`Section ${section.id} Image`}
+                    className="h-full w-full md:-rotate-90 object-cover filter "
+                  />
+                </div>
+                <div className="w-full md:w-3/4 px-4 md:px-10 text-lg md:text-xl font-bn mt-4 md:mt-0">
+                  <p className="mb-4 w-full">{section.description}</p>
+                  <div>
+                    <strong>Key Achievements:</strong>
+                    <ul className="list-disc list-inside">
+                      {section.achievements.map((achievement, idx) => (
+                        <li key={idx}>{achievement}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
