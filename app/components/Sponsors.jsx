@@ -8,7 +8,6 @@ import GridPattern from "@/components/ui/grid";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { ShineBorder } from "@/components/ui/shine-border";
 
-
 const Sponsors = ({ setIsModalOpen }) => {
   const containerRef = useRef(null);
   const div1Ref = useRef(null);
@@ -20,7 +19,7 @@ const Sponsors = ({ setIsModalOpen }) => {
   return (
     <div
       id="sponsors"
-      className="w-full flex flex-col rounded-b-2xl -mt-[50px] relative"
+      className="w-full flex flex-col rounded-b-2xl -mt-[30px] md:-mt-[50px] relative"
     >
       {/* <div className="w-full text-left text-[150px] bg-white text-black/60 h-[175px] p-2">
     SPONSORS
@@ -28,7 +27,7 @@ const Sponsors = ({ setIsModalOpen }) => {
       <VelocityScroll
         text="SPONSORS &#183; "
         default_velocity={2}
-        className="md:text-[150px] text-[80px] text-[#0f0f0f] bg-white h-[100px] md:h-[175px] p-2"
+        className="md:text-[150px] text-[80px] text-[#0f0f0f] bg-white h-[98px] md:h-[175px] p-2"
       />
       {/* <SparklesCore
     background="transparent"
@@ -38,7 +37,7 @@ const Sponsors = ({ setIsModalOpen }) => {
     className="w-full h-[295px] absolute top-[175px]"
     particleColor="#FFFFFF"
   /> */}
-      <GridPattern className="h-[400px] absolute top-[175px]" />
+      <GridPattern className="h-[400px] absolute top-[98px] md:top-[175px]" />
       {/* <DotPattern className="h-[400px] absolute top-[175px] fill-white/20"/> */}
 
       <div className="absolute top-[175px] inset-0 w-full h-[400px] bg-gradient-to-b from-transparent to-black"></div>
@@ -48,14 +47,14 @@ const Sponsors = ({ setIsModalOpen }) => {
         Fueling the ignited minds at Ignition.
       </div>
       <div
-        className="relative flex w-full items-center justify-center px-4 md:px-24"
+        className="relative flex w-full items-center justify-center px-0 md:px-24"
         ref={containerRef}
       >
         <div className="flex flex-col justify-center items-center w-full">
-          <div className="w-full flex flex-col items-center mt-6">
-            <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-[8rem] space-y-8 md:space-y-0">
+          <div className="w-full flex flex-col items-center md:mt-6">
+            <div className="w-full flex  justify-center items-center -space-x-4 md:space-x-[8rem]">
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer scale-50 md:scale-100"
                 onClick={() => (window.location.href = "https://altium.com")}
                 ref={div1Ref}
               >
@@ -70,7 +69,7 @@ const Sponsors = ({ setIsModalOpen }) => {
                 </div>
               </div>
               <div
-                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-amber-200 to-yellow-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer scale-50 md:scale-100"
                 onClick={() => (window.location.href = "https://ansys.com")}
                 ref={div2Ref}
               >
@@ -85,9 +84,9 @@ const Sponsors = ({ setIsModalOpen }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-[35rem] space-y-8 md:space-y-0 mt-8 md:mt-0">
+            <div className="w-full flex  justify-center items-center space-x-[5rem] md:space-x-[35rem] -mt-14 md:mt-0">
               <div
-                className="bg-gradient-to-r from-slate-300 to-slate-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-slate-300 to-slate-500 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer scale-50 md:scale-100"
                 onClick={() =>
                   (window.location.href = "https://solidworks.com")
                 }
@@ -104,8 +103,7 @@ const Sponsors = ({ setIsModalOpen }) => {
                 </div>
               </div>
               <div
-
-                className="bg-gradient-to-r from-stone-500 to-stone-700 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer"
+                className="bg-gradient-to-r from-stone-500 to-stone-700 p-[5px] overflow-hidden flex items-center justify-center rounded-lg h-32 w-32 md:h-44 md:w-44 rotate-45 z-40 shadow-[0px_0px_40px_#ffffff50] hover:scale-105 hover:shadow-[0px_0px_50px_#ffffff50] transition-all duration-700 ease-in-out cursor-pointer scale-50 md:scale-100"
                 ref={div4Ref}
               >
                 <div className="bg-[#0f0f0f] h-full w-full rounded-md flex items-center justify-center">
@@ -134,7 +132,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           className=""
         />
       </HoverBorderGradient> */}
-          <div ref={nodeRef} className="mt-8 md:mt-0">
+          <div ref={nodeRef} className="scale-50 md:scale-100 z-40 -mt-5">
             <ShineBorder
               className="bg-[#0f0f0f] rounded-3xl h-28 w-64 md:h-36 md:w-72 z-40 flex justify-center items-center shadow-[0px_0px_60px_#ffffff30] hover:shadow-[0px_0px_100px_10px_#7482ff40] transition-all duration-700 ease-in-out cursor-pointer hover:scale-[102%]"
               borderRadius={16}
@@ -193,24 +191,24 @@ const Sponsors = ({ setIsModalOpen }) => {
       </div>
 
       {/* Section 4 - Contact Form */}
-      <div className="w-full flex justify-center items-center mb-[200px] md:mb-[400px]">
+      <div className="w-full flex justify-center items-center mb-[100px] md:mb-[400px]">
         <div className="flex flex-col items-center w-full overflow-hidden relative">
           <SparklesCore
             background="transparent"
             minSize={0.4}
             maxSize={1}
             particleDensity={150}
-            className="w-full h-[295px]"
+            className="w-full h-[295px] scale-50 md:scale-100"
             particleColor="#FFFFFF"
           />
 
           {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-[252.5px] bg-black [mask-image:radial-gradient(400px_250px_at_top,transparent_20%,white)]"></div>
-          <h3 className="text-[80px] md:text-[150px] font-bold w-full text-center z-30 -mt-[275px] bg-clip-text text-transparent bg-gradient-to-b from-white to-[#9f9f9f]">
+          <h3 className="text-[70px] md:text-[150px] font-bold w-full text-center z-30 -mt-[275px] bg-clip-text text-transparent bg-gradient-to-b from-white to-[#9f9f9f] text-nowrap ">
             BE OUR NEXT?
           </h3>
 
-          <div className="flex justify-center items-center w-full pb-8 px-4">
+          <div className="flex justify-center items-center w-full pb-8">
             <div className="h-[2px] w-full bg-white/10 text-transparent mr-4 md:mr-8 rounded-r-full z-30">
               .
             </div>
@@ -219,7 +217,7 @@ const Sponsors = ({ setIsModalOpen }) => {
               borderRadius="10px"
               onClick={() => setIsModalOpen(true)}
             >
-              <span className="text-white text-sm md:text-base">
+              <span className="text-white text-[10px] md:text-base">
                 Become a Sponsor
               </span>
             </ShimmerButton>
@@ -229,7 +227,7 @@ const Sponsors = ({ setIsModalOpen }) => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full h-auto flex items-center justify-center overflow-hidden rounded-b-2xl">
+      <div className="absolute bottom-0 w-full h-auto flex items-center justify-center overflow-hidden rounded-b-lg md:rounded-b-2xl">
         <div className="w-fit left-0 right-0 text-[23.87vw] -mr-[0.5vw] -mb-[4.8vw] leading-none text-white/30 text-center text-nowrap">
           <span className="text-white/20">TEAM</span>IGNITION
         </div>

@@ -22,7 +22,7 @@ const About = () => {
     {
       src: "/group-pictures/image-4.jpg",
       alt: "Image 4",
-    title: "SRAD 2: Static Fire test 2",
+      title: "SRAD 2: Static Fire test 2",
     },
   ];
   return (
@@ -51,27 +51,29 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen">
+        <div className="w-full md:w-1/2 min-h-[50vh] md:h-screen">
           <ImageAccordion images={images} />
         </div>
       </div>
       <div className="w-full flex justify-end h-[100vh] z-30">
-        <div className="w-full md:w-1/2 text-right p-4 md:p-16 mt-auto flex flex-col items-end backdrop-blur-lg bg-black/50 h-full text-white">
+        <div className="w-full md:w-1/2 text-right p-8 md:p-16 mt-auto flex flex-col items-end backdrop-blur-lg bg-black/50 h-full text-white justify-center md:justify-normal">
           <div className="text-left w-full">
-            <div className="text-[4rem] -mb-4">About</div>
-            <div className="font-bn max-w-[500px] text-[1.3rem]">
+            <div className="text-[2rem] md:text-[4rem] md:-mb-4">About</div>
+            <div className="font-bn max-w-[500px] text-[1rem] md:text-[1.3rem]">
               Driven by a passion to represent VIT Chennai and India globally,
               we focus on mastering sounding rockets through collaboration and
               interdisciplinary teamwork. We are committed to expanding our
               knowledge and pushing the limits of space technology.
             </div>
           </div>
-          <div className="text-[4rem] -mb-4 mt-auto">Ideology</div>
-          <div className="font-bn max-w-[500px] text-[1.3rem]">
-            The core philosophy of Team Ignition can be attributed to one trait
-            alone—Obsession. The obsession to challenge oneself, continuously
-            learn from mistakes, and push the boundaries of what is possible
-            defines the team's work culture and ethos.
+          <div className="mt-8 md:mt-auto">
+            <div className="text-[2rem] md:text-[4rem] md:-mb-4 ">Ideology</div>
+            <div className="font-bn max-w-[500px] text-[1rem] md:text-[1.3rem]">
+              The core philosophy of Team Ignition can be attributed to one
+              trait alone—Obsession. The obsession to challenge oneself,
+              continuously learn from mistakes, and push the boundaries of what
+              is possible defines the team's work culture and ethos.
+            </div>
           </div>
         </div>
       </div>
