@@ -40,15 +40,14 @@ const About = () => {
               <Image
                 src="/group-pictures/image-6.jpeg"
                 alt="Group Picture"
-                height={500}
-                width={800}
-                className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer w-full h-auto object-cover max-h-[300px] md:max-h-none rounded-lg"
-                priority
+                height={100}
+                width={300}
+                className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer rounded-lg"
               />
             </div>
-            <div className="w-full flex items-center justify-center text-[2.5rem] md:text-[4rem] font-semibold font-bn mt-4 md:mt-8">
+            {/* <div className="w-full flex items-center justify-center text-[2.5rem] md:text-[4rem] font-semibold font-bn mt-4 md:mt-8">
               THE FOUNDERS
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="w-full md:w-1/2 min-h-[50vh] md:h-screen">

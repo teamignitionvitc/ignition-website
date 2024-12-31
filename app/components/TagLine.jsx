@@ -13,14 +13,6 @@ const TagLine = () => {
         y={-1}
         strokeDasharray="4 2"
       />
-
-      <Image
-        src="/models/rocket-model.png"
-        alt="Description of image"
-        layout="fill"
-        objectFit="contain"
-        className="absolute left-0 translate-x-[80vw]"
-      />
       <div className="mb-12">
         <BlurIn
           word="Fueling Innovation, Reaching New Heights in Rocketry."

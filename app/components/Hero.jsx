@@ -103,7 +103,7 @@ export default function Hero() {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-[73px] right-0 h-[1px] bg-white/20 md:block hidden"
+            className="absolute top-[72.1px] right-0 h-[1px] bg-white/20 md:block hidden"
           />
         </div>
 
@@ -139,8 +139,8 @@ export default function Hero() {
           <div className="w-full h-full flex flex-col items-center justify-between">
             <motion.div
               className="w-full p-10 pb-0"
-              initial={{ borderBottomWidth: 0, borderTopWidth: 0 }}
-              animate={{ borderBottomWidth: 1.5, borderTopWidth: 1.5 }}
+              initial={{ borderBottomWidth: 0 }}
+              animate={{ borderBottomWidth: 1.5 }}
               transition={{ duration: 2, delay: 5.3 }}
               style={{ borderColor: "rgba(255,255,255,0.2)" }}
             >
