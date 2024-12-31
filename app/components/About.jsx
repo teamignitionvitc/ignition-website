@@ -17,12 +17,12 @@ const About = () => {
     {
       src: "/group-pictures/image-3.jpg",
       alt: "Image 3",
-      title: "SRAD: Static Fire Test 1",
+      title: "SRAD Motor: Static Fire Test 1",
     },
     {
       src: "/group-pictures/image-4.jpg",
       alt: "Image 4",
-      title: "SRAD 2: Static Fire test 2",
+      title: "SRAD 2 Motor: Static Fire test 2",
     },
   ];
   return (

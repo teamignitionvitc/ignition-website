@@ -135,7 +135,7 @@ const Projects = () => {
                   <img
                     src={section.image}
                     alt={`Section ${section.id} Image`}
-                    className="h-full w-full md:-rotate-90 object-cover filter grayscale"
+                    className="h-full w-full md:-rotate-90 object-cover filter "
                   />
                 </div>
                 <div className="w-full md:w-3/4 px-4 md:px-10 text-lg md:text-xl font-bn mt-4 md:mt-0">
