@@ -38,7 +38,7 @@ const Projects = () => {
       image: "/pioneer.png",
       description:
         "Pioneer is a high-powered rocket designed to reach a 1 km apogee, powered by our SRAD motor. It carries Suryasat, a CANSAT studying UV radiation effects at high altitudes, advancing our scientific research contributions.",
-      status: "Ongoing",
+      status: "Ongoing: launch approval pending",
       achievements: [
         "Completed a successful static test, making us one of the fastest teams to reach this milestone. Data collection will focus on UV radiation exposure at high altitudes, contributing valuable insights to atmospheric research.",
       ],
@@ -86,10 +86,10 @@ const Projects = () => {
         return (
           <div
             key={section.id}
-            className="sticky flex flex-col  items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
+            className="sticky flex flex-col md:flex-row items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
             style={{
-              top: `${topOffset + 0}px`,
-              height: `calc(100vh - ${index * heightReduction + 0}px)`,
+              top: `${topOffset + 80}px`,
+              height: `calc(100vh - ${index * heightReduction + 80}px)`,
               zIndex: index + 1,
             }}
           >
@@ -130,40 +130,23 @@ const Projects = () => {
               <div className="text-white text-[2rem] md:text-[55px]">
                 {section.heading}
               </div>
-            </div>
-            <div className="flex flex-col md:flex-row w-full">
-              <div className="w-full md:w-1/3 font-bn px-4 md:p-0">
-                <div className="w-full md:ml-10 md:w-2/4 flex flex-row md:flex-col justify-between items-center md:space-y-4 space-x-2 md:space-x-0">
-                  <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg text-sm md:text-base">
-                    <strong>Status:</strong> {section.status}
-                  </div>
-                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
-                    <strong>Apogee:</strong> {section.apogee}
-                  </div>
-                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
-                    <strong>Weight:</strong> {section.weight}
-                  </div>
+              <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-3/4 mt-4 md:-mt-10">
+                  <img
+                    src={section.image}
+                    alt={`Section ${section.id} Image`}
+                    className="h-full w-full md:-rotate-90 object-cover filter grayscale"
+                  />
                 </div>
-              </div>
-              <div className="w-full md:w-2/3 flex flex-col text-white p-4 md:p-0 overflow-y-auto">
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-3/4 -my-10 md:-my-0">
-                    <img
-                      src={section.image}
-                      alt={`Section ${section.id} Image`}
-                      className=" w-full -rotate-90 scale-150  filter"
-                    />
-                  </div>
-                  <div className="w-full md:w-3/4 px-4 md:px-10 text-sm md:text-xl font-bn mt-4 md:mt-0">
-                    <p className="mb-4 w-full">{section.description}</p>
-                    <div>
-                      <strong>Key Achievements:</strong>
-                      <ul className="list-disc list-inside">
-                        {section.achievements.map((achievement, idx) => (
-                          <li key={idx}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
+                <div className="w-full md:w-3/4 px-4 md:px-10 text-lg md:text-xl font-bn mt-4 md:mt-0">
+                  <p className="mb-4 w-full">{section.description}</p>
+                  <div>
+                    <strong>Key Achievements:</strong>
+                    <ul className="list-disc list-inside">
+                      {section.achievements.map((achievement, idx) => (
+                        <li key={idx}>{achievement}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
