@@ -103,7 +103,7 @@ export default function Hero() {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 0.75, delay: 4.5 }}
-            className="absolute top-[73px] right-0 h-[1px] bg-white/20 md:block hidden"
+            className="absolute top-[72.1px] right-0 h-[1px] bg-white/20 md:block hidden"
           />
         </div>
 
@@ -144,10 +144,10 @@ export default function Hero() {
               transition={{ duration: 2, delay: 5.3 }}
               style={{ borderColor: "rgba(255,255,255,0.2)" }}
             >
-              <div className="w-72 text-2xl leading-none font-bn font-bold -translate-y-5">
+              <div className="w-72 md:text-2xl md:leading-none font-bn font-bold -translate-y-5">
                 <p>ENGINEERED BY</p>
               </div>
-              <div className="w-full flex flex-col">
+              <div className="w-full flex flex-col -mt-6 md:-mt-0">
                 <div className="w-full flex flex-col md:flex-row justify-between">
                   <div className="w-full md:w-3/4 flex justify-start items-center">
                     <h1 className="text-5xl md:text-[10rem] leading-none translate-y-2">
@@ -156,7 +156,7 @@ export default function Hero() {
                   </div>
 
                   <motion.div
-                    className="relative w-full md:w-1/4 font-bn p-4 md:p-[19px] flex justify-start items-center mt-4 md:mt-0 border-r border-l md:border-l-0"
+                    className="relative w-full md:w-1/4 font-bn p-4 md:p-[19px] flex justify-start items-center mt-4 md:mt-0 border-r border-l md:border-l-0 border-t-[1.5px] md:border-t-0"
                     initial={{ borderLeftWidth: 0, borderRightWidth: 0 }}
                     animate={{ borderLeftWidth: 1.5, borderRightWidth: 1.5 }}
                     transition={{ duration: 1.5, delay: 5.5 }}

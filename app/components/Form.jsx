@@ -38,27 +38,26 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
   }, [scrollInstance]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-lg z-50 p-4">
-      <div className="bg-[#1f1f1f] rounded-2xl w-full md:w-[60vw] max-w-4xl flex flex-col md:flex-row relative overflow-hidden font-bn ring-1 ring-white/10 my-4 overflow-y-scroll h-full md:h-fit">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-lg z-50 p-2">
+      <div className="bg-[#1f1f1f] rounded-2xl w-full md:w-[60vw] max-w-4xl flex flex-col md:flex-row relative h-[90vh] md:h-fit overflow-hidden font-bn ring-1 ring-white/10">
         <button
           onClick={() => setIsModalOpen(false)}
-          className="absolute top-2 right-2 text-4xl text-white/80 font-bold"
+          className="absolute top-2 right-2 text-white/80 z-10"
         >
-          <X className="mt-[2px] mr-[2px]" />
+          <X className="h-6 w-6" />
         </button>
 
         {/* Form Section */}
-        <div className="w-full md:w-1/2 overflow-y-auto p-4 md:p-8 border-b md:border-b-0 md:border-r border-white/10">
-          <h3 className="text-2xl md:text-3xl font-bold text-white/80 mb-4 text-center">
+        <div className="w-full md:w-1/2 p-4 md:p-6 overflow-scroll border-b md:border-b-0 md:border-r border-white/10">
+          <h3 className="text-xl md:text-2xl font-bold text-white/80 mb-4 text-center">
             Contact Form
           </h3>
           <form onSubmit={handleSubmit} className="space-y-3">
-            {/* First Name and Last Name */}
-            <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-2">
-              <div className="w-full md:w-1/2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-base md:text-lg font-semibold text-white/80 mb-1"
+                  className="block text-sm md:text-base font-semibold text-white/80 mb-1"
                 >
                   First Name:
                 </label>
@@ -69,13 +68,13 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 text-white/80 text-sm md:text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
-              <div className="w-full md:w-1/2">
+              <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-base md:text-lg font-semibold text-white/80 mb-1"
+                  className="block text-sm md:text-base font-semibold text-white/80 mb-1"
                 >
                   Last Name:
                 </label>
@@ -86,21 +85,20 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full p-2 bg-black/60 text-white/80 text-sm md:text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
 
-            {/* Company Checkbox */}
             <div>
-              <label className="flex items-center text-base md:text-lg font-semibold text-white/80 mb-1">
+              <label className="flex items-center text-sm md:text-base font-semibold text-white/80 mb-1">
                 <input
                   type="checkbox"
                   id="isCompany"
                   name="isCompany"
                   checked={formData.isCompany}
                   onChange={handleCheckboxChange}
-                  className="mr-2 h-4 w-4 text-blue-500 rounded focus:ring-blue-500 focus:ring-offset-gray-800"
+                  className="mr-2 h-4 w-4 text-blue-500 rounded"
                 />
                 Are you from a company?
               </label>
@@ -112,15 +110,14 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 onChange={handleInputChange}
                 placeholder="Enter company name"
                 disabled={!formData.isCompany}
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-2 bg-black/60 text-white/80 text-sm md:text-base rounded-lg focus:outline-none focus:ring-1 disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="block text-base md:text-lg font-semibold text-white/80 mb-1"
+                className="block text-sm md:text-base font-semibold text-white/80 mb-1"
               >
                 Email:
               </label>
@@ -131,15 +128,14 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 text-white/80 text-sm md:text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
-            {/* Message */}
             <div>
               <label
                 htmlFor="message"
-                className="block text-base md:text-lg font-semibold text-white/80 mb-1"
+                className="block text-sm md:text-base font-semibold text-white/80 mb-1"
               >
                 Message:
               </label>
@@ -149,16 +145,15 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
                 value={formData.message}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-2 bg-black/60 text-white/80 text-sm md:text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
                 rows={3}
               />
             </div>
 
-            {/* Send Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-black/60 shadow-sm shadow-gray-600/10 text-white/80 text-base md:text-lg font-semibold rounded-lg hover:bg-black/80 transition-colors"
+                className="w-full px-4 py-2 bg-black/60 text-white/80 text-sm md:text-base font-semibold rounded-lg hover:bg-black/80 transition-colors"
               >
                 Send
               </button>
@@ -167,29 +162,27 @@ const Form = ({ setIsModalOpen, scrollInstance }) => {
         </div>
 
         {/* Contact Info Section */}
-        <div className="w-full md:w-1/2 overflow-y-auto bg-black/60 shadow-sm shadow-gray-600/10 p-4 md:p-6 m-4 md:m-8 rounded-2xl flex flex-col">
-          <h3 className="text-xl md:text-2xl font-bold text-white/80 mb-4 text-center">
+        <div className="w-full md:w-1/2 bg-black/60 p-4 md:p-6  md:m-6 rounded-2xl flex flex-col">
+          <h3 className="text-lg md:text-xl font-bold text-white/80 mb-4 text-center">
             Contact Information
           </h3>
 
-          <div className="space-y-4">
-            <p className="text-white/80 text-base md:text-lg">
+          <div className="space-y-3">
+            <p className="text-white/80 text-sm md:text-base">
               Phone: <span className="text-blue-400">9344597660</span>
             </p>
-            <p className="text-white/80 text-base md:text-lg">
+            <p className="text-white/80 text-sm md:text-base">
               Email:{" "}
               <span className="text-blue-400">teamignition@vit.ac.in</span>
             </p>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <button
-              onClick={() => {
-                /* Add download brochure logic */
-              }}
-              className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center space-x-2"
+              onClick={() => {}}
+              className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm md:text-base font-semibold rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center space-x-2"
             >
-              <Download size={20} />
+              <Download className="h-4 w-4 md:h-5 md:w-5" />
               <span>Download Brochure</span>
             </button>
           </div>

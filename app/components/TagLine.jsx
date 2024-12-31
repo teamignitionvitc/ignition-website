@@ -5,21 +5,13 @@ import GridPattern from "@/components/ui/grid";
 
 const TagLine = () => {
   return (
-    <div className="relative py-72 text-[30px] font-bn border border-white/20 border-dashed w-full text-center overflow-hidden bg-[#0f0f0f] z-30 text-white rounded-t-lg h-full">
+    <div className="relative py-72 text-[30px] font-bn border border-white/20 border-dashed w-full text-center overflow-hidden bg-[#0f0f0f] z-30 text-white rounded-t-lg md:rounded-t-2xl h-full">
       <GridPattern
         width={47.4}
         height={47.4}
         x={-1}
         y={-1}
         strokeDasharray="4 2"
-      />
-
-      <Image
-        src="/models/rocket-model.png"
-        alt="Description of image"
-        layout="fill"
-        objectFit="contain"
-        className="absolute left-0 translate-x-[80vw]"
       />
       <div className="mb-12">
         <BlurIn
