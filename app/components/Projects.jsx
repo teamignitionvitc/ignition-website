@@ -86,67 +86,63 @@ const Projects = () => {
         return (
           <div
             key={section.id}
-            className="sticky flex flex-col md:flex-row items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
+            className="sticky flex flex-col items-start w-full bg-black border-t-[1.5px] border-dashed rounded-t-xl border-white/20 overflow-hidden"
             style={{
-              top: `${topOffset + 80}px`,
-              height: `calc(100vh - ${index * heightReduction + 80}px)`,
+              top: `${topOffset + 0}px`,
+              height: `calc(100vh - ${index * heightReduction + 0}px)`,
               zIndex: index + 1,
             }}
           >
-            <div className="w-full md:w-1/3 font-bn p-4 md:p-0">
-              <div className="text-xl md:text-[30px] my-4 md:my-[25px] ml-0 md:ml-10 flex justify-center items-center">
-                {section.date}
-                <div className="h-[1px] bg-white/40 w-full mx-6" />
+            <div className="text-xl md:text-[30px] my-4 md:my-[25px] flex justify-center items-center px-5 md:px-6 w-full md:flex-row-reverse">
+              <div>{section.date}</div>
+              <div className="h-[1px] bg-white/40 w-full mx-6 flex-1" />
+              <div className="text-[2rem] md:text-[55px]">
+                {section.heading}
               </div>
-              <div className="w-full md:ml-10 md:w-2/4 flex flex-col justify-center items-center rounded-lg overflow-auto">
-                <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg">
-                  <strong>Status:</strong> {section.status}
-                </div>
-                <div className="space-y-4 mt-4 w-full h-full">
-                  {section.apogee && (
-                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                      <strong>Apogee:</strong> {section.apogee}
-                    </div>
-                  )}
-                  {section.weight && (
-                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                      <strong>Weight:</strong> {section.weight}
-                    </div>
-                  )}
+            </div>
+            <div className="flex flex-col md:flex-row w-full">
+              <div className="w-full md:w-1/3 font-bn px-4 md:p-0">
+                <div className="w-full md:ml-10 md:w-2/4 flex flex-row md:flex-col justify-between items-center md:space-y-4 space-x-2 md:space-x-0">
+                  <div className="w-full bg-white/20 text-white text-center py-4 rounded-lg text-sm md:text-base">
+                    <strong>Status:</strong> {section.status}
+                  </div>
+                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
+                    <strong>Apogee:</strong> {section.apogee}
+                  </div>
+                  <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
+                    <strong>Weight:</strong> {section.weight}
+                  </div>
                   {section.height && (
-                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
-                      <strong>Height of Rocket:</strong> {section.height}
+                    <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
+                      <strong>Height:</strong> {section.height}
                     </div>
                   )}
                   {section.thrust && (
-                    <div className="flex flex-col justify-center items-center bg-white/10 rounded-md border-2 border-white/20 border-dashed">
+                    <div className="w-full py-4 text-center bg-white/10 rounded-md border-2 border-white/20 border-dashed text-sm md:text-base">
                       <strong>Thrust:</strong> {section.thrust}
                     </div>
                   )}
                 </div>
               </div>
-            </div>
-            <div className="w-full h-full flex flex-col text-white p-4 md:p-0">
-              <div className="text-white text-[2rem] md:text-[55px]">
-                {section.heading}
-              </div>
-              <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-3/4 mt-4 md:-mt-10">
-                  <img
-                    src={section.image}
-                    alt={`Section ${section.id} Image`}
-                    className="h-full w-full md:-rotate-90 object-cover filter "
-                  />
-                </div>
-                <div className="w-full md:w-3/4 px-4 md:px-10 text-lg md:text-xl font-bn mt-4 md:mt-0">
-                  <p className="mb-4 w-full">{section.description}</p>
-                  <div>
-                    <strong>Key Achievements:</strong>
-                    <ul className="list-disc list-inside">
-                      {section.achievements.map((achievement, idx) => (
-                        <li key={idx}>{achievement}</li>
-                      ))}
-                    </ul>
+              <div className="w-full md:w-2/3 flex flex-col text-white p-4 md:p-0 overflow-y-auto">
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-3/4 -my-10 md:-my-0">
+                    <img
+                      src={section.image}
+                      alt={`Section ${section.id} Image`}
+                      className=" w-full -rotate-90 scale-150 object-cover filter"
+                    />
+                  </div>
+                  <div className="w-full md:w-3/4 px-4 md:px-10 text-sm md:text-xl font-bn mt-4 md:mt-0">
+                    <p className="mb-4 w-full">{section.description}</p>
+                    <div>
+                      <strong>Key Achievements:</strong>
+                      <ul className="list-disc list-inside">
+                        {section.achievements.map((achievement, idx) => (
+                          <li key={idx}>{achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
